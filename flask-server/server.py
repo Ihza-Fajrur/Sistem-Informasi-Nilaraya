@@ -29,8 +29,8 @@ mysql = MySQL(app)
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.json['username']
+        password = request.json['password']
         cur = mysql.connection.cursor()
         result = cur.execute("SELECT * FROM user WHERE username = %s AND password = %s", [username, password])
         if result > 0:
