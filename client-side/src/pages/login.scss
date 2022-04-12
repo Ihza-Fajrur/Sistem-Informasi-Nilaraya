@@ -1,12 +1,13 @@
-
-*{
+.login{
   margin: 0;
-  padding: 0;  
+  padding: 0;
   scrollbar-width: none; //for firefox
+
   &::-webkit-scrollbar {
     //chrome, safari, ms edge
     display: none;
   }
+
   display: flex;
   position: fixed;
 }
