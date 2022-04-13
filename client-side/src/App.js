@@ -11,6 +11,8 @@ import {
   Switch,
 } from "react-router-dom";
 import "./app.scss";
+import DataObat from "./pages/Admin/DataObat";
+
 function App() {
   return (
     <div className="app">
@@ -18,7 +20,8 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin" element={<Admin />}/>
+            <Route path="/admin/dataobat" element={<DataObat/>}/>
             <Route path="/dokter" element={<Dokter />} />
             <Route path="/kasir" element={<Kasir />} />
             <Route path="*" element={<Error404 />} />

@@ -1,12 +1,39 @@
-.login{
+.container {
+  background-image: url("../../images/Background.png");
+  background-size: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
-  scrollbar-width: none; //for firefox
-  scroll-snap-align: y mandatory;
-  &::-webkit-scrollbar {
-    //chrome, safari, ms edge
-    display: none;
-  }
-  display: flex;
+  width: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
+  .login{
+    margin: 0;
+    padding: 0;
+    scrollbar-width: none; //for firefox
+    scroll-snap-align: y mandatory;
+    &::-webkit-scrollbar {
+      //chrome, safari, ms edge
+      display: none;
+    }
+    display: flex;
+    position: fixed;
+    .div2 {
+      display: flex;
+      flex-direction: column;
+      width: 20vw;
+      margin-left: 40%;
+      .button {
+        background-color: black;
+        color: aliceblue;
+        margin-top:  10px;
+      }
+      .input {
+        margin-top:  10px;
+      }
+    }
+    
+  }
 }
+
