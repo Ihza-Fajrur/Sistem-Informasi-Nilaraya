@@ -2,12 +2,11 @@
   margin: 0;
   padding: 0;
   scrollbar-width: none; //for firefox
-
+  scroll-snap-align: y mandatory;
   &::-webkit-scrollbar {
     //chrome, safari, ms edge
     display: none;
   }
-
   display: flex;
   position: fixed;
 }

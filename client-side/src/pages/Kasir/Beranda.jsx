@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Beranda() {
+export default function Kasir() {
   return (
     <div>
       <p>Ini beranda kasir</p>

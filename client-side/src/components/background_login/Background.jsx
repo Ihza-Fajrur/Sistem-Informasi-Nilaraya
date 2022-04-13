@@ -4,11 +4,9 @@ export default function Background() {
   return (
     <div className="background-containt">
       <img
+        className="background"
         src={`${process.env.PUBLIC_URL}/Background.png`}
         alt="background"
-        height="100%"
-        width="100%"
-        position="fixed"
       />
     </div>
   );
