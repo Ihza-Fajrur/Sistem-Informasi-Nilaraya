@@ -24,7 +24,7 @@ export default function DashboardAdmin() {
         <ul className="ul">
           <li><a href="/admin" className="active"><HomeOutlinedIcon className="iconSidebar"/>Beranda</a></li>
           <li><a href=""><AccessibleForwardOutlinedIcon className="iconSidebar"/>Pasien</a></li>
-          <li><a href=""><NoteAddOutlinedIcon className="iconSidebar"/>Rekam Medis</a></li>
+          <li><a href="/admin/dataRekamMedis"><NoteAddOutlinedIcon className="iconSidebar"/>Rekam Medis</a></li>
           <li><a href=""><VaccinesOutlinedIcon className="iconSidebar"/>Tindakan Medis</a></li>
           <li><a href=""><MedicationOutlinedIcon className="iconSidebar"/>Obat</a></li>
           <li><a href="/admin/dataakun"><PermIdentityOutlinedIcon className="iconSidebar"/>Akun</a></li>

@@ -1,8 +1,7 @@
 import React from "react";
-import DataObat from "../DataObat";
 // import Error404 from "../src/pages/Error404";
 import {useNavigate} from "react-router-dom";
-import "./dataAkun.scss";
+import "./dataRekamMedis.scss";
 
 // icons sicdebar
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
@@ -15,7 +14,7 @@ import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
 
 
-export default function DataAkun() {
+export default function DataRekamMedis() {
   let navigate = useNavigate();
   return (
     <div className="body">
@@ -24,10 +23,10 @@ export default function DataAkun() {
         <ul className="ul">
           <li><a href="/admin"><HomeOutlinedIcon className="iconSidebar"/>Beranda</a></li>
           <li><a href=""><AccessibleForwardOutlinedIcon className="iconSidebar"/>Pasien</a></li>
-          <li><a href="/admin/dataRekamMedis"><NoteAddOutlinedIcon className="iconSidebar"/>Rekam Medis</a></li>
+          <li><a href="/admin/dataRekamMedis"  className="active"><NoteAddOutlinedIcon className="iconSidebar"/>Rekam Medis</a></li>
           <li><a href=""><VaccinesOutlinedIcon className="iconSidebar"/>Tindakan Medis</a></li>
           <li><a href=""><MedicationOutlinedIcon className="iconSidebar"/>Obat</a></li>
-          <li><a href="/admin/dataakun" className="active"><PermIdentityOutlinedIcon className="iconSidebar"/>Akun</a></li>
+          <li><a href="/admin/dataakun"><PermIdentityOutlinedIcon className="iconSidebar"/>Akun</a></li>
           <li><a href="/"><LogoutOutlinedIcon className="iconSidebar"/>Logout</a></li>
         </ul>
       </div>
@@ -46,9 +45,9 @@ export default function DataAkun() {
             <div>
               <button className="btn_tambah"
               onClick={() => {
-                navigate("/admin/dataakun/tambah");
+                navigate("/admin/dataRekamMedis/tambah");
               }}>
-                Tambah Data Akun
+                Tambah Rekam Medis
               </button>
             </div>
 
@@ -56,29 +55,39 @@ export default function DataAkun() {
               <table>
                 <thead>
                   <tr>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Nama User</th>
-                    <th>Tipe Akun</th>  
+                    <th>Nama Pasien</th>
+                    <th>No.Rekam Medis</th>
+                    <th>Tanggal</th>
+                    <th>Diagnosis</th>  
+                    <th>Tindakan</th>
+                    <th>Obat</th>
+                    <th>Ket</th>
+                    <th>Nama Dokter</th>
+                    <th>Tipe Dokter</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th>ilham11</th>
-                    <th>11213</th>
                     <th>Ilham Nofri</th>
-                    <th>Kasir</th>
+                    <th>11213</th>
+                    <th>13/03/22</th>
+                    <th>Sakit Perut, Muntah-muntah</th>
+                    <th>Swap Tenggorokan</th>
+                    <th>Amoxicilin</th>
+                    <th>Cek Rutin per-2mg</th>
+                    <th>Sophia Nou</th>
+                    <th>Umum</th>
                     <th>
                       <div className="aksi">
                         <button className="btn_ubah" 
                         onClick={() => {
-                          navigate("/admin/dataakun/ubah");
+                          navigate("/admin/dataRekamMedis/ubah");
                         }}>
                         Ubah</button>
                         <button className="btn_hapus"
                         onClick={() => {
-                          navigate("/admin/dataakun");
+                          navigate("/admin/dataRekamMedis");
                         }}>
                         Hapus</button>
                       </div>

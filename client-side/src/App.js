@@ -9,6 +9,7 @@ import DataObat from "./pages/Admin/DataObat";
 import DataAkun from "./pages/Admin/Akun/DataAkun";
 import TambahAkun from "./pages/Admin/Akun/TambahAkun/TambahAkun";
 import UbahAkun from "./pages/Admin/Akun/UbahAkun/UbahAkun";
+import DataRekamMedis from "./pages/Admin/RekamMedis/DataRekamMedis";
 
 // import Dokter
 import Dokter from "./pages/Dokter/Beranda";
@@ -31,6 +32,7 @@ import "./app.scss";
 
 
 
+
 function App() {
   return (
     
@@ -46,9 +48,9 @@ function App() {
             <Route path="/admin/dataakun" element={<DataAkun/>}/>
             <Route path="/admin/dataakun/tambah" element={<TambahAkun/>}/>
             <Route path="/admin/dataakun/ubah" element={<UbahAkun/>}/>
-            
-
-
+            <Route path="/admin/dataRekamMedis" element={<DataRekamMedis/>}/>
+        
+        
             {/* Route Dokter */}
             <Route path="/dokter" element={<Dokter />} />
 
