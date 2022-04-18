@@ -20,6 +20,9 @@
                 user-select: none;
                 font-weight: bold;
             }
+            ul li {
+                list-style-type: none;
+            }
             ul a{
                 display: block;
                 height: 100%;
@@ -99,23 +102,21 @@
                         .card-btn { 
                             background-color: white;
                             border: none;
-                        }
-                        .icon {
-                            // position: fixed;
-                            font-size: 200px;
-                            color: #02414D;
-                        }
-                        h2 {
-                            // position: fixed;
-                            color: #02414D;
-                            text-align: center;
-                            // margin-right: 20px;
-                            font-size: 20px;
-                        }
+                            .icon {
+                                // position: fixed;
+                                font-size: 200px;
+                                color: #02414D;
+                            }
+                            h2 {
+                                // position: fixed;
+                                color: #02414D;
+                                text-align: center;
+                                // margin-right: 20px;
+                                font-size: 20px;
+                            }
+                        }   
                     } 
                 }                   
-                
-                
             }
         }
     }

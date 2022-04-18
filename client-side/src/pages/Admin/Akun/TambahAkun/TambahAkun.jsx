@@ -38,30 +38,41 @@ export default function TambahAkun() {
                 </div>
             </div>
         
-          {/* <div className="wrap-table">
+          <div className="wrap-table">
             <form action="">
-              <div>
-                <label htmlFor="username">Username</label><br />
+              <div className="wrap-input">
+                <label htmlFor="username" className="label-input">Username</label>
                 <input type="text" className="input-field" placeholder="Masukkan Username" />
               </div>
-              <div>
-                <label htmlFor="password">Password</label><br />
-                <input type="text" className="input-field" placeholder="Masukkan Password" />
+              <div className="wrap-input">
+                <label htmlFor="password" className="label-input">Password</label>
+                <input type="password" className="input-field" placeholder="Masukkan Password" />
               </div>
-              <div>
-                <label htmlFor="namaUser">Nama User</label><br />
+              <div className="wrap-input">
+                <label htmlFor="namaUser" className="label-input">Nama User</label>
                 <input type="text" className="input-field" placeholder="Masukkan Nama User" />
               </div>
-              <div>
-                <label htmlFor="tipeakun">Tipe Akun</label><br />
-                <select name="tipeakun" id="tipeakun" className="tipeakun">
+              <div className="wrap-input">
+                <label htmlFor="tipeakun" className="label-input">Tipe Akun</label>
+                <select name="tipeakun" id="tipeakun" className="input-field">
                   <option value="admin">Admin</option>
                   <option value="dokter">Dokter</option>
                   <option value="kasir">Kasir</option>
                 </select>
               </div>
             </form>
-          </div> */}
+
+            <div className="tambah">
+              <button className="btn-tambah" 
+              onClick={() => {
+                navigate("/admin/dataakun");
+              }}> 
+              Tambah Data</button>
+            </div>
+
+          </div>
+
+          
         </div>
       </div>
   );

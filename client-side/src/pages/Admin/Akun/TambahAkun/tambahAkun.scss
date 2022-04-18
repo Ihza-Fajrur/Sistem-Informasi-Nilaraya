@@ -20,6 +20,9 @@
                 user-select: none;
                 font-weight: bold;
             }
+            ul li {
+                list-style-type: none;
+            }
             ul a{
                 display: block;
                 height: 100%;
@@ -70,24 +73,50 @@
                     font-size: 12px;
                 }
             }
-            // .wrap-table {
-            //     padding-top: 5px;
-            //     height: 80%;
-            //     width: 95%;
-            //     background-color: #fff;
-            //     align-items: center;
-            //     margin-left: 25px;
-            //     margin-top: 10px;
-            //     .input-field {
-            //         background-color: #F5F5F5;
-            //         height: 50px;
-            //         border-radius: 10px; 
-            //         border: none; 
-            //         color: black;
-            //         width: 70%;
-            //         float: right;
-            //         margin-left: 40px;
-            //     }
-            //     }
+            .wrap-table {
+                padding-top: 5px;
+                height: 80%;
+                width: 100%;
+                background-color: #fff;
+                align-items: center;
+                margin-left: 25px;
+                margin-top: 10px;
+                
+                .wrap-input {
+                    width: 100%;
+                    padding-top: 20px;
+                    .label-input {
+                        font-size: 14px;  
+                        margin-left: 20px;
+                        margin-bottom: 10px;     
+                        font-weight: bold;   
+                        color: #02414D;         
+                    }
+                    .input-field {
+                        background-color: #F5F5F5;
+                        height: 40px;
+                        border-radius: 10px; 
+                        border: none; 
+                        color: #02414D;
+                        width: 95%;
+                        margin-left: 20px;
+                        margin-right: 20px;
+                        // margin-bottom: 20px
+                    }
+                }
+                .tambah {
+                    padding: 20px;
+                    .btn-tambah{
+                        background-color: #02414D;
+                        color: white;
+                        border: none;
+                        box-shadow: 0 4px 8px 0 rgba(0.2,0.2,0.2,0.2);
+                        padding: 10px;
+                        border-radius: 5px;
+                    }
+                }
+                
+                
+                }
             }    
         }

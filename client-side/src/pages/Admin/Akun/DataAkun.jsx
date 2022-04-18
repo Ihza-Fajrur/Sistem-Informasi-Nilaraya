@@ -43,7 +43,7 @@ export default function DataAkun() {
           </div>
         
           <div className="wrap-table">
-            <div className="tambah">
+            <div>
               <button className="btn_tambah"
               onClick={() => {
                 navigate("/admin/dataakun/tambah");
