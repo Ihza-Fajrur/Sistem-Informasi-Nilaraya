@@ -1,5 +1,6 @@
 .container {
   background-image: url("../../images/Background.png");
+  font-family:'Roboto',sans-serif;
   background-size: cover;
   height: 100%;
   width: 68%;
@@ -22,13 +23,29 @@
       flex-direction: column;
       width: 20vw;
       margin-left: 40%;
+      .label-input {
+        font-size: 14px;  
+        margin-bottom: 20px;     
+        font-weight: bold;   
+        color: #02414D;         
+       }
       .button {
-        background-color: black;
-        color: aliceblue;
+        background-color: #02414D;
+        color: white;
         margin-top:  10px;
+        padding: 10px;
+        font-weight: bold;
+        border-radius: 10px;
       }
       .input {
-        margin-top:  10px;
+        background-color: #F5F5F5;
+        height: 40px;
+        border-radius: 10px; 
+        border: none; 
+        color: #02414D;
+        width: 100%;
+        margin-right: 20px;
+        margin-bottom: 20px
       }
     }
     
