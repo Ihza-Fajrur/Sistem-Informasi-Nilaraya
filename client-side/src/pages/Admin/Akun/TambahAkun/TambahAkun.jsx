@@ -26,7 +26,7 @@ export default function TambahAkun() {
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="/admin/dataPasien">
               <AccessibleForwardOutlinedIcon className="iconSidebar" />
               Pasien
             </a>

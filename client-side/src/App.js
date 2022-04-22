@@ -5,15 +5,15 @@ import Login from "./pages/Login/Login";
 
 // import Admin
 import Admin from "./pages/Admin/Beranda/DashboardAdmin";
-import DataObat from "./pages/Admin/DataObat";
 import DataAkun from "./pages/Admin/Akun/DataAkun";
 import TambahAkun from "./pages/Admin/Akun/TambahAkun/TambahAkun";
 import UbahAkun from "./pages/Admin/Akun/UbahAkun/UbahAkun";
 import DataRekamMedis from "./pages/Admin/RekamMedis/DataRekamMedis";
+import DataPasien from "./pages/Admin/Pasien/DataPasien";
+import TambahPasien from "./pages/Admin/Pasien/TambahPasien/TambahPasien";
 import DataTindakan from "./pages/Admin/Tindakan/DataTindakan";
 import TambahTindakan from "./pages/Admin/Tindakan/TambahTindakan/TambahTindakan";
 import UbahTindakan from "./pages/Admin/Tindakan/UbahTindakan/UbahTindakan";
-
 
 // import Dokter
 import Dokter from "./pages/Dokter/Beranda";
@@ -48,11 +48,12 @@ function App() {
 
             {/* Route Admin */}
             <Route path="/admin" element={<Admin />}/>
-            <Route path="/admin/dataobat" element={<DataObat/>}/>
             <Route path="/admin/dataakun" element={<DataAkun/>}/>
             <Route path="/admin/dataakun/tambah" element={<TambahAkun/>}/>
             <Route path="/admin/dataakun/ubah" element={<UbahAkun/>}/>
             <Route path="/admin/dataRekamMedis" element={<DataRekamMedis/>}/>
+            <Route path="/admin/dataPasien" element={<DataPasien/>}/>
+            <Route path="/admin/dataPasien/tambah" element={<TambahPasien/>}/>
             <Route path="/admin/DataTindakan" element={<DataTindakan/>}/>
             <Route path="/admin/dataTindakan/tambah" element={<TambahTindakan/>}/>
             <Route path="/admin/dataTindakan/ubah" element={<UbahTindakan/>}/>
