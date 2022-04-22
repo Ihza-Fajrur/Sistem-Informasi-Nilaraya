@@ -32,25 +32,25 @@ export default function TambahAkun() {
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="/admin/dataRekamMedis">
               <NoteAddOutlinedIcon className="iconSidebar" />
               Rekam Medis
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="/admin/dataTindakan">
               <VaccinesOutlinedIcon className="iconSidebar" />
               Tindakan Medis
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="/admin/dataObat">
               <MedicationOutlinedIcon className="iconSidebar" />
               Obat
             </a>
           </li>
           <li>
-            <a href="/admin/dataakun" className="active">
+            <a href="/admin/dataAkun" className="active">
               <PermIdentityOutlinedIcon className="iconSidebar" />
               Akun
             </a>
@@ -119,7 +119,7 @@ export default function TambahAkun() {
             <button
               className="btn-tambah"
               onClick={() => {
-                navigate("/admin/dataakun");
+                navigate("/admin/dataAkun");
               }}
             >
               Tambah Data

@@ -17,8 +17,6 @@ import UbahTindakan from "./pages/Admin/Tindakan/UbahTindakan/UbahTindakan";
 import DataObat from "./pages/Admin/Obat/DataObat";
 import TambahObat from "./pages/Admin/Obat/TambahObat/TambahObat";
 import UbahObat from "./pages/Admin/Obat/UbahObat/UbahObat";
-
-
 // import Dokter
 import Dokter from "./pages/Dokter/Beranda";
 
@@ -27,9 +25,7 @@ import Kasir from "./pages/Kasir/Beranda/Beranda";
 import WaitingListUmum from "./pages/Kasir/WaitingList/WaitingListUmum/WaitingListUmum";
 import WaitingListGigi from "./pages/Kasir/WaitingList/WaitingListGigi/WaitingListGigi";
 
-
 import Error404 from "../src/pages/Error404";
-
 import {
   BrowserRouter as Router,
   Route,
@@ -38,12 +34,8 @@ import {
 } from "react-router-dom";
 import "./app.scss";
 
-
-
-
 function App() {
   return (
-    
     <div className="app">
       <div className="sections">
         <Router>
@@ -51,28 +43,36 @@ function App() {
             <Route path="/" element={<Login />} />
 
             {/* Route Admin */}
-            <Route path="/admin" element={<Admin />}/>
-            <Route path="/admin/dataakun" element={<DataAkun/>}/>
-            <Route path="/admin/dataakun/tambah" element={<TambahAkun/>}/>
-            <Route path="/admin/dataakun/ubah" element={<UbahAkun/>}/>
-            <Route path="/admin/dataRekamMedis" element={<DataRekamMedis/>}/>
-            <Route path="/admin/dataPasien" element={<DataPasien/>}/>
-            <Route path="/admin/dataPasien/tambah" element={<TambahPasien/>}/>
-            <Route path="/admin/DataTindakan" element={<DataTindakan/>}/>
-            <Route path="/admin/dataTindakan/tambah" element={<TambahTindakan/>}/>
-            <Route path="/admin/dataTindakan/ubah" element={<UbahTindakan/>}/>
-            <Route path="/admin/DataObat" element={<DataObat/>}/>
-            <Route path="/admin/dataObat/tambah" element={<TambahObat/>}/>
-            <Route path="/admin/dataObat/ubah" element={<UbahObat/>}/>
-        
-        
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/dataAkun" element={<DataAkun />} />
+            <Route path="/admin/dataAkun/tambah" element={<TambahAkun />} />
+            <Route path="/admin/dataAkun/ubah" element={<UbahAkun />} />
+            <Route path="/admin/dataRekamMedis" element={<DataRekamMedis />} />
+            <Route path="/admin/dataPasien" element={<DataPasien />} />
+            <Route path="/admin/dataPasien/tambah" element={<TambahPasien />} />
+            <Route path="/admin/dataTindakan" element={<DataTindakan />} />
+            <Route
+              path="/admin/dataTindakan/tambah"
+              element={<TambahTindakan />}
+            />
+            <Route path="/admin/dataTindakan/ubah" element={<UbahTindakan />} />
+            <Route path="/admin/dataObat" element={<DataObat />} />
+            <Route path="/admin/dataObat/tambah" element={<TambahObat />} />
+            <Route path="/admin/dataObat/ubah" element={<UbahObat />} />
+
             {/* Route Dokter */}
             <Route path="/dokter" element={<Dokter />} />
 
             {/* Route Kasir */}
             <Route path="/kasir" element={<Kasir />} />
-            <Route path="/kasir/waitinglist/umum" element={<WaitingListUmum/>} />
-            <Route path="/kasir/waitinglist/gigi" element={<WaitingListGigi/>} />
+            <Route
+              path="/kasir/waitingList/umum"
+              element={<WaitingListUmum />}
+            />
+            <Route
+              path="/kasir/waitingList/gigi"
+              element={<WaitingListGigi />}
+            />
 
             <Route path="*" element={<Error404 />} />
           </Routes>
