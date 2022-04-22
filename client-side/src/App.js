@@ -5,7 +5,6 @@ import Login from "./pages/Login/Login";
 
 // import Admin
 import Admin from "./pages/Admin/Beranda/DashboardAdmin";
-import DataObat from "./pages/Admin/DataObat";
 import DataAkun from "./pages/Admin/Akun/DataAkun";
 import TambahAkun from "./pages/Admin/Akun/TambahAkun/TambahAkun";
 import UbahAkun from "./pages/Admin/Akun/UbahAkun/UbahAkun";
@@ -44,7 +43,6 @@ function App() {
 
             {/* Route Admin */}
             <Route path="/admin" element={<Admin />}/>
-            <Route path="/admin/dataobat" element={<DataObat/>}/>
             <Route path="/admin/dataakun" element={<DataAkun/>}/>
             <Route path="/admin/dataakun/tambah" element={<TambahAkun/>}/>
             <Route path="/admin/dataakun/ubah" element={<UbahAkun/>}/>
