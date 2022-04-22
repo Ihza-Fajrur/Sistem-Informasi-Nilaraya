@@ -1,5 +1,4 @@
 import React from "react";
-import DataObat from "../DataObat";
 // import Error404 from "../src/pages/Error404";
 import {useNavigate} from "react-router-dom";
 import "./dataAkun.scss";

@@ -15,30 +15,31 @@ export default function Login() {
         <div className="div2">
           <h1>LOGIN</h1>
           <form action="">
-            <div>
-              <label htmlFor="email">Email</label>
-              <input type="text" className="input" placeholder="email" />
+            <div className="wrap-input">
+              <label htmlFor="email" className="label-input">Email</label><br />
+              <input type="text" className="input" placeholder="Email"/>
             </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <input type="text" className="input" placeholder="password" />
+            <div className="wrap-input">
+              <label htmlFor="password" className="label-input">Password</label><br />
+              <input type="text" className="input" placeholder="Password" />
             </div>
-            <div>
-              <label htmlFor="option">Masuk Sebagai</label>
+            <div className="wrap-input">
+              <label htmlFor="option" className="label-input">Masuk Sebagai</label><br />
               <select
                 name="role"
                 id=""
                 value={data.role}
                 onChange={(e) => setData({ ...data, role: e.target.value })}
+                className="input"
               >
-                <option value="0">Pilih role</option>
+                <option value="0">Pilih Role</option>
                 <option value="admin">Admin</option>
                 <option value="Dokter">Dokter</option>
                 <option value="kasir">Kasir</option>
               </select>
             </div>
           </form>
-          <button
+          <button className="button"
             onClick={() => {
               if (data.role === "admin") {
                 navigate("/admin");
