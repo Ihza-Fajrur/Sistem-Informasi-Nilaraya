@@ -1,7 +1,7 @@
 import React from "react";
 // import Error404 from "../src/pages/Error404";
 import {useNavigate} from "react-router-dom";
-import "./dataPasien.scss";
+import "./dataObat.scss";
 
 // icons sicdebar
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
@@ -14,7 +14,7 @@ import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
 
 
-export default function DataPasien() {
+export default function DataObat() {
   let navigate = useNavigate();
   return (
     <div className="body">
@@ -22,10 +22,10 @@ export default function DataPasien() {
         <header className="header">KliniX</header>
         <ul className="ul">
           <li><a href="/admin"><HomeOutlinedIcon className="iconSidebar"/>Beranda</a></li>
-          <li><a href="/admin/dataPasien" className="active"><AccessibleForwardOutlinedIcon className="iconSidebar"/>Pasien</a></li>
+          <li><a href="/admin/dataPasien"><AccessibleForwardOutlinedIcon className="iconSidebar"/>Pasien</a></li>
           <li><a href="/admin/dataRekamMedis"><NoteAddOutlinedIcon className="iconSidebar"/>Rekam Medis</a></li>
-          <li><a href=""><VaccinesOutlinedIcon className="iconSidebar"/>Tindakan Medis</a></li>
-          <li><a href="/admin/dataPasien"><MedicationOutlinedIcon className="iconSidebar"/>Obat</a></li>
+          <li><a href="/admin/dataTindakan"><VaccinesOutlinedIcon className="iconSidebar"/>Tindakan Medis</a></li>
+          <li><a href="/admin/dataObat" classname="active"><MedicationOutlinedIcon className="iconSidebar"/>Obat</a></li>
           <li><a href="/admin/dataakun"><PermIdentityOutlinedIcon className="iconSidebar"/>Akun</a></li>
           <li><a href="/"><LogoutOutlinedIcon className="iconSidebar"/>Logout</a></li>
         </ul>
@@ -34,7 +34,7 @@ export default function DataPasien() {
       <div className="head">
             <div className="wrap-bagianAtas">
                 <div className="bagianAtas">
-                    <h1>Data Akun</h1>
+                    <h1>Data Obat</h1>
                 </div>
                 <div className="cari">
                     <input type="text" className="inputcari" placeholder="Masukkan Kata Kunci"/>
@@ -45,9 +45,9 @@ export default function DataPasien() {
             <div>
               <button className="btn_tambah"
               onClick={() => {
-                navigate("/admin/dataPasien/tambah");
+                navigate("/admin/dataObat/tambah");
               }}>
-                Tambah Data Pasien
+                Tambah Obat
               </button>
             </div>
 
@@ -55,34 +55,37 @@ export default function DataPasien() {
               <table>
                 <thead>
                   <tr>
-                    <th>Nama</th>
-                    <th>No. Rekam Medis</th>
-                    <th>No. BPJS</th>
-                    <th>Kelamin (P/L)</th>  
-                    <th>TTL</th>
-                    <th>Alamat</th>
-                    <th>No. HP</th>
-                    <th>Riwayat Penyakit / Alergi</th>
+                    <th>Nama Obat</th>
+                    <th>Kuantitas</th>
+                    <th>Harga Jual/Strip</th>
+                    <th>Harga Jual Satuan</th>  
+                    <th>Harga Beli</th>
+                    <th>Exp Date</th>
+                    <th>Jenis Obat</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th>Sudirman</th>
-                    <th>124231</th>
-                    <th>A112DAE2</th>
-                    <th>L</th>
-                    <th>Jambi, 13 Maret 1999</th>
-                    <th>Kedaton</th>
-                    <th>081232124332</th>
-                    <th>Alergi Antibiotik</th>
+                    <th>Amoxicillin</th>
+                    <th>124321</th>
+                    <th>20.000</th>
+                    <th>5.000</th>
+                    <th>15.000</th>
+                    <th>22 April 2022</th>
+                    <th>Sirup</th>
                     <th>
                       <div className="aksi">
-                        <button className="btn_rekammedis" 
+                        <button className="btn_ubah" 
                         onClick={() => {
-                          navigate("/admin/dataRekamMedis");
+                          navigate("/admin/dataObat/ubah");
                         }}>
-                        Rekam Medis</button>
+                        Ubah</button>
+                        <button className="btn_hapus"
+                        onClick={() => {
+                          navigate("/admin/dataObat");
+                        }}>
+                        Hapus</button>
                       </div>
                       
                     </th>

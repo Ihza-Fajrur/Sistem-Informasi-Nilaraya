@@ -25,7 +25,7 @@ export default function DataAkun() {
           <li><a href="/admin/dataPasien"><AccessibleForwardOutlinedIcon className="iconSidebar"/>Pasien</a></li>
           <li><a href="/admin/dataRekamMedis"><NoteAddOutlinedIcon className="iconSidebar"/>Rekam Medis</a></li>
           <li><a href="/admin/dataTindakan"><VaccinesOutlinedIcon className="iconSidebar"/>Tindakan Medis</a></li>
-          <li><a href=""><MedicationOutlinedIcon className="iconSidebar"/>Obat</a></li>
+          <li><a href="/admin/dataObat"><MedicationOutlinedIcon className="iconSidebar"/>Obat</a></li>
           <li><a href="/admin/dataakun" className="active"><PermIdentityOutlinedIcon className="iconSidebar"/>Akun</a></li>
           <li><a href="/"><LogoutOutlinedIcon className="iconSidebar"/>Logout</a></li>
         </ul>

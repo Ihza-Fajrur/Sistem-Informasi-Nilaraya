@@ -14,6 +14,10 @@ import TambahPasien from "./pages/Admin/Pasien/TambahPasien/TambahPasien";
 import DataTindakan from "./pages/Admin/Tindakan/DataTindakan";
 import TambahTindakan from "./pages/Admin/Tindakan/TambahTindakan/TambahTindakan";
 import UbahTindakan from "./pages/Admin/Tindakan/UbahTindakan/UbahTindakan";
+import DataObat from "./pages/Admin/Obat/DataObat";
+import TambahObat from "./pages/Admin/Obat/TambahObat/TambahObat";
+import UbahObat from "./pages/Admin/Obat/UbahObat/UbahObat";
+
 
 // import Dokter
 import Dokter from "./pages/Dokter/Beranda";
@@ -57,6 +61,9 @@ function App() {
             <Route path="/admin/DataTindakan" element={<DataTindakan/>}/>
             <Route path="/admin/dataTindakan/tambah" element={<TambahTindakan/>}/>
             <Route path="/admin/dataTindakan/ubah" element={<UbahTindakan/>}/>
+            <Route path="/admin/DataObat" element={<DataObat/>}/>
+            <Route path="/admin/dataObat/tambah" element={<TambahObat/>}/>
+            <Route path="/admin/dataObat/ubah" element={<UbahObat/>}/>
         
         
             {/* Route Dokter */}

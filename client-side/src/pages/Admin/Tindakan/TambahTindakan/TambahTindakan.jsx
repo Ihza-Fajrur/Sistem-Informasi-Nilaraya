@@ -22,7 +22,7 @@ export default function TambahTindakan() {
         <header className="header">KliniX</header>
         <ul className="ul">
           <li><a href="/admin"><HomeOutlinedIcon className="iconSidebar"/>Beranda</a></li>
-          <li><a href=""><AccessibleForwardOutlinedIcon className="iconSidebar"/>Pasien</a></li>
+          <li><a href="/admin/dataPasien"><AccessibleForwardOutlinedIcon className="iconSidebar"/>Pasien</a></li>
           <li><a href="/admin/dataRekamMedis"><NoteAddOutlinedIcon className="iconSidebar"/>Rekam Medis</a></li>
           <li><a href="/admin/dataTindakan" classname="active"><VaccinesOutlinedIcon className="iconSidebar"/>Tindakan Medis</a></li>
           <li><a href="/admin/dataObat"><MedicationOutlinedIcon className="iconSidebar"/>Obat</a></li>
