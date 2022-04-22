@@ -10,6 +10,10 @@ import DataAkun from "./pages/Admin/Akun/DataAkun";
 import TambahAkun from "./pages/Admin/Akun/TambahAkun/TambahAkun";
 import UbahAkun from "./pages/Admin/Akun/UbahAkun/UbahAkun";
 import DataRekamMedis from "./pages/Admin/RekamMedis/DataRekamMedis";
+import DataTindakan from "./pages/Admin/Tindakan/DataTindakan";
+import TambahTindakan from "./pages/Admin/Tindakan/TambahTindakan/TambahTindakan";
+import UbahTindakan from "./pages/Admin/Tindakan/UbahTindakan/UbahTindakan";
+
 
 // import Dokter
 import Dokter from "./pages/Dokter/Beranda";
@@ -49,6 +53,9 @@ function App() {
             <Route path="/admin/dataakun/tambah" element={<TambahAkun/>}/>
             <Route path="/admin/dataakun/ubah" element={<UbahAkun/>}/>
             <Route path="/admin/dataRekamMedis" element={<DataRekamMedis/>}/>
+            <Route path="/admin/DataTindakan" element={<DataTindakan/>}/>
+            <Route path="/admin/dataTindakan/tambah" element={<TambahTindakan/>}/>
+            <Route path="/admin/dataTindakan/ubah" element={<UbahTindakan/>}/>
         
         
             {/* Route Dokter */}

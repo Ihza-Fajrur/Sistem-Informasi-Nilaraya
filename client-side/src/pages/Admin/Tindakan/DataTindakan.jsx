@@ -1,7 +1,7 @@
 import React from "react";
 // import Error404 from "../src/pages/Error404";
 import {useNavigate} from "react-router-dom";
-import "./dataRekamMedis.scss";
+import "./dataTindakan.scss";
 
 // icons sicdebar
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
@@ -14,7 +14,7 @@ import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
 
 
-export default function DataRekamMedis() {
+export default function DataTindakan() {
   let navigate = useNavigate();
   return (
     <div className="body">
@@ -23,9 +23,9 @@ export default function DataRekamMedis() {
         <ul className="ul">
           <li><a href="/admin"><HomeOutlinedIcon className="iconSidebar"/>Beranda</a></li>
           <li><a href=""><AccessibleForwardOutlinedIcon className="iconSidebar"/>Pasien</a></li>
-          <li><a href="/admin/dataRekamMedis"  className="active"><NoteAddOutlinedIcon className="iconSidebar"/>Rekam Medis</a></li>
-          <li><a href="/admin/dataTindakan"><VaccinesOutlinedIcon className="iconSidebar"/>Tindakan Medis</a></li>
-          <li><a href=""><MedicationOutlinedIcon className="iconSidebar"/>Obat</a></li>
+          <li><a href="/admin/dataRekamMedis"><NoteAddOutlinedIcon className="iconSidebar"/>Rekam Medis</a></li>
+          <li><a href="/admin/dataTindakan" classname="active"><VaccinesOutlinedIcon className="iconSidebar"/>Tindakan Medis</a></li>
+          <li><a href="/admin/dataObat"><MedicationOutlinedIcon className="iconSidebar"/>Obat</a></li>
           <li><a href="/admin/dataakun"><PermIdentityOutlinedIcon className="iconSidebar"/>Akun</a></li>
           <li><a href="/"><LogoutOutlinedIcon className="iconSidebar"/>Logout</a></li>
         </ul>
@@ -34,7 +34,7 @@ export default function DataRekamMedis() {
       <div className="head">
             <div className="wrap-bagianAtas">
                 <div className="bagianAtas">
-                    <h1>Data Akun</h1>
+                    <h1>Data Tindakan Medis</h1>
                 </div>
                 <div className="cari">
                     <input type="text" className="inputcari" placeholder="Masukkan Kata Kunci"/>
@@ -45,9 +45,9 @@ export default function DataRekamMedis() {
             <div>
               <button className="btn_tambah"
               onClick={() => {
-                navigate("/admin/dataRekamMedis/tambah");
+                navigate("/admin/dataTindakan/tambah");
               }}>
-                Tambah Rekam Medis
+                Tambah Tindakan
               </button>
             </div>
 
@@ -55,39 +55,29 @@ export default function DataRekamMedis() {
               <table>
                 <thead>
                   <tr>
-                    <th>Nama Pasien</th>
-                    <th>No.Rekam Medis</th>
-                    <th>Tanggal</th>
-                    <th>Diagnosis</th>  
-                    <th>Tindakan</th>
-                    <th>Obat</th>
-                    <th>Ket</th>
-                    <th>Nama Dokter</th>
-                    <th>Tipe Dokter</th>
+                    <th>Nama Tindakan</th>
+                    <th>Kode Tindakan</th>
+                    <th>Klasifikasi Umur</th>
+                    <th>Tarif</th>  
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th>Ilham Nofri</th>
-                    <th>11213</th>
-                    <th>13/03/22</th>
-                    <th>Sakit Perut, Muntah-muntah</th>
-                    <th>Swap Tenggorokan</th>
-                    <th>Amoxicilin</th>
-                    <th>Cek Rutin per-2mg</th>
-                    <th>Sophia Nou</th>
-                    <th>Umum</th>
+                    <th>Cabut Gigi</th>
+                    <th>627361</th>
+                    <th>Dewasa</th>
+                    <th>400.000</th>
                     <th>
                       <div className="aksi">
                         <button className="btn_ubah" 
                         onClick={() => {
-                          navigate("/admin/dataRekamMedis/ubah");
+                          navigate("/admin/dataTindakan/ubah");
                         }}>
                         Ubah</button>
                         <button className="btn_hapus"
                         onClick={() => {
-                          navigate("/admin/dataRekamMedis");
+                          navigate("/admin/dataTindakan");
                         }}>
                         Hapus</button>
                       </div>
