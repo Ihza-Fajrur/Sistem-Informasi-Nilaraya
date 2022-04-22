@@ -80,7 +80,7 @@ export default function DataPasien() {
                       <div className="aksi">
                         <button className="btn_rekammedis" 
                         onClick={() => {
-                          navigate("/admin/dataRekamMedis");
+                          navigate("");
                         }}>
                         Rekam Medis</button>
                       </div>
