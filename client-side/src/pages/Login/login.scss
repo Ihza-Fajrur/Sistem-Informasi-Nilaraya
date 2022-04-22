@@ -1,24 +1,22 @@
 .container {
   background-image: url("../../images/Background.png");
-  background-size: 100%;
+  background-size: cover;
   height: 100%;
-  margin: 0;
-  padding: 0;
-  width: 100%;
+  width: 68%;
   position: fixed;
   top: 0;
+  overflow-y: "hidden";
+  ::-webkit-scrollbar {
+    display: none;
+  }
   left: 0;
   .login{
-    margin: 0;
-    padding: 0;
-    scrollbar-width: none; //for firefox
-    scroll-snap-align: y mandatory;
-    &::-webkit-scrollbar {
-      //chrome, safari, ms edge
-      display: none;
+    width: 10%;
+    height: 100%;
+    margin-left: 100%;
+    padding-top: 21%;
+    padding-right: 40%;
     }
-    display: flex;
-    position: fixed;
     .div2 {
       display: flex;
       flex-direction: column;
@@ -35,5 +33,4 @@
     }
     
   }
-}
 
