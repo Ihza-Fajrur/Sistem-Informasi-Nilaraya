@@ -3,16 +3,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./tambahPasien.scss";
 
-// icons sicdebar
+// icons sidebar
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import AccessibleForwardOutlinedIcon from "@mui/icons-material/AccessibleForwardOutlined";
-import NoteAddOutlinedIcon from "@mui/icons-material/NoteAddOutlined";
-import VaccinesOutlinedIcon from "@mui/icons-material/VaccinesOutlined";
-import MedicationOutlinedIcon from "@mui/icons-material/MedicationOutlined";
-import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
+import SummarizeOutlinedIcon from "@mui/icons-material/SummarizeOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
-export default function TambahPasien() {
+export default function TambahPasienKasir() {
   let navigate = useNavigate();
   return (
     <div className="body">
@@ -20,39 +17,27 @@ export default function TambahPasien() {
         <header className="header">KliniX</header>
         <ul className="ul">
           <li>
-            <a href="/admin">
+            <a href="/kasir">
               <HomeOutlinedIcon className="iconSidebar" />
               Beranda
             </a>
           </li>
           <li>
-            <a href="/admin/dataPasien" className="active">
+            <a href="/kasir/waitingList/umum">
+              <SummarizeOutlinedIcon className="iconSidebar" />
+              Waiting List Umum
+            </a>
+          </li>
+          <li>
+            <a href="/kasir/waitingList/gigi">
+              <SummarizeOutlinedIcon className="iconSidebar" />
+              Waiting List Gigi
+            </a>
+          </li>
+          <li>
+            <a href="/kasir/dataPasien" className="active">
               <AccessibleForwardOutlinedIcon className="iconSidebar" />
               Pasien
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <NoteAddOutlinedIcon className="iconSidebar" />
-              Rekam Medis
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <VaccinesOutlinedIcon className="iconSidebar" />
-              Tindakan Medis
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <MedicationOutlinedIcon className="iconSidebar" />
-              Obat
-            </a>
-          </li>
-          <li>
-            <a href="/admin/dataAkun">
-              <PermIdentityOutlinedIcon className="iconSidebar" />
-              Akun
             </a>
           </li>
           <li>
@@ -171,7 +156,7 @@ export default function TambahPasien() {
             <button
               className="btn-tambah"
               onClick={() => {
-                navigate("/admin/dataPasien");
+                navigate("/kasir/dataPasien");
               }}
             >
               Tambah Data

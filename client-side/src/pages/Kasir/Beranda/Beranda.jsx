@@ -9,9 +9,6 @@ import AccessibleForwardOutlinedIcon from "@mui/icons-material/AccessibleForward
 import SummarizeOutlinedIcon from "@mui/icons-material/SummarizeOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
-// icons cari
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-
 export default function Kasir() {
   let navigate = useNavigate();
   return (
@@ -38,7 +35,7 @@ export default function Kasir() {
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="/kasir/dataPasien">
               <AccessibleForwardOutlinedIcon className="iconSidebar" />
               Pasien
             </a>
