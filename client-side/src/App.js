@@ -22,6 +22,8 @@ import Dokter from "./pages/Dokter/Beranda";
 import Kasir from "./pages/Kasir/Beranda/Beranda";
 import WaitingListUmum from "./pages/Kasir/WaitingList/WaitingListUmum/WaitingListUmum";
 import WaitingListGigi from "./pages/Kasir/WaitingList/WaitingListGigi/WaitingListGigi";
+import DataPasienKasir from "./pages/Kasir/Pasien/DataPasien";
+import TambahPasienKasir from "./pages/Kasir/Pasien/TambahPasien/TambahPasien";
 
 
 import Error404 from "../src/pages/Error404";
@@ -66,6 +68,8 @@ function App() {
             <Route path="/kasir" element={<Kasir />} />
             <Route path="/kasir/waitinglist/umum" element={<WaitingListUmum/>} />
             <Route path="/kasir/waitinglist/gigi" element={<WaitingListGigi/>} />
+            <Route path="/kasir/dataPasien" element={<DataPasienKasir/>} />
+            <Route path="/kasir/dataPasien/tambah" element={<TambahPasienKasir/>} />
 
             <Route path="*" element={<Error404 />} />
           </Routes>

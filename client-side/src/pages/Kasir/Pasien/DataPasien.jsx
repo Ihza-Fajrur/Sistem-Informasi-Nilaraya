@@ -1,22 +1,18 @@
-import React from "react";
+import React, { useState }  from "react";
 // import Error404 from "../src/pages/Error404";
 import {useNavigate} from "react-router-dom";
 import "./dataPasien.scss";
+import Modal from "./Components/Modal";
 
 // icons sicdebar
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import AccessibleForwardOutlinedIcon from '@mui/icons-material/AccessibleForwardOutlined';
 import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
-import NoteAddOutlinedIcon from '@mui/icons-material/NoteAddOutlined';
-import VaccinesOutlinedIcon from '@mui/icons-material/VaccinesOutlined';
-import MedicationOutlinedIcon from '@mui/icons-material/MedicationOutlined';
-import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-
-
 
 export default function DataPasienKasir() {
   let navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <div className="body">
       <div className="sidebar">
@@ -24,13 +20,14 @@ export default function DataPasienKasir() {
         <ul className="ul">
           <li><a href="/kasir"><HomeOutlinedIcon className="iconSidebar"/>Beranda</a></li>
           <li><a href="/kasir/waitinglist/umum"><SummarizeOutlinedIcon className="iconSidebar"/>Waiting List Umum</a></li>
-          <li><a href="/kasir/waitinglist/gigi"className="active"><SummarizeOutlinedIcon className="iconSidebar"/>Waiting List Gigi</a></li>
-          <li><a href=""><AccessibleForwardOutlinedIcon className="iconSidebar"/>Pasien</a></li>
+          <li><a href="/kasir/waitinglist/gigi"><SummarizeOutlinedIcon className="iconSidebar"/>Waiting List Gigi</a></li>
+          <li><a href="/kasir/dataPasien" className="active"><AccessibleForwardOutlinedIcon className="iconSidebar"/>Pasien</a></li>
           <li><a href="/"><LogoutOutlinedIcon className="iconSidebar"/>Logout</a></li>
         </ul>
       </div>
 
       <div className="head">
+      {modalOpen && <Modal setOpenModal={setModalOpen} />}
             <div className="wrap-bagianAtas">
                 <div className="bagianAtas">
                     <h1>Data Akun</h1>
@@ -44,7 +41,7 @@ export default function DataPasienKasir() {
             <div>
               <button className="btn_tambah"
               onClick={() => {
-                navigate("/admin/dataPasien/tambah");
+                navigate("/kasir/dataPasien/tambah");
               }}>
                 Tambah Data Pasien
               </button>
@@ -77,11 +74,13 @@ export default function DataPasienKasir() {
                     <th>Alergi Antibiotik</th>
                     <th>
                       <div className="aksi">
-                        <button className="btn_rekammedis" 
-                        onClick={() => {
-                          navigate("");
-                        }}>
-                        Rekam Medis</button>
+                        <button className="btn_rekammedis"
+                          onClick={() => {
+                            setModalOpen(true);
+                          }}
+                        >
+                        Waiting List</button>
+                        
                       </div>
                       
                     </th>
