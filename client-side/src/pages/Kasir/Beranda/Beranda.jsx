@@ -22,7 +22,7 @@ export default function Kasir() {
           <li><a href="/kasir" className="active"><HomeOutlinedIcon className="iconSidebar"/>Beranda</a></li>
           <li><a href="/kasir/waitinglist/umum"><SummarizeOutlinedIcon className="iconSidebar"/>Waiting List Umum</a></li>
           <li><a href="/kasir/waitinglist/gigi"><SummarizeOutlinedIcon className="iconSidebar"/>Waiting List Gigi</a></li>
-          <li><a href=""><AccessibleForwardOutlinedIcon className="iconSidebar"/>Pasien</a></li>
+          <li><a href="/kasir/dataPasien"><AccessibleForwardOutlinedIcon className="iconSidebar"/>Pasien</a></li>
           <li><a href="/"><LogoutOutlinedIcon className="iconSidebar"/>Logout</a></li>
         </ul>
       </div>

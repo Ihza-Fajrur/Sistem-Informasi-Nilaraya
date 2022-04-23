@@ -10,24 +10,25 @@ function Modal({ setOpenModal }) {
       }}>
       <div className="modalContainer">
         <div className="title">
-          <h1>Perawatan</h1>
+          <h1>Pasien Baru Masuk</h1>
         </div>
         <div className="body">
-          <p>Pilih Tipe Dokter</p>
+          <p className="isi">Nomor Urut : 01</p>
+        </div>
+        <div className="body">
+          <p className="isi">Nama Pasien : Sudirman</p>
+        </div>
+        <div className="body">
+          <p className="isi">Waktu : 14-03-2022 12:03:12</p>
         </div>
         <div className="footer">
-          <button
+          <button className="RKM"
             onClick={() => {
-                navigate("/kasir/waitinglist/umum");
+                navigate("");
             }}
           >
-            Umum
+            Lihat Rekam Medis
           </button>
-          <button
-          onClick={() => {
-            navigate("/kasir/waitinglist/gigi");
-            }}
-          >Gigi</button>
         </div>
       </div>
     </div>

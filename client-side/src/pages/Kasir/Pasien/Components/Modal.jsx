@@ -8,7 +8,7 @@ function Modal({ setOpenModal }) {
     <div className="modalBackground" onClick={() => {
         setOpenModal(false);
       }}>
-      <div className="modalContainer">
+      <div className="modalContainer2">
         <div className="title">
           <h1>Perawatan</h1>
         </div>

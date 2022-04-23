@@ -8,9 +8,9 @@
     align-items: center;
   }
   
-  .modalContainer {
-    width: 500px;
-    height: 250px;
+  .modalContainer2 {
+    width: 600px;
+    height: 280px;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -21,30 +21,32 @@
     right: 300px;
   }
   
-  .modalContainer .title {
+  .modalContainer2 .title {
     display: inline-block;
     text-align: center;
     margin-top: 0px;
     border-radius: 12px 12px 0px 0px ;
     background-color: #02414D;
+    color: white;
   }
   
-  .modalContainer .body {
+  .modalContainer2 .body {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.7rem;
     text-align: center;
+    height: 100px;
   }
   
-  .modalContainer .footer {
+  .modalContainer2 .footer {
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  .modalContainer .footer button {
-    width: 150px;
+  .modalContainer2 .footer button {
+    width: 200px;
     height: 45px;
     margin: 10px;
     border: none;
