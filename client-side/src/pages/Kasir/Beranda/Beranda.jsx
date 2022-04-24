@@ -50,16 +50,6 @@ export default function Kasir() {
       </div>
 
       <div className="head">
-        <div className="wrap-bagianAtas">
-          <div className="cari">
-            <input
-              type="text"
-              className="inputcari"
-              placeholder="Masukkan Kata Kunci"
-            />
-          </div>
-        </div>
-
         <div className="wrap-card">
           <div className="card">
             <div className="card-body">

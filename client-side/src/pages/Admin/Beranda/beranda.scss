@@ -2,8 +2,10 @@
     font-family:'Roboto',sans-serif;
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
         .sidebar {
-        // position: fixed;
+        position: fixed;
         left: 0;
         top: 0;
         width: 340px;
@@ -12,7 +14,7 @@
             .header {
                 font-size: 40px;
                 color: white;
-                text-align: center;
+                // text-align: center;
                 line-height: 100px;
                 background: #0F5A68;
                 user-select: none;
@@ -73,5 +75,44 @@
                     }
                 }
             }
+            .wrap-card {
+                padding-top: 5px;
+                height: 80%;
+                width: 95%;
+                .card {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    margin-top: 100px;
+                    .card-body {
+                        padding: 10px 10px;
+                        width: 25%;
+                        height: 30vh;
+                        border-radius: 20px;
+                        box-shadow: 0 4px 8px 0 rgba(0.2,0.2,0.2,0.2);
+                        box-sizing: border-box;
+                        background-color: white;
+                        align-items: center;
+                        align-self: center;
+                        text-align: center;
+                        .card-btn { 
+                            background-color: white;
+                            border: none;
+                            .icon {
+                                // position: fixed;
+                                font-size: 200px;
+                                color: #02414D;
+                            }
+                            h2 {
+                                // position: fixed;
+                                color: #02414D;
+                                text-align: center;
+                                // margin-right: 20px;
+                                font-size: 20px;
+                            }
+                        }   
+                    } 
+                }                   
+            }
         }
-}
+    }

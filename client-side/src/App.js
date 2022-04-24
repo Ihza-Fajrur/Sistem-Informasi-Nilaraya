@@ -4,7 +4,7 @@ import React from "react";
 import Login from "./pages/Login/Login";
 
 // import Admin
-import Admin from "./pages/Admin/Beranda/DashboardAdmin";
+import Admin from "./pages/Admin/Beranda/Beranda";
 import DataAkun from "./pages/Admin/Akun/DataAkun";
 import TambahAkun from "./pages/Admin/Akun/TambahAkun/TambahAkun";
 import UbahAkun from "./pages/Admin/Akun/UbahAkun/UbahAkun";

@@ -1,8 +1,7 @@
 import React from "react";
 // import Error404 from "../src/pages/Error404";
 import { useNavigate } from "react-router-dom";
-import "./dashboardAdmin.scss";
-
+import "./beranda.scss";
 // icons sicdebar
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import AccessibleForwardOutlinedIcon from "@mui/icons-material/AccessibleForwardOutlined";
@@ -11,8 +10,13 @@ import VaccinesOutlinedIcon from "@mui/icons-material/VaccinesOutlined";
 import MedicationOutlinedIcon from "@mui/icons-material/MedicationOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import HotelIcon from "@mui/icons-material/Hotel";
+import MedicalInformationIcon from "@mui/icons-material/MedicalInformation";
+import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
+import MedicationIcon from "@mui/icons-material/Medication";
+import PersonIcon from "@mui/icons-material/Person";
 
-export default function DashboardAdmin() {
+export default function Admin() {
   let navigate = useNavigate();
   return (
     <div className="body">
@@ -65,13 +69,65 @@ export default function DashboardAdmin() {
       </div>
 
       <div className="head">
-        <div className="wrap-bagianAtas">
-          <div className="cari">
-            <input
-              type="text"
-              className="inputcari"
-              placeholder="Masukkan Kata Kunci"
-            />
+        <div className="wrap-card">
+          <div className="card">
+            <div className="card-body">
+              <button
+                className="card-btn"
+                onClick={() => {
+                  navigate("/admin/dataPasien");
+                }}
+              >
+                <HotelIcon className="icon" />
+                <h2> Data Pasien </h2>
+              </button>
+            </div>
+
+            <div className="card-body">
+              <button
+                className="card-btn"
+                onClick={() => {
+                  navigate("/admin/dataRekamMedis");
+                }}
+              >
+                <MedicalInformationIcon className="icon" />
+                <h2>Rekam Medis</h2>
+              </button>
+            </div>
+            <div className="card-body">
+              <button
+                className="card-btn"
+                onClick={() => {
+                  navigate("/admin/dataTindakan");
+                }}
+              >
+                <MedicalServicesIcon className="icon" />
+                <h2> Data Tindakan</h2>
+              </button>
+            </div>
+
+            <div className="card-body">
+              <button
+                className="card-btn"
+                onClick={() => {
+                  navigate("/admin/dataObat");
+                }}
+              >
+                <MedicationIcon className="icon" />
+                <h2> Data Obat</h2>
+              </button>
+            </div>
+            <div className="card-body">
+              <button
+                className="card-btn"
+                onClick={() => {
+                  navigate("/admin/dataAkun");
+                }}
+              >
+                <PersonIcon className="icon" />
+                <h2> Data Akun</h2>
+              </button>
+            </div>
           </div>
         </div>
       </div>
