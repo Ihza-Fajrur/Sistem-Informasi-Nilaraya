@@ -64,7 +64,7 @@ export default function HistoryRekamMedis() {
           </li>
         </ul>
       </div>
-      <div className="head">
+      <div className="heads">
         {modalOpen && <Modal setOpenModal={setModalOpen} />}
         <div className="bagianAtas">
           <h1>History Rekam Medis</h1>
