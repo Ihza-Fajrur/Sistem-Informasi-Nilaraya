@@ -16,7 +16,6 @@ export default function HistoryRekamMedis() {
   let navigate = useNavigate();
   return (
     <div className="body">
-      {modalOpen && <Modal setOpenModal={setModalOpen} />}
       <div className="sidebar">
         <header className="header">KliniX</header>
         <ul className="ul">
