@@ -18,6 +18,8 @@ import DataObat from "./pages/Admin/Obat/DataObat";
 import TambahObat from "./pages/Admin/Obat/TambahObat/TambahObat";
 import UbahObat from "./pages/Admin/Obat/UbahObat/UbahObat";
 import HistoryRekamMedis from "./pages/Admin/RekamMedis/HistoryRekamMedis/HistoryRekamMedis";
+import FormGigi from "./pages/Admin/RekamMedis/FormTambahRekamMedis/FormGigi";
+import FormUmum from "./pages/Admin/RekamMedis/FormTambahRekamMedis/FormUmum";
 // import Dokter
 import Dokter from "./pages/Dokter/Beranda";
 
@@ -54,6 +56,14 @@ function App() {
             <Route
               path="/admin/dataRekamMedis/historyRekamMedis"
               element={<HistoryRekamMedis />}
+            />
+            <Route
+              path="/admin/dataRekamMedis/historyRekamMedis/formGigi"
+              element={<FormGigi />}
+            />
+            <Route
+              path="/admin/dataRekamMedis/historyRekamMedis/formUmum/"
+              element={<FormUmum />}
             />
             <Route path="/admin/dataPasien" element={<DataPasien />} />
             <Route path="/admin/dataPasien/tambah" element={<TambahPasien />} />
