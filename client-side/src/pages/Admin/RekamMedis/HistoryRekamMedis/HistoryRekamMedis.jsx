@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 // import Error404 from "../src/pages/Error404";
 import { useNavigate } from "react-router-dom";
-import "./dataPasien.scss";
+import "./historyRekamMedis.scss";
+import Modal from "./Components copy/Modal";
 
 // icons sicdebar
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -12,10 +13,12 @@ import MedicationOutlinedIcon from "@mui/icons-material/MedicationOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
-export default function DataPasien() {
+export default function HistoryRekamMedis() {
   let navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(true);
   return (
     <div className="body">
+      {modalOpen && <Modal setOpenModal={setModalOpen} />}
       <div className="sidebar">
         <header className="header">KliniX</header>
         <ul className="ul">
@@ -26,13 +29,13 @@ export default function DataPasien() {
             </a>
           </li>
           <li>
-            <a href="/admin/dataPasien" className="active">
+            <a href="/admin/dataPasien">
               <AccessibleForwardOutlinedIcon className="iconSidebar" />
               Pasien
             </a>
           </li>
           <li>
-            <a href="/admin/dataRekamMedis">
+            <a href="/admin/dataRekamMedis" className="active">
               <NoteAddOutlinedIcon className="iconSidebar" />
               Rekam Medis
             </a>
@@ -63,70 +66,61 @@ export default function DataPasien() {
           </li>
         </ul>
       </div>
-
       <div className="head">
-        <div className="wrap-bagianAtas">
-          <div className="bagianAtas">
-            <h1>Data Akun</h1>
+        <div className="bagianAtas">
+          <h1>History Rekam Medis</h1>
+          <div className="line"></div>
+          <h2>Data Pasien</h2>
+          <div className="space">
+            <div className="left-side">
+              <p>Nama : </p>
+              <p>Tanggal Lahir :</p>
+              <p>Alamat :</p>
+              <p>No. Telp :</p>
+            </div>
+            <div className="right-side">
+              <p> No. Rekam Medis : </p>
+              <p> Jenis Kelamin :</p>
+              <p> Umur : </p>
+              <p> Riwayat Penyakit : </p>
+            </div>
           </div>
-          <div className="cari">
-            <input
-              type="text"
-              className="inputcari"
-              placeholder="Masukkan Kata Kunci"
-            />
-          </div>
-        </div>
-
-        <div className="wrap-table">
-          <div>
-            <button
-              className="btn_tambah"
-              onClick={() => {
-                navigate("/admin/dataPasien/tambah");
-              }}
-            >
-              Tambah Data Pasien
-            </button>
-          </div>
-
           <div className="table">
+            <h2>Data Rekam Medis</h2>
+
+            <div>
+              <button
+                className="btn_tambah"
+                onClick={() => {
+                  navigate("");
+                }}
+              >
+                Tambah Data Rekam Medis
+              </button>
+            </div>
             <table>
               <thead>
                 <tr>
-                  <th>Nama</th>
-                  <th>No. Rekam Medis</th>
-                  <th>No. BPJS</th>
-                  <th>Kelamin (P/L)</th>
-                  <th>TTL</th>
-                  <th>Alamat</th>
-                  <th>No. HP</th>
-                  <th>Riwayat Penyakit / Alergi</th>
-                  <th>Aksi</th>
+                  <th>No.Rekam Medis</th>
+                  <th>Tanggal</th>
+                  <th>Diagnosis</th>
+                  <th>Tindakan</th>
+                  <th>Obat</th>
+                  <th>Ket</th>
+                  <th>Nama Dokter</th>
+                  <th>Tipe Dokter</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th>Sudirman</th>
-                  <th>124231</th>
-                  <th>A112DAE2</th>
-                  <th>L</th>
-                  <th>Jambi, 13 Maret 1999</th>
-                  <th>Kedaton</th>
-                  <th>081232124332</th>
-                  <th>Alergi Antibiotik</th>
-                  <th>
-                    <div className="aksi">
-                      <button
-                        className="btn_rekammedis"
-                        onClick={() => {
-                          navigate("/admin/dataRekamMedis/historyRekamMedis");
-                        }}
-                      >
-                        Rekam Medis
-                      </button>
-                    </div>
-                  </th>
+                  <th>11213</th>
+                  <th>13/03/22</th>
+                  <th>Sakit Perut, Muntah-muntah</th>
+                  <th>Swap Tenggorokan</th>
+                  <th>Amoxicilin</th>
+                  <th>Cek Rutin per-2mg</th>
+                  <th>Sophia Nou</th>
+                  <th>Umum</th>
                 </tr>
               </tbody>
             </table>

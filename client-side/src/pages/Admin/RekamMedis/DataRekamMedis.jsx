@@ -67,7 +67,7 @@ export default function DataRekamMedis() {
       <div className="head">
         <div className="wrap-bagianAtas">
           <div className="bagianAtas">
-            <h1>Data Akun</h1>
+            <h1>Data Rekam Medis</h1>
           </div>
           <div className="cari">
             <input

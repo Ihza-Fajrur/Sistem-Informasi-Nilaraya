@@ -17,6 +17,7 @@ import UbahTindakan from "./pages/Admin/Tindakan/UbahTindakan/UbahTindakan";
 import DataObat from "./pages/Admin/Obat/DataObat";
 import TambahObat from "./pages/Admin/Obat/TambahObat/TambahObat";
 import UbahObat from "./pages/Admin/Obat/UbahObat/UbahObat";
+import HistoryRekamMedis from "./pages/Admin/RekamMedis/HistoryRekamMedis/HistoryRekamMedis";
 // import Dokter
 import Dokter from "./pages/Dokter/Beranda";
 
@@ -50,6 +51,10 @@ function App() {
             <Route path="/admin/dataAkun/tambah" element={<TambahAkun />} />
             <Route path="/admin/dataAkun/ubah" element={<UbahAkun />} />
             <Route path="/admin/dataRekamMedis" element={<DataRekamMedis />} />
+            <Route
+              path="/admin/dataRekamMedis/historyRekamMedis"
+              element={<HistoryRekamMedis />}
+            />
             <Route path="/admin/dataPasien" element={<DataPasien />} />
             <Route path="/admin/dataPasien/tambah" element={<TambahPasien />} />
             <Route path="/admin/dataTindakan" element={<DataTindakan />} />
