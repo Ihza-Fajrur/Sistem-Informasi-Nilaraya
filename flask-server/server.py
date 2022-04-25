@@ -3,7 +3,12 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
 from werkzeug.utils import append_slash_redirect
+from cryptography.fernet import Fernet
 # from flask_mail import Mail, Message
+
+#Crypto key
+key = b'T3xELwcW9-KtRVYZma-y6LF_j59eyqBChaV-mry4XCk='
+f = Fernet(key)
 
 #inisialisasi
 app = Flask(__name__)
