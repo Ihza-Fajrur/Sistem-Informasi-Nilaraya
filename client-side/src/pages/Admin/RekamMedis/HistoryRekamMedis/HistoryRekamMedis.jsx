@@ -2,7 +2,6 @@ import React, { useState } from "react";
 // import Error404 from "../src/pages/Error404";
 import { useNavigate } from "react-router-dom";
 import "./historyRekamMedis.scss";
-import Modal from "./Components copy/Modal";
 
 // icons sicdebar
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -15,7 +14,6 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
 export default function HistoryRekamMedis() {
   let navigate = useNavigate();
-  const [modalOpen, setModalOpen] = useState(true);
   return (
     <div className="body">
       {modalOpen && <Modal setOpenModal={setModalOpen} />}
