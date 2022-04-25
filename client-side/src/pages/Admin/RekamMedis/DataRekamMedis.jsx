@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import Error404 from "../src/pages/Error404";
 import { useNavigate } from "react-router-dom";
-import Modal from "./Components/Modal";
+import Modal from ".//HistoryRekamMedis/Components/Modal";
 import "./dataRekamMedis.scss";
 
 // icons sicdebar
@@ -67,7 +67,7 @@ export default function DataRekamMedis() {
       </div>
 
       <div className="head">
-      {modalOpen && <Modal setOpenModal={setModalOpen} />}
+        {modalOpen && <Modal setOpenModal={setModalOpen} />}
         <div className="wrap-bagianAtas">
           <div className="bagianAtas">
             <h1>Data Rekam Medis</h1>

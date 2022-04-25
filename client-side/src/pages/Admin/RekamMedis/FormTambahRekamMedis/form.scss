@@ -65,7 +65,15 @@
     top: 0;
     right: 0;
     background-color: #F5F5F5;
-
+    h1{
+      display: block;
+      font-size: 2em;
+      margin-block-start: 0.67em;
+      margin-block-end: 0.67em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
     .wrap-bagianAtas {
       display: flex;
       flex-direction: row;
@@ -86,7 +94,8 @@
     }
 
     .wrap-table {
-      padding-top: 5px;
+      margin-top: 10px;
+      padding-top: 4px;
       height: 80%;
       width: 100%;
       background-color: #fff;

@@ -1,5 +1,4 @@
 import React from "react";
-// import Error404 from "../src/pages/Error404";
 import { useNavigate } from "react-router-dom";
 import "./form.scss";
 
@@ -12,7 +11,7 @@ import MedicationOutlinedIcon from "@mui/icons-material/MedicationOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
-export default function FormGigi() {
+export default function FormUmum() {
   let navigate = useNavigate();
   return (
     <div className="body">
@@ -66,22 +65,24 @@ export default function FormGigi() {
 
       <div className="head">
         <div className="wrap-bagianAtas">
-          <h1>Form Tambah Data Pasien</h1>
+          <div className="bagianAtas">
+            <h1>Form Penambahan Rekam Medis Umum</h1>
+          </div>
         </div>
 
         <div className="wrap-table">
           <form action="">
-            <div className="wrap-input">
-              <label htmlFor="namapasien" className="label-input">
-                Nama Pasien
-              </label>
-              <input
-                type="text"
-                className="input-field"
-                placeholder="Masukkan Nama Pasien"
-              />
-            </div>
             <div className="flex-input">
+              <div className="wrap-input">
+                <label htmlFor="namapasien" className="label-input">
+                  Nama Pasien
+                </label>
+                <input
+                  type="text"
+                  className="input-field"
+                  placeholder="Masukkan Nama Pasien"
+                />
+              </div>
               <div className="wrap-input">
                 <label htmlFor="norm" className="label-input">
                   No. Rekam Medis
@@ -93,74 +94,54 @@ export default function FormGigi() {
                 />
               </div>
               <div className="wrap-input">
-                <label htmlFor="nobpjs" className="label-input">
-                  No. BPJS
+                <label htmlFor="Tanggal" className="label-input">
+                  Tanggal
                 </label>
                 <input
                   type="text"
                   className="input-field"
-                  placeholder="Masukkan No. BPJS"
-                />
-              </div>
-            </div>
-            <div className="flex-input">
-              <div className="wrap-input">
-                <label htmlFor="kelamin" className="label-input">
-                  Kelamin
-                </label>
-                <select
-                  name="jeniskelamin"
-                  id="jeniskelamin"
-                  className="input-field"
-                >
-                  <option value="" disabled selected>
-                    Pilih Jenis Kelamin
-                  </option>
-                  <option value="laki-laki">Laki-laki</option>
-                  <option value="perempuan">Perempuan</option>
-                </select>
-              </div>
-              <div className="wrap-input">
-                <label htmlFor="ttl" className="label-input">
-                  Tempat Tanggal Lahir
-                </label>
-                <input
-                  type="text"
-                  className="input-field"
-                  placeholder="Masukkan Tempat Tanggal Lahir"
-                />
-              </div>
-            </div>
-            <div className="flex-input">
-              <div className="wrap-input">
-                <label htmlFor="alamat" className="label-input">
-                  Alamat
-                </label>
-                <input
-                  type="text"
-                  className="input-field"
-                  placeholder="Masukkan Alamat"
-                />
-              </div>
-              <div className="wrap-input">
-                <label htmlFor="nohp" className="label-input">
-                  No. HP
-                </label>
-                <input
-                  type="text"
-                  className="input-field"
-                  placeholder="Masukkan Nomor Handphone"
+                  placeholder="Masukkan Tanggal "
                 />
               </div>
             </div>
             <div className="wrap-input">
+              <label htmlFor="Diagnosis" className="label-input">
+                Diagnosis
+              </label>
+              <input
+                type="text"
+                className="input-field"
+                placeholder="Masukkan Diagnosis"
+              />
+            </div>
+            <div className="wrap-input">
+              <label htmlFor="Tindakan" className="label-input">
+                Tindakan
+              </label>
+              <input
+                type="text"
+                className="input-field"
+                placeholder="Masukkan Tindakan"
+              />
+            </div>
+            <div className="wrap-input">
               <label htmlFor="riwayatpenyakit" className="label-input">
-                Riwayat Penyakit / Alergi
+                Obat
               </label>
               <input
                 type="text"
                 className="input-field"
                 placeholder="Masukkan Alamat Riwayat Penyakit / Alergi"
+              />
+            </div>
+            <div className="wrap-input">
+              <label htmlFor="riwayatpenyakit" className="label-input">
+                Keterangan
+              </label>
+              <textarea
+                type="text"
+                className="input-field"
+                placeholder="Masukkan Keterangan"
               />
             </div>
           </form>

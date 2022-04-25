@@ -21,14 +21,14 @@ function Modal({ setOpenModal }) {
         <div className="footer">
           <button
             onClick={() => {
-              navigate("");
+              navigate("/admin/dataRekamMedis/historyRekamMedis/formUmum");
             }}
           >
             Umum
           </button>
           <button
             onClick={() => {
-              navigate("");
+              navigate("/admin/dataRekamMedis/historyRekamMedis/formGigi");
             }}
           >
             Gigi

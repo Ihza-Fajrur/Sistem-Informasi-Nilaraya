@@ -62,7 +62,7 @@ function App() {
               element={<FormGigi />}
             />
             <Route
-              path="/admin/dataRekamMedis/historyRekamMedis/formUmum/"
+              path="/admin/dataRekamMedis/historyRekamMedis/formUmum"
               element={<FormUmum />}
             />
             <Route path="/admin/dataPasien" element={<DataPasien />} />

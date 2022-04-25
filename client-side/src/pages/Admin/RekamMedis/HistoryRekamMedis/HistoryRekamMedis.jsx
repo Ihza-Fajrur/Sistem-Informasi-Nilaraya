@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import Error404 from "../src/pages/Error404";
 import { useNavigate } from "react-router-dom";
 import "./historyRekamMedis.scss";
-
+import Modal from "./Components/Modal";
 // icons sicdebar
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import AccessibleForwardOutlinedIcon from "@mui/icons-material/AccessibleForwardOutlined";
@@ -14,6 +14,7 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
 export default function HistoryRekamMedis() {
   let navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <div className="body">
       <div className="sidebar">
@@ -64,6 +65,7 @@ export default function HistoryRekamMedis() {
         </ul>
       </div>
       <div className="head">
+        {modalOpen && <Modal setOpenModal={setModalOpen} />}
         <div className="bagianAtas">
           <h1>History Rekam Medis</h1>
           <div className="line"></div>
@@ -85,14 +87,14 @@ export default function HistoryRekamMedis() {
           <div className="table">
             <h2>Data Rekam Medis</h2>
 
-            <div>
+            <div className="aksi">
               <button
-                className="btn_tambah"
+                className="btn_rekammedis"
                 onClick={() => {
-                  navigate("/admin/dataRekamMedis/historyRekamMedis/formUmum");
+                  setModalOpen(true);
                 }}
               >
-                Tambah Data Rekam Medis
+                Tambah Rekam Medis
               </button>
             </div>
             <table>
