@@ -89,7 +89,7 @@ export default function HistoryRekamMedis() {
               <button
                 className="btn_tambah"
                 onClick={() => {
-                  navigate("");
+                  navigate("/admin/dataRekamMedis/historyRekamMedis/formUmum");
                 }}
               >
                 Tambah Data Rekam Medis
