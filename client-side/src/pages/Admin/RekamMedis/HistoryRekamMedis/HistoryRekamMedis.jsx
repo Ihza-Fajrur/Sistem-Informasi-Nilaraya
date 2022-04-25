@@ -15,8 +15,8 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 export default function HistoryRekamMedis() {
   let navigate = useNavigate();
   return (
-    <div className="body">
-      <div className="sidebar">
+    <div className="bodyy">
+      <div className="sidebarr">
         <header className="header">KliniX</header>
         <ul className="ul">
           <li>
@@ -63,7 +63,7 @@ export default function HistoryRekamMedis() {
           </li>
         </ul>
       </div>
-      <div className="head">
+      <div className="heads">
         <div className="bagianAtas">
           <h1>History Rekam Medis</h1>
           <div className="line"></div>
