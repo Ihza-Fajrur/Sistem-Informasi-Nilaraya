@@ -92,6 +92,14 @@
         
       }
     }
+ .table-bordered,td {
+   
+    border: 1px solid #02414D;
+    th{
+      background-color: #02414D;
+      color: white;
+    }
+      }
 
     .wrap-table {
       margin-top: 10px;
@@ -133,7 +141,7 @@
           }
         }
       }
-
+     
       .wrap-input {
         width: 100%;
         padding-top: 20px;
