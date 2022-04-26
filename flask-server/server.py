@@ -5,6 +5,7 @@ import re
 from werkzeug.utils import append_slash_redirect
 from cryptography.fernet import Fernet
 from crypto_key import key
+from flask_restful import Resource, Api
 # from flask_mail import Mail, Message
 
 #Crypto key
