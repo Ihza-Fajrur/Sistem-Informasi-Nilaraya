@@ -145,7 +145,7 @@ export default function FormUmum() {
             <thead>
               <thead>
                 <tr>
-                  <th scope="col">
+                  <th className="checkbox" scope="col">
                     <label>Check All</label>
                     <input
                       type="checkbox"

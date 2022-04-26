@@ -92,13 +92,20 @@
         
       }
     }
- .table-bordered,td {
-   
-    border: 1px solid #02414D;
-    th{
-      background-color: #02414D;
-      color: white;
-    }
+ .table-bordered {
+   margin-left: 10%;
+   align-items: center;
+  width: 60%;
+  tbody tr:nth-child(odd) {
+    background-color: #fff;
+  }
+  thead{
+    margin-right:80% ;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+  }
       }
 
     .wrap-table {
