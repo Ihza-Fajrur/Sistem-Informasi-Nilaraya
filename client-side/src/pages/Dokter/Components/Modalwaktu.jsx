@@ -11,27 +11,27 @@ function Modal({ setOpenModal }) {
         setOpenModal(false);
       }}
     >
-      <div className="modalContainer3">
+      <div className="modalContainer">
         <div className="title">
-          <h1>Perawatan</h1>
+          <h1>Pasien Baru Masuk</h1>
         </div>
         <div className="body">
-          <p>Pilih Tipe Dokter</p>
+          <p className="isi">Nomor Urut : 01</p>
+        </div>
+        <div className="body">
+          <p className="isi">Nama Pasien : Sudirman</p>
+        </div>
+        <div className="body">
+          <p className="isi">Waktu : 14-03-2022 12:03:12</p>
         </div>
         <div className="footer">
           <button
+            className="RKM"
             onClick={() => {
-              navigate("/admin/dataRekamMedis/historyRekamMedis/formUmum");
+              navigate("");
             }}
           >
-            Umum
-          </button>
-          <button
-            onClick={() => {
-              navigate("/admin/dataRekamMedis/historyRekamMedis/formGigi");
-            }}
-          >
-            Gigi
+            Lihat Rekam Medis
           </button>
         </div>
       </div>

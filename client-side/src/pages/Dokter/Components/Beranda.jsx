@@ -2,8 +2,7 @@ import React, { useState } from "react";
 // import Error404 from "../src/pages/Error404";
 import { useNavigate } from "react-router-dom";
 import "./beranda.scss";
-import Modal from "./Components//Modalwaktu";
-
+import Modal from "./Modalwaktu";
 // icons sicdebar
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
@@ -18,13 +17,13 @@ export default function Kasir() {
         <header className="header">KliniX</header>
         <ul className="ul">
           <li>
-            <a href="/dokter" className="active">
+            <a href="/kasir" className="active">
               <HomeOutlinedIcon className="iconSidebar" />
               Beranda
             </a>
           </li>
           <li>
-            <a href="/dokter/historyRekamMedis">
+            <a href="">
               <NoteAddOutlinedIcon className="iconSidebar" />
               Rekam Medis
             </a>

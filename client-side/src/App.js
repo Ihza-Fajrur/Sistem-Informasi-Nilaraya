@@ -21,7 +21,8 @@ import HistoryRekamMedis from "./pages/Admin/RekamMedis/HistoryRekamMedis/Histor
 import FormGigi from "./pages/Admin/RekamMedis/FormTambahRekamMedis/FormGigi";
 import FormUmum from "./pages/Admin/RekamMedis/FormTambahRekamMedis/FormUmum";
 // import Dokter
-import Dokter from "./pages/Dokter/Beranda";
+import Dokter from "./pages/Dokter/Components/Beranda";
+import HistoryRekamMedisDokter from "./pages/Dokter/RekamMedis/RekamMedis";
 
 // import Kasir
 import Kasir from "./pages/Kasir/Beranda/Beranda";
@@ -79,6 +80,10 @@ function App() {
 
             {/* Route Dokter */}
             <Route path="/dokter" element={<Dokter />} />
+            <Route
+              path="/dokter/historyRekamMedis"
+              element={<HistoryRekamMedisDokter />}
+            />
 
             {/* Route Kasir */}
             <Route path="/kasir" element={<Kasir />} />
