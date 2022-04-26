@@ -30,23 +30,28 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'nilaraya'
 mysql = MySQL(app)
+cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['POST'])
 def login():
-    if request.method == 'POST':
-        username = request.json['username']
-        password = request.json['password']
-        cur = mysql.connection.cursor()
-        result = cur.execute("SELECT * FROM user WHERE username = %s AND password = %s", [username, password])
-        if result > 0:
-            session['logged_in'] = True
-            session['username'] = username
-            flash('Anda berhasil login', 'success')
-            return redirect(url_for('dashboard'))
-        else:
-            flash('Username atau password salah', 'danger')
-            return redirect(url_for('login'))
-    return render_template('login.html')
+    username = request.json['username']
+    password = request.json['password']
+    
+    # credential = Credential(
+    #     username=username,
+    #     password=password
+    # )
+    # print(f'{username} {password}')
+    
+    cursor.execute('SELECT username, password FROM accounts WHERE username = %s AND password = %s', (username, password,))
+    account = cursor.fetchone()
+    if account:
+        # Create session data, we can access this data in other routes
+        session['loggedin'] = True
+        session['username'] = account['username']
+        session['acc_type'] = account['acc_type']
+        # POST request
+        return credential_schema.jsonify(username,password)
 
 @app.route('/logout')
 def logout():
