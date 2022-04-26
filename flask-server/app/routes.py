@@ -1,5 +1,5 @@
 from app import app
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
     return "Hello World!"
