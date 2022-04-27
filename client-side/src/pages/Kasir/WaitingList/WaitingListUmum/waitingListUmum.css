@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 .body {
   font-family: 'Roboto',sans-serif;
   margin: 0;
@@ -14,8 +15,9 @@
 }
 
 .body .sidebar .header {
-  font-size: 40px;
+  font-size: 3rem;
   color: white;
+  text-align: center;
   line-height: 100px;
   background: #0F5A68;
   -webkit-user-select: none;
@@ -23,6 +25,7 @@
       -ms-user-select: none;
           user-select: none;
   font-weight: bold;
+  font-family: "Montserrat",sans-serif;
 }
 
 .body .sidebar ul li {
@@ -70,6 +73,8 @@
   top: 0;
   right: 0;
   background-color: #F5F5F5;
+  margin-left: 20%;
+  position: fixed;
 }
 
 .body .head .wrap-bagianAtas {
@@ -82,6 +87,8 @@
           flex-direction: row;
   width: 100%;
   background-color: white;
+  height: 10%;
+  position: relative;
 }
 
 .body .head .wrap-bagianAtas .bagianAtas {
@@ -95,7 +102,10 @@
       -ms-grid-row-align: center;
       align-self: center;
   height: 8vh;
-  font-size: 12px;
+  font-size: 1em;
+  margin-left: auto;
+  padding-left: 3%;
+  position: relative;
 }
 
 .body .head .wrap-bagianAtas .cari {
@@ -103,32 +113,36 @@
   height: 8vh;
   width: 50%;
   background-color: white;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 80px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
   float: right;
+  position: relative;
 }
 
 .body .head .wrap-bagianAtas .cari .inputcari {
-  width: 100%;
-  height: 50px;
-  padding: 10px 10px;
+  width: 40%;
+  height: 3em;
+  padding: 10px 40px;
   margin: 8px 15px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 10px;
+  border: 0.2em solid #F5F5F5;
   float: right;
+  font-size: 1em;
+  margin-right: 10%;
+  background-color: #F5F5F5;
 }
 
 .body .head .wrap-table {
   padding-top: 5px;
-  height: 80%;
-  width: 95%;
+  height: 100%;
+  width: 100%;
   background-color: #fff;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 25px;
   margin-top: 10px;
 }
 
