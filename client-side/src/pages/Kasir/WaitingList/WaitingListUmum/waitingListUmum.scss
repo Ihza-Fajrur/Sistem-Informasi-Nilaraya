@@ -39,6 +39,8 @@
             padding-left: -40px;
             list-style: none;
             text-decoration: none;
+            margin-top: 10px;
+            padding-top: 10px;
         }
 
         ul li:hover a {
@@ -52,15 +54,8 @@
             height: 70px;
         }
 
-        .iconSidebar {
-            margin-right: 16px;
-            align-items: center;
-            font-size: 25px;
-        ;
-        }
-
         img{
-            padding-top: 10px;
+            padding-top: 1px;
             // padding-right: 5px;
         }
         p{
