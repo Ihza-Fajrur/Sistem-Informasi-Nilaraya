@@ -48,7 +48,7 @@ def login():
                 if not admin:
                     cursor.execute('SELECT username, password FROM dokter WHERE username = %s AND password = %s', (username, password,))
                     dokter = cursor.fetchone()
-                elif not admin and not dokter:
+                if not admin and not dokter:
                     cursor.execute('SELECT username, password FROM kasir WHERE username = %s AND password = %s', (username, password,))
                     kasir = cursor.fetchone()
             
