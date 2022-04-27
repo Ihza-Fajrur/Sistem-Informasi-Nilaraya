@@ -87,13 +87,13 @@
           flex-direction: row;
   width: 100%;
   background-color: white;
-  height: 10%;
+  height: 15%;
   position: relative;
 }
 
 .body .head .wrap-bagianAtas .bagianAtas {
   color: #02414D;
-  width: 50%;
+  width: 60%;
   margin-left: 30px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -111,13 +111,12 @@
 .body .head .wrap-bagianAtas .cari {
   color: black;
   height: 8vh;
-  width: 50%;
+  width: 40%;
   background-color: white;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
   float: right;
-  position: relative;
 }
 
 .body .head .wrap-bagianAtas .cari .inputcari {
@@ -133,6 +132,7 @@
   font-size: 1em;
   margin-right: 10%;
   background-color: #F5F5F5;
+  position: 'fixed';
 }
 
 .body .head .wrap-table {
