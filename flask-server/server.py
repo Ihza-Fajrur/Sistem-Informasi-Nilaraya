@@ -31,32 +31,50 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'nilaraya'
 mysql = MySQL(app)
-# cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 
-@app.route('/login', methods=['POST'])
+@app.route('/', methods=['POST', 'GET'])
+def function():
+    if not 'loggedin' in session:
+        return redirect('/login')
+    return redirect(url_for('dashboard'))
+
+@app.route('/login', methods=['GET','POST'])
 def login():
-    username = request.json['username']
-    password = request.json['password']
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute('SELECT username, password FROM accounts WHERE username = %s AND password = %s', (username, password,))
-    account = cursor.fetchone()
-    if account:
-        # Create session data, we can access this data in other routes
-        session['loggedin'] = True
-        session['username'] = account['username']
-        session['acc_type'] = account['acc_type']
-        # POST request
-        return credential_schema.jsonify(username,password)
+    if not 'loggedin' in session:
+        msg = ''
+        if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+            # Username and password encrytion
+            with bytes(request.form['username'], encoding='utf-8') as username:
+                username = f.encrypt(username)
+            with bytes(request.form['password'], encoding='utf-8') as password:
+                password = f.encrypt(password)
+                
+            # Username and password validation
+            with mysql.connection.cursor(MySQLdb.cursors.DictCursor) as cursor:
+                cursor.execute('SELECT username, password FROM accounts WHERE username = %s AND password = %s', (username, password,))
+            account = cursor.fetchone()
+            
+            # If account is valid
+            if account:
+                # Create session data
+                session['loggedin'] = True
+                session['username'] = account['username']
+                session['acc_type'] = account['acc_type']
+                
+            # Redirect to dashboard if account is valid
+            return redirect(url_for('dashboard'))
+        # return render_template('HalamanLogin.html', msg=msg)
+    return redirect(url_for('dashboard'))
+    
 
 @app.route('/logout')
 def logout():
     session.clear()
-    flash('Anda berhasil logout', 'success')
     return redirect(url_for('login'))
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
-    pass
+    return "<h1>In Developement<h1>"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
