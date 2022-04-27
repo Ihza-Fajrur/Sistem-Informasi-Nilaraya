@@ -31,19 +31,13 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'nilaraya'
 mysql = MySQL(app)
-cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+# cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 
 @app.route('/login', methods=['POST'])
 def login():
     username = request.json['username']
     password = request.json['password']
-    
-    # credential = Credential(
-    #     username=username,
-    #     password=password
-    # )
-    # print(f'{username} {password}')
-    
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT username, password FROM accounts WHERE username = %s AND password = %s', (username, password,))
     account = cursor.fetchone()
     if account:
