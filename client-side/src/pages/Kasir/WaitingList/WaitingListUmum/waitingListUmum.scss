@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
         .sidebar {
-        // position: fixed;
+        position: fixed;
         left: 0;
         top: 0;
         width: 340px;
@@ -139,5 +139,9 @@
                     }
                 }
             }
+            
+            
+            
         }
+
     }
