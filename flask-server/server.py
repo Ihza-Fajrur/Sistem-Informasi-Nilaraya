@@ -45,34 +45,43 @@ def login():
             with mysql.connection.cursor(MySQLdb.cursors.DictCursor) as cursor:
                 cursor.execute('SELECT username, password FROM admin WHERE username = %s AND password = %s', (username, password,))
                 admin = cursor.fetchone()
-                cursor.execute('SELECT username, password FROM dokter WHERE username = %s AND password = %s', (username, password,))
-                dokter = cursor.fetchone()
-                cursor.execute('SELECT username, password FROM kasir WHERE username = %s AND password = %s', (username, password,))
-                kasir = cursor.fetchone()
+                if not admin:
+                    cursor.execute('SELECT username, password FROM dokter WHERE username = %s AND password = %s', (username, password,))
+                    dokter = cursor.fetchone()
+                elif not admin and not dokter:
+                    cursor.execute('SELECT username, password FROM kasir WHERE username = %s AND password = %s', (username, password,))
+                    kasir = cursor.fetchone()
             
             # If admin account is valid
             if admin:
                 # Create session data
                 session['loggedin'] = True
-                session['username'] = admin['nama']
+                session['name'] = admin['nama']
                 session['acc_type'] = 'admin'
+                # Redirect to dashboard if account is valid
+                return redirect(url_for('dashboard'))
             
             # If dokter account is valid
-            if dokter:
+            elif dokter:
                 # Create session data
                 session['loggedin'] = True
-                session['username'] = dokter['nama']
+                session['name'] = dokter['nama']
                 session['acc_type'] = 'dokter'
+                # Redirect to dashboard if account is valid
+                return redirect(url_for('dashboard'))
                 
             # If kasir account is valid
-            if kasir:
+            elif kasir:
                 # Create session data
                 session['loggedin'] = True
-                session['username'] = kasir['nama']
+                session['name'] = kasir['nama']
                 session['acc_type'] = 'kasir'      
+                # Redirect to dashboard if account is valid
+                return redirect(url_for('dashboard'))
                 
-            # Redirect to dashboard if account is valid
-            return redirect(url_for('dashboard'))
+            elif not admin and not dokter and not kasir:
+                msg = 'Invalid username or password!'
+                
         # return render_template('HalamanLogin.html', msg=msg)
     return redirect(url_for('dashboard'))
     
