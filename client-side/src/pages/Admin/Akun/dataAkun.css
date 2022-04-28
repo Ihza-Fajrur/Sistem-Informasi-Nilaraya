@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 .body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto',sans-serif;
   margin: 0;
   padding: 0;
+  list-style: none;
+  text-decoration: none;
 }
 
 .body .sidebar {
@@ -15,7 +16,7 @@
 }
 
 .body .sidebar .header {
-  font-size: 3rem;
+  font-size: 40px;
   color: white;
   text-align: center;
   line-height: 100px;
@@ -25,7 +26,6 @@
       -ms-user-select: none;
           user-select: none;
   font-weight: bold;
-  font-family: "Montserrat", sans-serif;
 }
 
 .body .sidebar ul li {
@@ -34,7 +34,7 @@
 
 .body .sidebar ul a {
   display: block;
-  height: 70px;
+  height: 100%;
   width: 100%;
   line-height: 65px;
   font-size: 22px;
@@ -44,7 +44,6 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  padding-left: -40px;
   list-style: none;
   text-decoration: none;
 }
@@ -57,7 +56,6 @@
   font-weight: bold;
   background-color: #F5F5F5;
   color: #02414D;
-  height: 70px;
 }
 
 .body .sidebar .iconSidebar {
@@ -68,30 +66,12 @@
   font-size: 25px;
 }
 
-.body .sidebar img {
-  padding-top: 10px;
-}
-
-.body .sidebar p {
-  margin-top: -80px;
-  padding-left: 60px;
-}
-
 .body .head {
-  scroll-behavior: smooth;
-  -ms-scroll-snap-type: y mandatory;
-      scroll-snap-type: y mandatory;
   width: calc(100% - 340px);
   height: 100%;
   top: 0;
   right: 0;
   background-color: #F5F5F5;
-  margin-left: 20%;
-  position: absolute;
-}
-
-.body .head::-webkit-scrollbar {
-  display: none;
 }
 
 .body .head .wrap-bagianAtas {
@@ -104,61 +84,57 @@
           flex-direction: row;
   width: 100%;
   background-color: white;
-  height: 15%;
 }
 
 .body .head .wrap-bagianAtas .bagianAtas {
   color: #02414D;
-  width: 60%;
+  width: 50%;
   margin-left: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   height: 8vh;
-  font-size: 1em;
-  padding-left: 3%;
+  font-size: 12px;
+}
+
+.body .head .wrap-bagianAtas .cari {
+  color: black;
+  height: 8vh;
+  width: 50%;
+  background-color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 80px;
+  float: right;
+}
+
+.body .head .wrap-bagianAtas .cari .inputcari {
+  width: 100%;
+  height: 50px;
+  padding: 10px 10px;
+  margin: 8px 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 10px;
+  float: right;
 }
 
 .body .head .wrap-table {
   padding-top: 5px;
-  height: 100%;
-  height: 100%;
-  width: 100%;
+  height: 80%;
+  width: 95%;
   background-color: #fff;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-left: 25px;
   margin-top: 10px;
 }
 
-.body .head .wrap-table .wrap-input {
-  display: -ms-grid;
-  display: grid;
-  width: 100%;
-  padding-top: 20px;
-}
-
-.body .head .wrap-table .wrap-input .label-input {
-  font-size: 14px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: #02414D;
-}
-
-.body .head .wrap-table .wrap-input .input-field {
-  background-color: #F5F5F5;
-  height: 40px;
-  border-radius: 10px;
-  border: none;
-  color: #02414D;
-  width: 90%;
-  margin-left: 20px;
-  margin-right: 20px;
-  padding-left: 10px;
-}
-
-.body .head .wrap-table .btn-tambah {
+.body .head .wrap-table .btn_tambah {
   background-color: #02414D;
   color: white;
   border: none;
@@ -166,9 +142,8 @@
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 10px;
   border-radius: 5px;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 15px;
-  margin-bottom: 20px;
 }
 
 .body .head .wrap-table .table {
@@ -204,10 +179,40 @@
   background-color: #f5f5f5;
 }
 
-.body .head .wrap-table .table table th,
-.body .head .wrap-table .table table td {
+.body .head .wrap-table .table table th, .body .head .wrap-table .table table td {
   padding: 8px;
   font-size: 12px;
   color: #02414D;
+}
+
+.body .head .wrap-table .table table .aksi {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.body .head .wrap-table .table table .aksi .btn_ubah {
+  background-color: #4EBFFF;
+  color: white;
+  border: none;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 8px;
+}
+
+.body .head .wrap-table .table table .aksi .btn_hapus {
+  background-color: red;
+  color: white;
+  border: none;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 8px;
 }
 /*# sourceMappingURL=dataAkun.css.map */

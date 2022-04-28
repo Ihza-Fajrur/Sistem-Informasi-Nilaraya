@@ -275,103 +275,119 @@
         }
     }
 
-        .head{
-            scroll-behavior: smooth;
-            scroll-snap-type: y mandatory;
-            
-            // scrollbar-width: none; //for firefox
-            &::-webkit-scrollbar {
-                //chrome, safari, ms edge
-                display: none;
+    .head {
+        scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
+
+        // scrollbar-width: none; //for firefox
+        &::-webkit-scrollbar {
+            //chrome, safari, ms edge
+            display: none;
+        }
+
+        width: calc(100% - 340px);
+        height: 100%;
+        top: 0;
+        right: 0;
+        background-color: #F5F5F5;
+        margin-left: 20%;
+        position: absolute;
+
+        .wrap-bagianAtas {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            background-color: white;
+            height: 15%;
+
+            .bagianAtas {
+                color: #02414D;
+                width: 60%;
+                margin-left: 30px;
+                align-self: center;
+                height: 8vh;
+                font-size: 1em;
+                padding-left: 3%;
             }
-            width: calc(100% - 340px);
+        }
+
+        .wrap-table {
+            padding-top: 5px;
             height: 100%;
-            top: 0;
-            right: 0;
-            background-color: #F5F5F5;
-            margin-left: 20%;
-            position: absolute;
-            .wrap-bagianAtas {
-                display: flex;
-                flex-direction: row;
+            height: 100%;
+            width: 100%;
+            background-color: #fff;
+            align-items: center;
+            margin-top: 10px;
+
+            .wrap-input {
+                display: grid;
                 width: 100%;
-                background-color: white;
-                height: 15%;
-                .bagianAtas {
-                    color: #02414D;
-                    width: 60%;
+                padding-top: 20px;
+
+                .label-input {
+                    font-size: 14px;
                     margin-left: 20px;
-                    align-self: center;
-                    height: 8vh;
-                    font-size: 1em;
+                    margin-bottom: 10px;
+                    font-weight: bold;
+                    color: #02414D;
+                }
+
+                .input-field {
+                    background-color: #F5F5F5;
+                    height: 40px;
+                    border-radius: 10px;
+                    border: none;
+                    color: #02414D;
+                    width: 90%;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    padding-left: 10px;
+                    // margin-bottom: 20px
                 }
             }
-            .wrap-table {
-                padding-top: 5px;
-                height: 100%;
-                height: 100%;
-                width: 100%;
-                background-color: #fff;
-                align-items: center;
-                margin-top: 10px;
-                .wrap-input {
-                    display:grid;
+
+            .btn-tambah {
+                background-color: #02414D;
+                color: white;
+                border: none;
+                box-shadow: 0 4px 8px 0 rgba(0.2, 0.2, 0.2, 0.2);
+                padding: 10px;
+                border-radius: 5px;
+                margin-top: 20px;
+                margin-left: 15px;
+                margin-bottom: 20px;
+            }
+
+            .table {
+                margin-left: 15px;
+                margin-right: 15px;
+                margin-top: 15px;
+
+                table {
+                    border-collapse: collapse;
+                    border: 1px solid #EBEBEB;
+                    text-align: center;
+                    vertical-align: middle;
                     width: 100%;
 
                     thead {
                         background-color: #f5f5f5;
                         color: #02414D;
-                        width: 90%;
-                        margin-left: 20px;
-                        margin-right: 20px;
-                        padding-left: 10px;
-                        // margin-bottom: 20px
+                        font-size: 15px;
+                        letter-spacing: 2%;
                     }
-                }
-                .btn-tambah{
-                    background-color: #02414D;
-                    color: white;
-                    border: none;
-                    box-shadow: 0 4px 8px 0 rgba(0.2,0.2,0.2,0.2);
-                    padding: 10px;
-                    border-radius: 5px;
-                    margin-top: 20px;
-                    margin-left: 15px;
-                    margin-bottom: 20px;
-                }
-                .table {
-                    margin-left: 15px;
-                    margin-right: 15px;
-                    margin-top: 15px;
 
-                    table {
-                        border-collapse: collapse;
-                        border: 1px solid #EBEBEB;
-                        text-align: center;
-                        vertical-align: middle;
-                        width: 100%;
-                        thead {
-                            background-color: #f5f5f5 ;
-                            color: #02414D;
-                            font-size: 15px;
-                            letter-spacing: 2%;
-                        }
-                        thead th {
-                            width: 25%;
-                        }
-                        tbody tr:nth-child(odd) {
-                            background-color: #fff;
-                        }
-                        tbody tr:nth-child(even) {
-                            background-color: #f5f5f5;
-                        }
-                        th,td { 
-                            // border: 1px solid black;
-                            padding: 8px;
-                            font-size: 12px;
-                            color: #02414D;
-                        }
-                        
+                    thead th {
+                        width: 25%;
+                    }
+
+                    tbody tr:nth-child(odd) {
+                        background-color: #fff;
+                    }
+
+                    tbody tr:nth-child(even) {
+                        background-color: #f5f5f5;
                     }
 
                     th,
@@ -386,3 +402,4 @@
             }
         }
     }
+}
