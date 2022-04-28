@@ -70,30 +70,6 @@
         }
     }
 
-    .head {
-        width: calc(100% - 340px);
-        height: 100%;
-        top: 0;
-        right: 0;
-        background-color: #F5F5F5;
-        margin-left: 20%;
-        position: fixed;
-
-        .wrap-bagianAtas {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            background-color: white;
-
-            .bagianAtas {
-                color: #02414D;
-            }
-            .iconSidebar {
-                margin-right: 16px;
-                align-items: center;
-                font-size: 25px;
-            }
-        }
         .head{
             width: calc(100% - 340px);
             height: 100%;
@@ -199,5 +175,5 @@
             
             
         }
-    }
+    
 }
