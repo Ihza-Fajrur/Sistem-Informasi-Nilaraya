@@ -76,12 +76,8 @@
   color: #02414D;
   margin-top: 15%;
   text-align: center;
-  align-content: center;
   font-weight: 900;
   font-family: "Montserrat", sans-serif;
-}
-.body .head .logoTxt {
-  margin-top: 0;
 }
 .body .head .wrap-card {
   padding-top: 5px;
