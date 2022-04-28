@@ -13,11 +13,10 @@
   background: #02414D;
 }
 .body .sidebar .header {
-  font-size: 3rem;
+  font-size: 48px;
   color: white;
   text-align: center;
   line-height: 100px;
-  background: #0F5A68;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -50,11 +49,6 @@
   background-color: #F5F5F5;
   color: #02414D;
   height: 70px;
-}
-.body .sidebar .iconSidebar {
-  margin-right: 16px;
-  align-items: center;
-  font-size: 25px;
 }
 .body .sidebar img {
   padding-top: 10px;
