@@ -105,7 +105,6 @@
         .wrap-table {
             padding-top: 5px;
             height: 100%;
-            height: 100%;
             width: 100%;
             background-color: #fff;
             align-items: center;
@@ -148,6 +147,9 @@
                 margin-top: 20px;
                 margin-left: 15px;
                 margin-bottom: 20px;
+            }
+            .btn-tambah:hover{
+                background: #011c22;;
             }
 
             .table {

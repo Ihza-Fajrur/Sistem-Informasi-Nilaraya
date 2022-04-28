@@ -90,7 +90,6 @@
 .body .head .wrap-table {
   padding-top: 5px;
   height: 100%;
-  height: 100%;
   width: 100%;
   background-color: #fff;
   align-items: center;
@@ -129,6 +128,9 @@
   margin-top: 20px;
   margin-left: 15px;
   margin-bottom: 20px;
+}
+.body .head .wrap-table .btn-tambah:hover {
+  background: #011c22;
 }
 .body .head .wrap-table .table {
   margin-left: 15px;
