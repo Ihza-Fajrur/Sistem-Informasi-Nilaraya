@@ -1,12 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 .body {
-  font-family: 'Roboto',sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  list-style: none;
-  text-decoration: none;
 }
 
 .body .sidebar {
+  position: fixed;
   left: 0;
   top: 0;
   width: 340px;
@@ -15,8 +15,9 @@
 }
 
 .body .sidebar .header {
-  font-size: 40px;
+  font-size: 3rem;
   color: white;
+  text-align: center;
   line-height: 100px;
   background: #0F5A68;
   -webkit-user-select: none;
@@ -24,6 +25,7 @@
       -ms-user-select: none;
           user-select: none;
   font-weight: bold;
+  font-family: "Montserrat", sans-serif;
 }
 
 .body .sidebar ul li {
@@ -32,7 +34,7 @@
 
 .body .sidebar ul a {
   display: block;
-  height: 100%;
+  height: 70px;
   width: 100%;
   line-height: 65px;
   font-size: 22px;
@@ -40,20 +42,22 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  padding-left: -40px;
   list-style: none;
-  -webkit-transition: .4s;
-  transition: .4s;
   text-decoration: none;
 }
 
 .body .sidebar ul li:hover a {
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 .body .sidebar .active {
   font-weight: bold;
   background-color: #F5F5F5;
   color: #02414D;
+  height: 70px;
 }
 
 .body .sidebar .iconSidebar {
@@ -64,33 +68,23 @@
   font-size: 25px;
 }
 
+.body .sidebar img {
+  padding-top: 10px;
+}
+
+.body .sidebar p {
+  margin-top: -80px;
+  padding-left: 60px;
+}
+
 .body .head {
+  width: calc(100% - 340px);
   height: 100%;
-  width: 100%;
   top: 0;
   right: 0;
-  position: fixed;
-  background-color: white;
-}
-
-.body .head .wrap-bagianAtas {
-  width: 100%;
-  background-color: white;
-}
-
-.body .head .wrap-bagianAtas .cari {
-  color: black;
-  width: 100%;
-  float: right;
-}
-
-.body .head .wrap-bagianAtas .cari .inputcari {
-  width: 100%;
   background-color: #F5F5F5;
-  height: 50px;
-  border-radius: 30px;
-  border: none;
-  float: right;
+  margin-left: 20%;
+  position: fixed;
 }
 
 .body .head .wrap-card {
