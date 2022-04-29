@@ -95,6 +95,11 @@
   align-items: center;
   margin-top: 10px;
 }
+.body .head .wrap-table .flex-input {
+  display: flex;
+  align-items: stretch;
+  width: 95%;
+}
 .body .head .wrap-table .wrap-input {
   display: grid;
   width: 100%;
