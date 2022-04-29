@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./tambahObat.css">
+  <link rel="stylesheet" href="./form.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-  <title>Obat</title>
+  <title>Form Umum</title>
 </head>
-
 <body>
   <div class="body">
     <div class="sidebar">
       <header class="header">KliniX</header>
       <ul class="ul">
         <li>
-          <a href="">
-            <img src="https://img.icons8.com/windows/48/FFFFFF/home-page.png" />
+          <a href="" class="active">
+            <img src="https://img.icons8.com/windows/48/02414D/home-page.png" />
             <!-- <a target="_blank" href="https://icons8.com/icon/6g6b5Mh-1uJ7/home-page">Home Page icon by Icons8</a> -->
             <p>Beranda</p>
           </a>
@@ -51,9 +49,9 @@
           </a>
         </li>
         <li>
-          <a href="" class="active">
+          <a href="">
             <img
-              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/02414D/external-medicine-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-medicine-healthcare-tanah-basah-basic-outline-tanah-basah.png"
               class="iconImg" />
             <!-- <a target="_blank" href="https://icons8.com/icon/7N4bD4LTeOZF/medicine">medicine icon by Icons8</a> -->
             <p>Obat</p>
@@ -67,79 +65,90 @@
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="/">
             <img src="https://img.icons8.com/windows/48/FFFFFF/exit.png" class="iconImg" />
             <!-- <a target="_blank" href="https://icons8.com/icon/22112/logout">Logout icon by Icons8</a> -->
-            <p> Logout </p>
+            <p>Logout</p>
           </a>
         </li>
       </ul>
     </div>
-
+  
     <div class="head">
       <div class="wrap-bagianAtas">
         <div class="bagianAtas">
-          <h1>Form Penambahan Data Obat</h1>
+          <h1>Form Penambahan Rekam Medis</h1>
         </div>
       </div>
-
+  
       <div class="wrap-table">
         <form action="">
           <div class="wrap-input">
-            <label htmlFor="namaobat" class="label-input">
-              Nama Obat
+            <label htmlFor="namapasien" class="label-input">
+              Nama Pasien
             </label>
-            <input type="text" class="input-field" placeholder="Masukkan Nama Obat" name="namaobat" />
-          </div>
-          <div class="wrap-input">
-            <label htmlFor="kuantitas" class="label-input">
-              Kuantitas
-            </label>
-            <input type="text" class="input-field" placeholder="Masukkan Kuantitas" name="kuantitas" />
+            <input type="text" class="input-field" placeholder="Masukkan Nama Pasien" />
           </div>
           <div class="flex-input">
             <div class="wrap-input">
-              <label htmlFor="hargajual" class="label-input">
-                Harga Jual/Strip
+              <label htmlFor="norm" class="label-input">
+                No. Rekam Medis
               </label>
-              <input type="number" class="input-field" placeholder="Masukkan Harga Jual/Strip" name="hargajualstrip" />
+              <input type="text" class="input-field" placeholder="Masukkan No. Rekam Medis" />
             </div>
             <div class="wrap-input">
-              <label htmlFor="hargajualsatuan" class="label-input">
-                Harga Jual Satuan
+              <label htmlFor="nobpjs" class="label-input">
+                No. BPJS
               </label>
-              <input type="number" class="input-field" placeholder="Masukkan Harga Jual Satuan"
-                name="hargajualsatuan" />
+              <input type="text" class="input-field" placeholder="Masukkan No. BPJS" />
+            </div>
+          </div>
+          <div class="flex-input">
+            <div class="wrap-input">
+              <label htmlFor="kelamin" class="label-input">
+                Kelamin
+              </label>
+              <select name="jeniskelamin" id="jeniskelamin" class="input-field">
+                <option value="" disabled selected>
+                  Pilih Jenis Kelamin
+                </option>
+                <option value="laki-laki">Laki-laki</option>
+                <option value="perempuan">Perempuan</option>
+              </select>
+            </div>
+            <div class="wrap-input">
+              <label htmlFor="ttl" class="label-input">
+                Tempat Tanggal Lahir
+              </label>
+              <input type="text" class="input-field" placeholder="Masukkan Tempat Tanggal Lahir" />
+            </div>
+          </div>
+          <div class="flex-input">
+            <div class="wrap-input">
+              <label htmlFor="alamat" class="label-input">
+                Alamat
+              </label>
+              <input type="text" class="input-field" placeholder="Masukkan Alamat" />
+            </div>
+            <div class="wrap-input">
+              <label htmlFor="nohp" class="label-input">
+                No. HP
+              </label>
+              <input type="text" class="input-field" placeholder="Masukkan Nomor Handphone" />
             </div>
           </div>
           <div class="wrap-input">
-            <label htmlFor="hargabeli" class="label-input">
-              Harga Beli
+            <label htmlFor="riwayatpenyakit" class="label-input">
+              Riwayat Penyakit / Alergi
             </label>
-            <input type="number" class="input-field" placeholder="Masukkan Harga Beli" name="hargabeli" />
+            <input type="text" class="input-field" placeholder="Masukkan Alamat Riwayat Penyakit / Alergi" />
           </div>
-          <div class="wrap-input">
-            <label htmlFor="expdate" class="label-input">
-              Exp Date
-            </label>
-            <input type="date" class="input-field" placeholder="Masukkan Exp Date" name="expdate" />
-          </div>
-          <div class="wrap-input">
-            <label htmlFor="jenis" class="label-input">
-              Jenis Obat
-            </label>
-            <select name="jenis" id="jenis" class="input-field">
-              <option value="sirup">Sirup</option>
-              <option value="tablet">Tablet</option>
-              <option value="kapsul">Kapsul</option>
-              <option value="ampul">Ampul</option>
-            </select>
-          </div>
-            <input type="submit" value="Tambah Obat" class="btn-tambah" />
+            <input type="submit" class="btn-ubah" value="Tambah Data" />
         </form>
+        </div>
       </div>
     </div>
   </div>
 </body>
-
 </html>
+   
