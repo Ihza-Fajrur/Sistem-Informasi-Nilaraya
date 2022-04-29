@@ -1,9 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 .body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  list-style: none;
-  text-decoration: none;
 
   .sidebar {
     position: fixed;
@@ -14,13 +13,13 @@
     background: #02414D;
 
     .header {
-      font-size: 40px;
+      font-size: 48px;
       color: white;
       text-align: center;
       line-height: 100px;
-      background: #0F5A68;
       user-select: none;
       font-weight: bold;
+      font-family: "Montserrat", sans-serif;
     }
 
     ul li {
@@ -29,7 +28,7 @@
 
     ul a {
       display: block;
-      height: 100%;
+      height: 70px;
       width: 100%;
       line-height: 65px;
       font-size: 22px;
@@ -50,13 +49,19 @@
       font-weight: bold;
       background-color: #F5F5F5;
       color: #02414D;
+      height: 70px;
     }
 
-    .iconSidebar {
-      margin-right: 16px;
-      align-items: center;
-      font-size: 25px;
+    img {
+      padding-top: 10px;
+      // padding-right: 5px;
     }
+
+    p {
+        margin-top: -80px;
+        padding-left: 60px;
+
+  }
   }
 
   .head {
@@ -65,6 +70,8 @@
     top: 0;
     right: 0;
     background-color: #F5F5F5;
+    margin-left: 20%;
+        position: fixed;
 
       h1{
         font-size: 40px;
@@ -102,11 +109,14 @@
         padding: 10px;
         border-radius: 5px;
         margin-top: 10px;
-        margin-left: 15px;
+        // margin-left: 15px;
         margin-bottom: 30px;
       }
+      .btn_tambah:hover {
+        background: #011c22;
+      }
         .table {
-          margin-left: 15px;
+          // margin-left: 15px;
           margin-top: 15px;
         
           table {
@@ -114,8 +124,7 @@
             border: 1px solid #EBEBEB;
             text-align: center;
             vertical-align: middle;
-            width: 200%;
-        
+            width: 190%;
             thead {
               background-color: #f5f5f5;
               color: #02414D;
