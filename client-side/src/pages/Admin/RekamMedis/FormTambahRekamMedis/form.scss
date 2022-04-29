@@ -136,6 +136,13 @@
         align-items: stretch;
         width: 95%;
       }
+      img{
+        width: 50%;
+        height: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
       .wrap-input {
         display: grid;
         width: 100%;
@@ -161,6 +168,22 @@
           padding-left: 10px;
           // margin-bottom: 20px
         }
+        .checkbox{
+          display:flex;
+          margin-left: auto;
+          margin-right: auto;
+          flex-wrap: wrap;
+        }
+
+        .container{
+          display: block;
+          position: relative;
+          padding-left: 20px;
+          margin-bottom: 15px;
+          cursor: pointer;
+          // font-size: 22px;
+          user-select: none;
+        }
 
       }
 
@@ -180,7 +203,7 @@
         background: #011c22;
         ;
       }
-
+      
       .table {
         margin-left: 15px;
         margin-right: 15px;
