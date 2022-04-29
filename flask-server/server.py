@@ -12,12 +12,13 @@ from flask_restful import Resource, Api
 f = Fernet(key())
 
 #inisialisasi
-template_dir = '../client-side/src/pages/Login'
-app = Flask(__name__, template_folder=template_dir, static_folder='../client-side/src/pages/Login')
+template_dir = '../client-side'
+static_dir = '../client-side'
+app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.secret_key = '069420'
 
 #Koneksi, inisialisasi DB
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = '192.168.1.29'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'nilaraya'
@@ -85,7 +86,7 @@ def login():
             elif not admin and not dokter and not kasir:
                 msg = 'Invalid username or password!'
                 
-        return render_template('Login.html', msg=msg)
+        return render_template('./templates/Login.html', msg=msg)
     return redirect(url_for('dashboard'))
     
 @app.route('/logout')

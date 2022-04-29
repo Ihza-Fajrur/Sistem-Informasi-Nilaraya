@@ -1,5 +1,5 @@
 .container {
-  background-image: url(/client-side/public/Background.png);
+  background-image: url(/client-side/static/Background.png);
   font-family: "Roboto", sans-serif;
   background-size: cover;
   height: 100%;
