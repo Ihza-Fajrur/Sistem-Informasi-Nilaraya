@@ -12,11 +12,13 @@ from flask_restful import Resource, Api
 f = Fernet(key())
 
 #inisialisasi
-app = Flask(__name__)
+template_dir = '../client-side'
+static_dir = '../client-side'
+app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.secret_key = '069420'
 
 #Koneksi, inisialisasi DB
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = '192.168.1.29'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'nilaraya'
@@ -34,12 +36,14 @@ def login():
         msg = ''
         if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
             # Username and password encrytion
-            with bytes(request.form['username'], encoding='utf-8') as username:
-                username = f.encrypt(username)
-                username = username.decode('utf-8')
-            with bytes(request.form['password'], encoding='utf-8') as password:
-                password = f.encrypt(password)
-                password = password.decode("utf-8") 
+            username = request.form['username'].encode('utf-8')
+            username = f.encrypt(username)
+            print(username)
+            username = username.decode('utf-8')
+            
+            password = request.form['password'].encode('utf-8')
+            password = f.encrypt(password)
+            password = password.decode("utf-8") 
                 
             # Username and password validation
             with mysql.connection.cursor(MySQLdb.cursors.DictCursor) as cursor:
@@ -82,7 +86,7 @@ def login():
             elif not admin and not dokter and not kasir:
                 msg = 'Invalid username or password!'
                 
-        # return render_template('HalamanLogin.html', msg=msg)
+        return render_template('./templates/Login.html', msg=msg)
     return redirect(url_for('dashboard'))
     
 @app.route('/logout')
