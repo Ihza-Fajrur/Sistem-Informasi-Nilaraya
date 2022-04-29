@@ -100,6 +100,12 @@
                 // margin-left: 25px;
                 margin-top: 10px;
                 
+                .flex-input{
+                    display: flex;
+                    align-items: stretch;
+                    width:95%;
+                }
+
                 .wrap-input {
                     display:grid;
                     width: 100%;
