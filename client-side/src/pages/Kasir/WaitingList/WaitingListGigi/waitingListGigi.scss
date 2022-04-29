@@ -179,37 +179,21 @@
                         color: #02414D;
                     }
 
-                    .btn-tagih {
-                        a{
+                    button {
+                        a {
                             text-decoration: none;
                             color: #EBEBEB;
                         }
+
                         background-color: #4EBFFF;
                         color: white;
                         border: none;
-                        box-shadow: 0 4px 8px 0 rgba(0.2,0.2,0.2,0.2);
-                        padding: 8px;
-                        margin: 5px;
+                        box-shadow: 0 4px 8px 0 rgba(0.2, 0.2, 0.2, 0.2);
+                        padding: 10px;
                     }
-                    .btn-tagih:hover{
+
+                    button:hover{
                         background: #47ade8;
-                    }
-
-                    .btn-hapus{
-                        a{
-                            text-decoration: none;
-                            color: #EBEBEB;
-                        }
-                        background-color: red;
-                        color: white;
-                        border: none;
-                        box-shadow: 0 4px 8px 0 rgba(0.2,0.2,0.2,0.2);
-                        padding: 8px;
-                        margin: 5px;
-                    }
-
-                    .btn-hapus:hover{
-                        background: rgb(190, 2, 2);
                     }
                 }
             }
