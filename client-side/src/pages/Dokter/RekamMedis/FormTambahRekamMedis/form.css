@@ -150,12 +150,6 @@
   margin-right: 20px;
   padding-left: 10px;
 }
-.body .head .wrap-table .wrap-input .checkbox {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  flex-wrap: wrap;
-}
 .body .head .wrap-table .wrap-input .container {
   display: block;
   position: relative;

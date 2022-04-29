@@ -89,26 +89,46 @@
               <input type="text" class="input-field" placeholder="Masukkan Tempat Tanggal Lahir" name="ttl"/>
             </div>
           </div>
-          <div class="flex-input">
-            <div class="wrap-input">
-              <label htmlFor="alamat" class="label-input">
-                Alamat
-              </label>
-              <input type="text" class="input-field" placeholder="Masukkan Alamat" name="alamat"/>
-            </div>
-            <div class="wrap-input">
-              <label htmlFor="nohp" class="label-input">
-                No. HP
-              </label>
-              <input type="text" class="input-field" placeholder="Masukkan Nomor Handphone" name="noHP"/>
-            </div>
+          <div class="wrap-input">
+            <label htmlFor="alamat" class="label-input">
+              Alamat
+            </label>
+            <input type="text" class="input-field" placeholder="Masukkan Alamat" name="alamat"/>
           </div>
+            
           <div class="wrap-input">
             <label htmlFor="riwayatpenyakit" class="label-input">
               Riwayat Penyakit / Alergi
             </label>
             <input type="text" class="input-field" placeholder="Masukkan Alamat Riwayat Penyakit / Alergi" name="riwayatPenyakit" />
           </div>
+
+          <div class="wrap-input">
+            <label htmlFor="diagnosis" class="label-input">
+              Diagnosis
+            </label>
+            <textarea type="text" class="input-field" name="diagnosis" placeholder="Masukkan Diagnosis"></textarea>
+          </div>
+
+          <div class="wrap-input">
+            <label htmlFor="tindakan" class="label-input">
+              Tindakan
+            </label>
+            <select name="tindakan" id="tindakan" class="input-field" >
+              <option value="" disabled selected hidden>
+                Pilih Tindakan
+              </option>
+              <option value=""></option>
+            </select>
+          </div>
+
+          <div class="wrap-input">
+            <label htmlFor="keterangan" class="label-input">
+              Keterangan
+            </label>
+            <textarea type="text" class="input-field" name="keterangan" placeholder="Masukkan Keterangan"></textarea>
+          </div>
+
             <input type="submit" class="btn-ubah" value="Tambah Data" name="buttonTambahData"/>
         </form>
         </div>
