@@ -145,7 +145,7 @@
   letter-spacing: 2%;
 }
 .body .head .wrap-table .table table thead th {
-  width: 25%;
+  width: 20%;
 }
 .body .head .wrap-table .table table tbody tr:nth-child(odd) {
   background-color: #fff;
@@ -158,17 +158,33 @@
   font-size: 12px;
   color: #02414D;
 }
-.body .head .wrap-table .table table button {
+.body .head .wrap-table .table table .btn-tagih {
   background-color: #4EBFFF;
   color: white;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 10px;
+  padding: 8px;
+  margin: 5px;
 }
-.body .head .wrap-table .table table button a {
+.body .head .wrap-table .table table .btn-tagih a {
   text-decoration: none;
   color: #EBEBEB;
 }
-.body .head .wrap-table .table table button:hover {
+.body .head .wrap-table .table table .btn-tagih:hover {
   background: #47ade8;
+}
+.body .head .wrap-table .table table .btn-hapus {
+  background-color: red;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  margin: 5px;
+}
+.body .head .wrap-table .table table .btn-hapus a {
+  text-decoration: none;
+  color: #EBEBEB;
+}
+.body .head .wrap-table .table table .btn-hapus:hover {
+  background: rgb(190, 2, 2);
 }/*# sourceMappingURL=waitingListUmum.css.map */
