@@ -15,20 +15,13 @@
     <div class="sidebar">
       <header class="header">KliniX</header>
       <ul class="ul">
-        <li>
-          <a href="" >
-            <img src="https://img.icons8.com/windows/48/FFFFFF/home-page.png" />
-            <!-- <a target="_blank" href="https://icons8.com/icon/6g6b5Mh-1uJ7/home-page">Home Page icon by Icons8</a> -->
-
-            <p>Beranda</p>
-          </a>
-        </li>
+        
         <li>
           <a href="" class="active">
             <img
               src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/02414D/external-medical-report-healthcare-tanah-basah-basic-outline-tanah-basah.png"
                />
-            <p>Rekam Medis</p>
+            <p>Layanan</p>
           </a>
         </li>
         <li>
@@ -52,23 +45,23 @@
 
         <form action="">
           <div class="wrap-input">
-            <label htmlFor="namapasien" class="label-input" >
+            <label htmlFor="namapasien" class="label-input">
               Nama Pasien
             </label>
             <input type="text" class="input-field" placeholder="Masukkan Nama Pasien" name="namaPasien" />
           </div>
           <div class="flex-input">
             <div class="wrap-input">
-              <label htmlFor="norm" class="label-input" >
+              <label htmlFor="norm" class="label-input">
                 No. Rekam Medis
               </label>
-              <input type="text" class="input-field" placeholder="Masukkan No. Rekam Medis" name="noRekamMedis"/>
+              <input type="text" class="input-field" placeholder="Masukkan No. Rekam Medis" name="noRekamMedis" />
             </div>
             <div class="wrap-input">
               <label htmlFor="nobpjs" class="label-input">
                 No. BPJS
               </label>
-              <input type="text" class="input-field" placeholder="Masukkan No. BPJS" name="noBPJS"/>
+              <input type="text" class="input-field" placeholder="Masukkan No. BPJS" name="noBPJS" />
             </div>
           </div>
           <div class="flex-input">
@@ -77,7 +70,7 @@
                 Kelamin
               </label>
               <select name="jeniskelamin" id="jeniskelamin" class="input-field">
-                <option value="0" disabled selected>
+                <option value="" disabled selected>
                   Pilih Jenis Kelamin
                 </option>
                 <option value="laki-laki">Laki-laki</option>
@@ -91,25 +84,44 @@
               <input type="text" class="input-field" placeholder="Masukkan Tempat Tanggal Lahir" name="ttl"/>
             </div>
           </div>
-          <div class="flex-input">
-            <div class="wrap-input">
-              <label htmlFor="alamat" class="label-input">
-                Alamat
-              </label>
-              <input type="text" class="input-field" placeholder="Masukkan Alamat" name="alamat" />
-            </div>
-            <div class="wrap-input">
-              <label htmlFor="nohp" class="label-input">
-                No. HP
-              </label>
-              <input type="text" class="input-field" placeholder="Masukkan Nomor Handphone" name="noHP" />
-            </div>
+          <div class="wrap-input">
+            <label htmlFor="alamat" class="label-input">
+              Alamat
+            </label>
+            <input type="text" class="input-field" placeholder="Masukkan Alamat" name="alamat"/>
           </div>
+            
           <div class="wrap-input">
             <label htmlFor="riwayatpenyakit" class="label-input">
               Riwayat Penyakit / Alergi
             </label>
             <input type="text" class="input-field" placeholder="Masukkan Alamat Riwayat Penyakit / Alergi" name="riwayatPenyakit" />
+          </div>
+
+          <div class="wrap-input">
+            <label htmlFor="diagnosis" class="label-input">
+              Diagnosis
+            </label>
+            <textarea type="text" class="input-field" name="diagnosis" placeholder="Masukkan Diagnosis"></textarea>
+          </div>
+
+          <div class="wrap-input">
+            <label htmlFor="tindakan" class="label-input">
+              Tindakan
+            </label>
+            <select name="tindakan" id="tindakan" class="input-field" >
+              <option value="" disabled selected hidden>
+                Pilih Tindakan
+              </option>
+              <option value=""></option>
+            </select>
+          </div>
+
+          <div class="wrap-input">
+            <label htmlFor="keterangan" class="label-input">
+              Keterangan
+            </label>
+            <textarea type="text" class="input-field" name="keterangan" placeholder="Masukkan Keterangan"></textarea>
           </div>
             <input type="submit" class="btn-ubah" value="Tambah Data" name="buttonTambahData"/>
         </form>
