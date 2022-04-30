@@ -168,23 +168,25 @@
   justify-content: center;
 }
 .body .head .wrap-table .table table .aksi .btn_ubah {
-  background-color: #f18831;
+  background-color: #4287f5;
   color: white;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 8px;
+  padding: 5px;
   margin: 5px;
+  border-radius: 4px;
 }
 .body .head .wrap-table .table table .aksi .btn_ubah:hover {
-  background: #d5782b;
+  background: #3b77d8;
 }
 .body .head .wrap-table .table table .aksi .btn_hapus {
   background-color: #4287f5;
   color: white;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 8px;
+  padding: 5px;
   margin: 5px;
+  border-radius: 4px;
 }
 .body .head .wrap-table .table table .aksi .btn_hapus:hover {
   background: #3b77d8;
