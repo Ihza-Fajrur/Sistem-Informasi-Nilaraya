@@ -48,7 +48,7 @@
 
     .active {
       font-weight: bold;
-      background-color: #F5F5F5;
+      background-color: #ffffff;
       color: #02414D;
     }
 
@@ -168,11 +168,11 @@
           padding-left: 10px;
           // margin-bottom: 20px
         }
-        .checkbox{
-          display:flex;
-          margin-left: auto;
-          margin-right: auto;
-          flex-wrap: wrap;
+        textarea{
+          font-family: Arial;
+          ::placeholder{
+            font-family: "Roboto";
+          }
         }
 
         .container{
