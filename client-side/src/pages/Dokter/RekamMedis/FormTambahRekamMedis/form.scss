@@ -168,6 +168,12 @@
           padding-left: 10px;
           // margin-bottom: 20px
         }
+        textarea{
+          font-family: Arial;
+          ::placeholder{
+            font-family: "Roboto";
+          }
+        }
 
         .container{
           display: block;
