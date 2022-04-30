@@ -109,6 +109,10 @@
 .body .head .table table {
   width: 70%;
 }
+.body .head .table table #font {
+  font-weight: bold;
+  font-size: 1rem;
+}
 .body .head .table table thead th {
   width: 8%;
   text-align: left;

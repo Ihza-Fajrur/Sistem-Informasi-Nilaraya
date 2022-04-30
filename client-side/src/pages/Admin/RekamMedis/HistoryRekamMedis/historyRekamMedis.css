@@ -92,6 +92,11 @@
 .body .head .space p {
   color: "black";
 }
+.body .head .buttonrekammedis {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .body .head .btn_tambah {
   background-color: #02414D;
   color: white;
