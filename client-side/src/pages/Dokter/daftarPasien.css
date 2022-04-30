@@ -54,10 +54,11 @@
 
 .body .sidebar .active {
   font-weight: bold;
-  background-color: #F5F5F5;
+  background-color: #ffffff;
   color: #02414D;
   height: 70px;
 }
+<<<<<<< HEAD
 
 .body .sidebar .iconSidebar {
   margin-right: 16px;
@@ -67,6 +68,8 @@
   font-size: 25px;
 }
 
+=======
+>>>>>>> 8e35b3891cc086a2ffeb848312cec80653c3a4c3
 .body .sidebar img {
   padding-top: 10px;
 }
@@ -195,6 +198,7 @@
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 8px;
+  border-radius: 5px;
 }
 
 .body .head .wrap-table .table table .aksi .btn_rekammedis:hover {

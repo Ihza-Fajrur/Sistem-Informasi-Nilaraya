@@ -43,6 +43,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  padding-left: -40px;
   list-style: none;
   text-decoration: none;
 }
@@ -53,7 +54,7 @@
 
 .body .sidebar .active {
   font-weight: bold;
-  background-color: #F5F5F5;
+  background-color: #fff;
   color: #02414D;
   height: 70px;
 }
@@ -68,13 +69,19 @@
 }
 
 .body .head {
+  scroll-behavior: smooth;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
   width: calc(100% - 340px);
   height: 100%;
   top: 0;
   right: 0;
   background-color: #F5F5F5;
   margin-left: 20%;
-  position: fixed;
+  position: absolute;
+}
+.body .head::-webkit-scrollbar {
+  display: none;
 }
 
 .body .head .wrap-bagianAtas {
@@ -88,7 +95,6 @@
   width: 100%;
   background-color: white;
   height: 15%;
-  position: relative;
 }
 
 .body .head .wrap-bagianAtas .bagianAtas {
@@ -142,8 +148,40 @@
           align-items: center;
   margin-top: 10px;
 }
+<<<<<<< HEAD:client-side/src/pages/Admin/RekamMedis/dataRekamMedis.css
 
 .body .head .wrap-table .btn_tambah {
+=======
+.body .head .wrap-table .flex-input {
+  display: flex;
+  align-items: stretch;
+  width: 95%;
+}
+.body .head .wrap-table .wrap-input {
+  display: grid;
+  width: 100%;
+  padding-top: 20px;
+}
+.body .head .wrap-table .wrap-input .label-input {
+  font-size: 14px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #02414D;
+}
+.body .head .wrap-table .wrap-input .input-field {
+  background-color: #F5F5F5;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  color: #02414D;
+  width: 90%;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 10px;
+}
+.body .head .wrap-table .btn-tambah {
+>>>>>>> 8e35b3891cc086a2ffeb848312cec80653c3a4c3:client-side/src/pages/Admin/Pasien/UbahPasien/ubahPasien.css
   background-color: #02414D;
   color: white;
   border: none;
@@ -151,11 +189,16 @@
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 10px;
   border-radius: 5px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 15px;
+  margin-bottom: 20px;
 }
+<<<<<<< HEAD:client-side/src/pages/Admin/RekamMedis/dataRekamMedis.css
 
 .body .head .wrap-table .btn_tambah:hover {
+=======
+.body .head .wrap-table .btn-tambah:hover {
+>>>>>>> 8e35b3891cc086a2ffeb848312cec80653c3a4c3:client-side/src/pages/Admin/Pasien/UbahPasien/ubahPasien.css
   background: #011c22;
 }
 
@@ -181,7 +224,7 @@
 }
 
 .body .head .wrap-table .table table thead th {
-  width: 10%;
+  width: 25%;
 }
 
 .body .head .wrap-table .table table tbody tr:nth-child(odd) {
@@ -197,6 +240,7 @@
   padding: 8px;
   font-size: 12px;
   color: #02414D;
+<<<<<<< HEAD:client-side/src/pages/Admin/RekamMedis/dataRekamMedis.css
 }
 
 .body .head .wrap-table .table table .aksi {
@@ -240,3 +284,6 @@
   background: #be0202;
 }
 /*# sourceMappingURL=dataRekamMedis.css.map */
+=======
+}/*# sourceMappingURL=UbahPasien.css.map */
+>>>>>>> 8e35b3891cc086a2ffeb848312cec80653c3a4c3:client-side/src/pages/Admin/Pasien/UbahPasien/ubahPasien.css

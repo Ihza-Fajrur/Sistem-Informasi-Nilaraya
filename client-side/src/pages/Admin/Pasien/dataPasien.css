@@ -53,7 +53,7 @@
 
 .body .sidebar .active {
   font-weight: bold;
-  background-color: #F5F5F5;
+  background-color: #fff;
   color: #02414D;
   height: 70px;
 }
@@ -211,15 +211,35 @@
 
 .body .head .wrap-table .table table .aksi .btn_rekammedis {
   background-color: #f18831;
-  width: 100px;
   color: white;
   border: none;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .body .head .wrap-table .table table .aksi .btn_rekammedis:hover {
   background: #d5782b;
 }
-/*# sourceMappingURL=dataPasien.css.map */
+.body .head .wrap-table .table table .aksi .btn_ubah {
+  background-color: #4EBFFF;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 5px;
+}
+.body .head .wrap-table .table table .aksi .btn_ubah:hover {
+  background: #44a6df;
+}
+.body .head .wrap-table .table table .aksi .btn_hapus {
+  background-color: red;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 5px;
+}
+.body .head .wrap-table .table table .aksi .btn_hapus:hover {
+  background: rgb(190, 2, 2);
+}/*# sourceMappingURL=dataPasien.css.map */
