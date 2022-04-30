@@ -95,6 +95,18 @@
   align-items: center;
   margin-top: 10px;
 }
+.body .head .wrap-table .logo {
+  font-size: 1rem;
+  color: #989898;
+  margin-top: 5%;
+  text-align: center;
+  align-content: center;
+  font-weight: 100;
+  font-family: "Montserrat", sans-serif;
+}
+.body .head .wrap-table .logoTxt {
+  margin-top: 0;
+}
 .body .head .wrap-table .table {
   margin-left: 15px;
   margin-right: 15px;
