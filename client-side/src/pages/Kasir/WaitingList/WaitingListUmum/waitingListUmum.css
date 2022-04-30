@@ -46,7 +46,7 @@
 }
 .body .sidebar .active {
   font-weight: bold;
-  background-color: #F5F5F5;
+  background-color: #ffffff;
   color: #02414D;
   height: 70px;
 }
@@ -171,6 +171,7 @@
   color: #02414D;
 }
 .body .head .wrap-table .table table .btn-tagih {
+  border-radius: 5px;
   background-color: #4EBFFF;
   color: white;
   border: none;
@@ -186,6 +187,7 @@
   background: #47ade8;
 }
 .body .head .wrap-table .table table .btn-hapus {
+  border-radius: 5px;
   background-color: red;
   color: white;
   border: none;

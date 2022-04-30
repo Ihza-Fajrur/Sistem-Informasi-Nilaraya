@@ -46,14 +46,9 @@
 }
 .body .sidebar .active {
   font-weight: bold;
-  background-color: #F5F5F5;
+  background-color: #ffffff;
   color: #02414D;
   height: 70px;
-}
-.body .sidebar .iconSidebar {
-  margin-right: 16px;
-  align-items: center;
-  font-size: 25px;
 }
 .body .sidebar img {
   padding-top: 10px;

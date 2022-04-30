@@ -45,7 +45,7 @@
 }
 .body .sidebar .active {
   font-weight: bold;
-  background-color: #F5F5F5;
+  background-color: #fff;
   color: #02414D;
   height: 70px;
 }
@@ -172,6 +172,7 @@
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 5px;
+  border-radius: 5px;
 }
 .body .head .wrap-table .table table .aksi .btn_rekammedis:hover {
   background: #d5782b;
@@ -182,6 +183,7 @@
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 5px;
+  border-radius: 5px;
 }
 .body .head .wrap-table .table table .aksi .btn_ubah:hover {
   background: #44a6df;
@@ -192,6 +194,7 @@
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 5px;
+  border-radius: 5px;
 }
 .body .head .wrap-table .table table .aksi .btn_hapus:hover {
   background: rgb(190, 2, 2);

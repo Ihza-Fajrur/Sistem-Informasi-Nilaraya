@@ -49,16 +49,9 @@
 
         .active {
             font-weight: bold;
-            background-color: #F5F5F5;
+            background-color: #ffffff;
             color: #02414D;
             height: 70px;
-        }
-
-        .iconSidebar {
-            margin-right: 16px;
-            align-items: center;
-            font-size: 25px;
-            ;
         }
 
         img {
@@ -170,7 +163,9 @@
                             color: white;
                             border: none;
                             box-shadow: 0 4px 8px 0 rgba(0.2, 0.2, 0.2, 0.2);
-                            padding: 8px;}
+                            padding: 8px;
+                            border-radius: 5px;
+                        }
                         .btn_rekammedis:hover {
                             background: #d5782b;
                         }

@@ -50,7 +50,7 @@
 
         .active {
             font-weight: bold;
-            background-color: #F5F5F5;
+            background-color: #fff;
             color: #02414D;
             height: 70px;
         }
@@ -140,6 +140,7 @@
                 border-radius: 5px;
                 margin-top: 10px;
                 margin-left: 15px;
+                border-radius: 5px;
             }
 
             .btn_tambah:hover {
@@ -200,6 +201,7 @@
                             box-shadow: 0 4px 8px 0 rgba(0.2, 0.2, 0.2, 0.2);
                             padding: 8px;
                             margin: 5px;
+                            border-radius: 5px;
                         }
 
                         .btn_ubah:hover {
@@ -213,6 +215,7 @@
                             box-shadow: 0 4px 8px 0 rgba(0.2, 0.2, 0.2, 0.2);
                             padding: 8px;
                             margin: 5px;
+                            border-radius: 5px;
                         }
 
                         .btn_hapus:hover {

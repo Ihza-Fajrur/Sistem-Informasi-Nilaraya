@@ -48,18 +48,12 @@
 
         .active {
             font-weight: bold;
-            background-color: #F5F5F5;
+            background-color: #ffffff;
             color: #02414D;
             height: 70px;
         }
 
-        .iconSidebar {
-            margin-right: 16px;
-            align-items: center;
-            font-size: 25px;
-            ;
-        }
-
+        
         img {
             padding-top: 10px;
             // padding-right: 5px;
@@ -193,6 +187,7 @@
                     }
 
                     .btn-tagih {
+                        border-radius: 5px;
                         a{
                             text-decoration: none;
                             color: #EBEBEB;
@@ -209,6 +204,7 @@
                     }
 
                     .btn-hapus{
+                        border-radius: 5px;
                         a{
                             text-decoration: none;
                             color: #EBEBEB;
