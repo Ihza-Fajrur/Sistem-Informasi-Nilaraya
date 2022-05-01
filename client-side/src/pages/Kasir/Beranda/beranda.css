@@ -1,10 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 .body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
 }
-
 .body .sidebar {
   position: fixed;
   left: 0;
@@ -13,7 +12,6 @@
   height: 100%;
   background: #02414D;
 }
-
 .body .sidebar .header {
   font-size: 3rem;
   color: white;
@@ -26,11 +24,9 @@
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
 }
-
 .body .sidebar ul li {
   list-style-type: none;
 }
-
 .body .sidebar ul a {
   display: block;
   height: 70px;
@@ -38,20 +34,16 @@
   line-height: 65px;
   font-size: 22px;
   color: white;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  -webkit-transition: 0.4s;
   transition: 0.4s;
   padding-left: -40px;
   list-style: none;
   text-decoration: none;
 }
-
 .body .sidebar ul li:hover a {
   padding-left: 20px;
 }
-
 .body .sidebar .active {
   font-weight: bold;
   background-color: #ffffff;
@@ -61,12 +53,10 @@
 .body .sidebar img {
   padding-top: 10px;
 }
-
 .body .sidebar p {
   margin-top: -80px;
   padding-left: 60px;
 }
-
 .body .head {
   width: calc(100% - 340px);
   height: 100%;
@@ -76,19 +66,15 @@
   margin-left: 20%;
   position: fixed;
 }
-
 .body .head .Logo {
   font-size: 3rem;
   color: #02414D;
   margin-top: 15%;
   text-align: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   font-weight: 900;
   font-family: "Montserrat", sans-serif;
 }
-
 .body .head .logoTxt {
   margin-top: 0;
-}
-/*# sourceMappingURL=beranda.css.map */
+}/*# sourceMappingURL=beranda.css.map */

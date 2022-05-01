@@ -111,10 +111,12 @@
           background: #011c22;
       }
     }
+
     .table {
         // margin-left: 15px;
         margin-top: 15px;
-    
+        margin-bottom: 15px;
+        
         table {
 
             #font {
@@ -124,23 +126,25 @@
         // text-align: center;
         // vertical-align: middle;
         width: 70%;
-    
+        
+        
         thead th {
             width: 8%;
             text-align: left;
         }
     
-        // thead tr {
-        //     font-size: 20px;
-        // }
-   
-    
         th,
         td {
             text-align: left;
-            padding: 10px;
-            font-size: 12px;
+            padding: 5px;
+            font-size: 16px;
             color: #02414D;
+            
+            .total{
+              font-size: 30px !important;
+              font-weight: bold !important;
+            }
+            
         }
     
     }

@@ -1,10 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 .body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
 }
-
 .body .sidebar {
   position: fixed;
   left: 0;
@@ -13,7 +12,6 @@
   height: 100%;
   background: #02414D;
 }
-
 .body .sidebar .header {
   font-size: 48px;
   color: white;
@@ -26,11 +24,9 @@
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
 }
-
 .body .sidebar ul li {
   list-style-type: none;
 }
-
 .body .sidebar ul a {
   display: block;
   height: 70px;
@@ -38,35 +34,28 @@
   line-height: 65px;
   font-size: 22px;
   color: white;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  -webkit-transition: 0.4s;
   transition: 0.4s;
   list-style: none;
   text-decoration: none;
 }
-
 .body .sidebar ul li:hover a {
   padding-left: 20px;
 }
-
 .body .sidebar .active {
   font-weight: bold;
   background-color: #fff;
   color: #02414D;
   height: 70px;
 }
-
 .body .sidebar img {
   padding-top: 10px;
 }
-
 .body .sidebar p {
   margin-top: -80px;
   padding-left: 60px;
 }
-
 .body .head {
   width: calc(100% - 340px);
   height: 100%;
@@ -76,79 +65,67 @@
   margin-left: 20%;
   position: fixed;
 }
-
 .body .head h1 {
   font-size: 40px;
 }
-
 .body .head .bagianAtas {
   color: #02414D;
   width: 50%;
   margin-left: 30px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-items: center;
+  align-self: center;
   height: 100vh;
 }
-
 .body .head .line {
   height: 0.5%;
   width: 70%;
   background-color: #02414D;
 }
-
 .body .head h3 {
   margin-bottom: auto;
 }
-
 .body .head .center {
   margin-left: 60%;
 }
-
 .body .head .center .btn_tambah {
   margin-left: 0;
   background-color: #02414D;
   color: white;
   border: none;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   margin-top: 10px;
   padding: 4% 40%;
   margin-bottom: 30px;
   font-weight: bold;
 }
-
 .body .head .center .btn_tambah:hover {
   background: #011c22;
 }
-
 .body .head .table {
   margin-top: 15px;
+  margin-bottom: 15px;
 }
-
 .body .head .table table {
   width: 70%;
 }
-
 .body .head .table table #font {
   font-weight: bold;
   font-size: 1rem;
 }
-
 .body .head .table table thead th {
   width: 8%;
   text-align: left;
 }
-
 .body .head .table table th,
 .body .head .table table td {
   text-align: left;
-  padding: 10px;
-  font-size: 12px;
+  padding: 5px;
+  font-size: 16px;
   color: #02414D;
 }
-/*# sourceMappingURL=tagihan.css.map */
+.body .head .table table th .total,
+.body .head .table table td .total {
+  font-size: 30px !important;
+  font-weight: bold !important;
+}/*# sourceMappingURL=tagihan.css.map */
