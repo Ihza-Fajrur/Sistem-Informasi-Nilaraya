@@ -13,7 +13,7 @@ f = Fernet(key())
 
 #inisialisasi
 template_dir = '../client-side'
-static_dir = '../client-side'
+static_dir = '../client-side/static'
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.secret_key = '069420'
 
@@ -36,14 +36,16 @@ def login():
         msg = ''
         if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
             # Username and password encrytion
-            username = request.form['username'].encode('utf-8')
-            username = f.encrypt(username)
-            print(username)
-            username = username.decode('utf-8')
+            username = request.form['username']
+            # username = request.form['username'].encode('utf-8')
+            # username = f.encrypt(username)
+            # print(username)
+            # username = username.decode('utf-8')
             
-            password = request.form['password'].encode('utf-8')
-            password = f.encrypt(password)
-            password = password.decode("utf-8") 
+            password = request.form['password']
+            # password = request.form['password'].encode('utf-8')
+            # password = f.encrypt(password)
+            # password = password.decode("utf-8") 
                 
             # Username and password validation
             with mysql.connection.cursor(MySQLdb.cursors.DictCursor) as cursor:
