@@ -102,6 +102,8 @@ def dashboard():
         if request.method == 'GET':
             if session['acc_type'] == 'admin':
                 return render_template('BerandaAdmin.html')
+            elif session['acc_type'] == 'kasir':
+                return render_template('BerandaKasir.html')
     return redirect('/login')
 
 @app.route('/pasien', methods=['GET', 'POST'])
@@ -269,6 +271,7 @@ def obat():
                 cursor.execute('SELECT * FROM obat ORDER BY nama_obat ASC')
                 obat = cursor.fetchall()
                 return render_template('DataObatAdmin.html', obat=obat)
+    return redirect('/login')
 
 @app.route('/obat_tambah', methods=['GET', 'POST'])
 def obat_tambah():
@@ -361,7 +364,44 @@ def akun():
     if 'loggedin' in session:
         if request.method == 'GET':
             if session['acc_type'] == 'admin':
-                return render_template('DataAkunAdmin.html')
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM admin')
+                admin = cursor.fetchall()
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM kasir')
+                kasir = cursor.fetchall()
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM dokter')
+                dokter = cursor.fetchall()
+                return render_template('DataAkunAdmin.html', admin=admin, kasir=kasir, dokter=dokter)
+
+@app.route('/akun_tambah', methods=['GET', 'POST'])
+def akun_tambah():
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'admin':
+                return render_template('TambahAkunAdmin.html')
+        elif request.method == 'POST':
+            if session['acc_type'] == 'admin':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                new_username = request.form['username']
+                new_password = request.form['password']
+                new_acc_type = request.form['acc_type']
+                cursor.execute('INSERT IGNORE INTO admin (username, password, acc_type) VALUES (%s, %s, %s)', (new_username, new_password, new_acc_type))
+                mysql.connection.commit()
+                return redirect(url_for('akun'))
+
+@app.route('/waiting_list_gigi', methods=['GET', 'POST'])
+def waiting_list_gigi():
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'kasir':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM waiting_list_gigi ORDER BY no_urut ASC')
+                wlg = cursor.fetchall()
+                return "ABC"
+                # return render_template('DataObatAdmin.html', wlg=wlg)
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

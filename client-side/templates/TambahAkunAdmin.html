@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='tambahAkunAdmin.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <title>Tambah Akun</title>
+</head>
+
+<body>
+  <div class="body">
+    <div class="sidebar">
+      <header class="header">KliniX</header>
+      <ul class="ul">
+        <li>
+          <a href="/dashboard">
+            <img src="https://img.icons8.com/windows/48/FFFFFF/home-page.png" />
+            <!-- <a target="_blank" href="https://icons8.com/icon/6g6b5Mh-1uJ7/home-page">Home Page icon by Icons8</a> -->
+            <p>Beranda</p>
+          </a>
+        </li>
+        <li>
+          <a href="/pasien">
+            <img
+              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-hospital-bed-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+               />
+            <!-- <img src="https://img.icons8.com/small/42/FFFFFF/user.png" /> -->
+            <p>Pasien</p>
+          </a>
+        </li>
+        <!-- <li>
+          <a href="">
+            <img
+              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-medical-report-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+               />
+            <p>Rekam Medis</p>
+          </a>
+        </li> -->
+        <li>
+          <a href="/tindakan_medis">
+            <img
+              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-healthcare-1-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+               />
+            <!-- <a target="_blank" href="https://icons8.com/icon/oCzpAjdWh4qT/healthcare-1">healthcare 1 icon by Icons8</a> -->
+            <p>Tindakan Medis</p>
+          </a>
+        </li>
+        <li>
+          <a href="/obat" >
+            <img
+              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-medicine-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+               />
+            <!-- <a target="_blank" href="https://icons8.com/icon/7N4bD4LTeOZF/medicine">medicine icon by Icons8</a> -->
+            <p>Obat</p>
+          </a>
+        </li>
+        <li>
+          <a href="/akun" class="active">
+            <img src="https://img.icons8.com/fluency-systems-regular/48/02414D/user.png" />
+            <!-- <a target="_blank" href="https://icons8.com/icon/zxB19VPoVLjK/user">User icon by Icons8</a> -->
+            <p>Akun</p>
+          </a>
+        </li>
+        <li>
+          <a href="/logout">
+            <img src="https://img.icons8.com/windows/48/FFFFFF/exit.png"  />
+            <!-- <a target="_blank" href="https://icons8.com/icon/22112/logout">Logout icon by Icons8</a> -->
+            <p> Logout </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+      <div class="head">
+        <div class="wrap-bagianAtas">
+          <div class="bagianAtas">
+            <h1>Form Tambah Data Akun</h1>
+          </div>
+        </div>
+
+        <div class="wrap-table">
+          <form action="">
+            <div class="wrap-input">
+              <label htmlfor="username" class="label-input">
+                Username
+              </label>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Masukkan Username"
+                name="username"
+              />
+            </div>
+            <div class="wrap-input">
+              <label htmlfor="password" class="label-input">
+                Password
+              </label>
+              <input
+                type="password"
+                class="input-field"
+                placeholder="Masukkan Password"
+                name="password"
+              />
+            </div>
+            <div class="wrap-input">
+              <label htmlfor="namalengkap" class="label-input">
+                Nama Lengkap
+              </label>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Masukkan Nama Lengkap"
+                name="nama"
+              />
+            </div>
+            <div class="wrap-input">
+              <label htmlfor="tipeakun" class="label-input">
+                Tipe Akun
+              </label>
+              <select name="tipe_akun" id="tipeakun" class="input-field">
+                <option value="" disabled selected>Pilih Jenis Akun</option>
+                <option value="Admin">Admin</option>
+                <option value="Dokter" onselect="inputDokter()">Dokter</option>
+                <option value="Kasir">Kasir</option>
+              </select>
+            </div>
+            <div class="wrap-input" id="input-tipe-dokter">
+
+            </div>
+            <input type="submit" class="btn-tambah" value="Tambah Data" name="buttontambahdata" />
+          </form>
+
+        </div>
+      </div>
+    </div>
+</body>
+<script>
+  function inputDokter(){
+    var label_tipe_dokter = document.createElement("label");
+    var text =  document.createTextNode("Tipe Dokter");
+    label_tipe_dokter.appendChild(text);
+    label_tipe_dokter.setAttribute("htmlfor", "tipe_dokter");
+    label_tipe_dokter.setAttribute("class", "label-input");
+    var div = document.getElementById("input-tipe-dokter");
+    div.appendChild(label_tipe_dokter);
+
+    var select_tipe_dokter = document.createElement("select");
+    select.setAttribute("name", "tipe_dokter");
+    select.setAttribute("id", "tipe_dokter");
+    select.setAttribute("class", "input-field");
+    div.appendChild(select_tipe_dokter);
+    
+    var option_tipe_dokter_1 = document.createElement("option");
+    option_tipe_dokter.setAttribute("value", "Pilih Jenis Dokter");
+    option_tipe_dokter.setAttribute("disabled", "disabled");
+    option_tipe_dokter.setAttribute("selected", "selected");
+    var option_tipe_dokter_2 = document.createElement("option");
+    option_tipe_dokter2.setAttribute("value", "Umum");
+    var option_tipe_dokter_3 = document.createElement("option");
+    option_tipe_dokter3.setAttribute("value", "Gigi");
+  }
+</script>
+</html>

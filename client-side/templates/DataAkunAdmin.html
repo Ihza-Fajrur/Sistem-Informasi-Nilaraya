@@ -86,7 +86,7 @@
   
       <div class="wrap-table">
         <div>
-          <a href="">
+          <a href="/akun_tambah">
           <button class="btn_tambah">
             Tambah Data Akun
           </button>
@@ -105,26 +105,60 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>ilham11</th>
-                <th>11213</th>
-                <th>Ilham Nofri</th>
-                <th>Kasir</th>
-                <th>
-                  <div class="aksi">
-                    <a href="">
-                    <button class="btn_ubah">
-                      Ubah
-                    </button>
-                    </a>
-                    <a href="">
-                    <button class="btn_hapus">
-                      Hapus
-                    </button>
-                    </a>
-                  </div>
-                </th>
-              </tr>
+              {% for admin in admin %}
+                <tr>
+                  <th>{{ admin['username'] }}</th>
+                  <th>{{ admin['password'] }}</th>
+                  <th>{{ admin['nama'] }}</th>
+                  <th>Admin</th>
+                  <th>
+                    <div class="aksi">
+                      <a href="">
+                        <button class="btn_ubah">Ubah</button>
+                      </a>
+                      <a href="">
+                        <button class="btn_hapus">Hapus</button>
+                      </a>
+                    </div>
+                  </th>
+                </tr>
+              {% endfor %}
+              {% for kasir in kasir %}
+                <tr>
+                  <th>{{ kasir['username'] }}</th>
+                  <th>{{ kasir['password'] }}</th>
+                  <th>{{ kasir['nama'] }}</th>
+                  <th>Kasir</th>
+                  <th>
+                    <div class="aksi">
+                      <a href="">
+                        <button class="btn_ubah">Ubah</button>
+                      </a>
+                      <a href="">
+                        <button class="btn_hapus">Hapus</button>
+                      </a>
+                    </div>
+                  </th>
+                </tr>
+              {% endfor %}
+              {% for dokter in dokter %}
+                <tr>
+                  <th>{{ dokter['username'] }}</th>
+                  <th>{{ dokter['password'] }}</th>
+                  <th>{{ dokter['nama'] }}</th>
+                  <th>Dokter</th>
+                  <th>
+                    <div class="aksi">
+                      <a href="">
+                        <button class="btn_ubah">Ubah</button>
+                      </a>
+                      <a href="">
+                        <button class="btn_hapus">Hapus</button>
+                      </a>
+                    </div>
+                  </th>
+                </tr>
+              {% endfor %}
             </tbody>
           </table>
         </div>
