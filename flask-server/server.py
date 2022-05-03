@@ -18,7 +18,8 @@ app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.secret_key = '069420'
 
 #Koneksi, inisialisasi DB
-app.config['MYSQL_HOST'] = '192.168.1.29'
+# app.config['MYSQL_HOST'] = '192.168.1.29'
+app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'nilaraya'
@@ -399,8 +400,40 @@ def waiting_list_gigi():
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                 cursor.execute('SELECT * FROM waiting_list_gigi ORDER BY no_urut ASC')
                 wlg = cursor.fetchall()
-                return "ABC"
-                # return render_template('DataObatAdmin.html', wlg=wlg)
+                return render_template('WaitingListGigi.html', wlg=wlg)
+    return redirect(url_for('login'))
+
+@app.route('/waiting_list_umum', methods=['GET', 'POST'])
+def waiting_list_umum():
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'kasir':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM waiting_list_umum ORDER BY no_urut ASC')
+                wlu = cursor.fetchall()
+                return render_template('WaitingListUmum.html', wlu=wlu)
+    return redirect(url_for('login'))
+
+@app.route('/waiting_list_umum_hapus/<no_urut>', methods=['GET', 'POST'])
+def waiting_list_umum_hapus(no_urut):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'kasir':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('DELETE FROM waiting_list_umum WHERE no_urut = %s', (no_urut,))
+                mysql.connection.commit()
+                return redirect(url_for('waiting_list_umum'))
+    return redirect(url_for('login'))
+
+@app.route('/tagihan_umum/<no_urut>', methods=['GET', 'POST'])
+def tagihan_umum(no_urut):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'kasir':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM waiting_list_umum WHERE no_urut = %s', (no_urut,))
+                wlu = cursor.fetchall()
+                return render_template('TagihanUmum.html', wlu=wlu)
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
