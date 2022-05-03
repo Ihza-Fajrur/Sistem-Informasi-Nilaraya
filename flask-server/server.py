@@ -387,10 +387,38 @@ def akun_tambah():
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                 new_username = request.form['username']
                 new_password = request.form['password']
-                new_acc_type = request.form['acc_type']
-                cursor.execute('INSERT IGNORE INTO admin (username, password, acc_type) VALUES (%s, %s, %s)', (new_username, new_password, new_acc_type))
+                new_nama = request.form['nama']
+                new_acc_type = request.form['tipe_akun']
+                if new_acc_type == 'Kasir':
+                    cursor.execute('INSERT INTO kasir (username, password, nama) VALUES (%s, %s, %s)', (new_username, new_password, new_nama))
+                    mysql.connection.commit()
+                elif new_acc_type == 'Admin':
+                    cursor.execute('INSERT INTO admin (username, password, nama) VALUES (%s, %s, %s)', (new_username, new_password, new_nama))
+                    mysql.connection.commit()
+                elif new_acc_type == 'Dokter':
+                    new_tipe_dokter = request.form['tipe_dokter']
+                    cursor.execute('INSERT INTO dokter (username, password, nama, jenis_dokter) VALUES (%s, %s, %s, %s)', (new_username, new_password, new_nama, new_tipe_dokter))
+                    mysql.connection.commit()
+                    print("it came here")
+                return redirect(url_for('akun'))
+    return redirect(url_for('login'))
+
+@app.route('/akun_hapus/<username>', methods=['GET', 'POST'])
+def akun_hapus(username):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'admin':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('DELETE FROM admin WHERE username = %s', (username,))
+                mysql.connection.commit()
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('DELETE FROM kasir WHERE username = %s', (username,))
+                mysql.connection.commit()
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('DELETE FROM dokter WHERE username = %s', (username,))
                 mysql.connection.commit()
                 return redirect(url_for('akun'))
+    return redirect(url_for('login'))
 
 @app.route('/waiting_list_gigi', methods=['GET', 'POST'])
 def waiting_list_gigi():

@@ -84,7 +84,7 @@
         </div>
 
         <div class="wrap-table">
-          <form action="">
+          <form action="/akun_tambah" method="post">
             <div class="wrap-input">
               <label htmlfor="username" class="label-input">
                 Username
@@ -161,13 +161,13 @@
                     var option_tipe_dokter_2 = document.createElement("option");
                     var text2 =  document.createTextNode("Dokter Umum");
                     option_tipe_dokter_2.appendChild(text2);
-                    option_tipe_dokter_2.setAttribute("value", "Umum");
+                    option_tipe_dokter_2.setAttribute("value", "Dokter Umum");
                     select.appendChild(option_tipe_dokter_2);
                 
                     var option_tipe_dokter_3 = document.createElement("option");
                     var text3 =  document.createTextNode("Dokter Gigi");
                     option_tipe_dokter_3.appendChild(text3);
-                    option_tipe_dokter_3.setAttribute("value", "Gigi");
+                    option_tipe_dokter_3.setAttribute("value", "Dokter Gigi");
                     select.appendChild(option_tipe_dokter_3);
                   }
                   else{
