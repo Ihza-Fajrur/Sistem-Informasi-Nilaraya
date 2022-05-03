@@ -132,16 +132,16 @@
                 >
                   {% if pasien['jenis_kelamin'] == 'Laki-laki' %}
                     <option value="" disabled>Pilih Jenis Kelamin</option>
-                    <option value="laki-laki" selected>Laki-laki</option>
-                    <option value="perempuan">Perempuan</option>
+                    <option value="Laki-laki" selected>Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
                   {% elif pasien['jenis_kelamin'] == 'Perempuan' %}
                     <option value="" disabled>Pilih Jenis Kelamin</option>
-                    <option value="laki-laki">Laki-laki</option>
-                    <option value="perempuan" selected>Perempuan</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan" selected>Perempuan</option>
                   {% else %}
                     <option value="" disabled selected>Pilih Jenis Kelamin</option>
-                    <option value="laki-laki">Laki-laki</option>
-                    <option value="perempuan">Perempuan</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
                   {% endif %}
                 </select>
               </div>
@@ -168,7 +168,7 @@
                   class="input-field"
                   placeholder="Masukkan Alamat"
                   name="alamat"
-                  value="alamat"
+                  value="{{ pasien['alamat'] }}"
                 />
               </div>
               <div class="wrap-input">

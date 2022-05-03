@@ -1,3 +1,4 @@
+from hashlib import new
 from flask import Flask,render_template,url_for, request,jsonify,session,flash,redirect
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
@@ -264,7 +265,96 @@ def obat():
     if 'loggedin' in session:
         if request.method == 'GET':
             if session['acc_type'] == 'admin':
-                return render_template('DataObatAdmin.html')
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM obat ORDER BY nama_obat ASC')
+                obat = cursor.fetchall()
+                return render_template('DataObatAdmin.html', obat=obat)
+
+@app.route('/obat_tambah', methods=['GET', 'POST'])
+def obat_tambah():
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'admin':
+                return render_template('TambahObatAdmin.html')
+        elif request.method == 'POST':
+            if session['acc_type'] == 'admin':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                new_id_obat = request.form['id_obat']
+                new_nama_obat = request.form['nama_obat']
+                new_kuantitas = request.form['kuantitas']
+                new_harga_jual_strip = request.form['harga_jual_strip']
+                new_harga_jual_satuan = request.form['harga_jual_satuan']
+                new_harga_beli = request.form['harga_beli']
+                new_exp_date = request.form['exp_date']
+                new_jenis_obat = request.form['jenis_obat']
+                cursor.execute('INSERT IGNORE INTO obat (id_obat, nama_obat, kuantitas, harga_strip, harga_satuan, harga_beli, exp_date, jenis_obat) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', (new_id_obat, new_nama_obat, new_kuantitas, new_harga_jual_strip, new_harga_jual_satuan, new_harga_beli, new_exp_date, new_jenis_obat))
+                mysql.connection.commit()
+                return redirect(url_for('obat'))
+            
+@app.route('/obat_edit/<id_obat>', methods=['GET', 'POST'])
+def obat_edit(id_obat):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'admin':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM obat WHERE id_obat = %s', (id_obat,))
+                obat = cursor.fetchone()
+                return render_template('UbahObatAdmin.html', obat=obat)
+        elif request.method == 'POST':
+            if session['acc_type'] == 'admin':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                
+                if request.form['id_obat'] == '':
+                    new_id_obat = request.form['id_obat']
+                    cursor.execute('UPDATE IGNORE obat SET id_obat = %s WHERE id_obat = %s', (new_id_obat, id_obat))
+                    mysql.connection.commit()
+                    
+                if request.form['nama_obat'] == '':
+                    new_nama_obat = request.form['nama_obat']
+                    cursor.execute('UPDATE IGNORE obat SET nama_obat = %s WHERE id_obat = %s', (new_nama_obat, id_obat))
+                    mysql.connection.commit()
+                    
+                if request.form['kuantitas'] == '':
+                    new_kuantitas = request.form['kuantitas']
+                    cursor.execute('UPDATE IGNORE obat SET kuantitas = %s WHERE id_obat = %s', (new_kuantitas, id_obat))
+                    mysql.connection.commit()
+                    
+                if request.form['harga_strip'] == '':
+                    new_harga_strip = request.form['harga_strip']
+                    cursor.execute('UPDATE IGNORE obat SET harga_strip = %s WHERE id_obat = %s', (new_harga_strip, id_obat))
+                    mysql.connection.commit()
+                    
+                if request.form['harga_satuan'] == '':
+                    new_harga_satuan = request.form['harga_satuan']
+                    cursor.execute('UPDATE IGNORE obat SET harga_satuan = %s WHERE id_obat = %s', (new_harga_satuan, id_obat))
+                    mysql.connection.commit()
+                    
+                if request.form['harga_beli'] == '':
+                    new_harga_beli = request.form['harga_beli']
+                    cursor.execute('UPDATE IGNORE obat SET harga_beli = %s WHERE id_obat = %s', (new_harga_beli, id_obat))
+                    mysql.connection.commit()
+                    
+                if request.form['exp_date'] == '':
+                    new_exp_date = request.form['exp_date']
+                    cursor.execute('UPDATE IGNORE obat SET exp_date = %s WHERE id_obat = %s', (new_exp_date, id_obat))
+                    mysql.connection.commit()
+                    
+                if request.form['jenis_obat'] == '':
+                    new_jenis_obat = request.form['jenis_obat']
+                    cursor.execute('UPDATE IGNORE obat SET jenis_obat = %s WHERE id_obat = %s', (new_jenis_obat, id_obat))
+                    mysql.connection.commit()
+                    
+                return redirect(url_for('obat'))
+            
+@app.route('/obat_hapus/<id_obat>', methods=['GET', 'POST'])
+def obat_hapus(id_obat):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'admin':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('DELETE FROM obat WHERE id_obat = %s', (id_obat,))
+                mysql.connection.commit()
+                return redirect(url_for('obat'))
             
 @app.route('/akun', methods=['GET', 'POST'])
 def akun():
