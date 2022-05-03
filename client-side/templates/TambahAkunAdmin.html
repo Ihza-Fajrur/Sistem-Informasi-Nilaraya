@@ -122,12 +122,61 @@
               <label htmlfor="tipeakun" class="label-input">
                 Tipe Akun
               </label>
-              <select name="tipe_akun" id="tipeakun" class="input-field">
-                <option value="" disabled selected>Pilih Jenis Akun</option>
+              <select name="tipe_akun" id="tipeakun" class="input-field" onchange="inputDokter()">
+                <option value="a" disabled selected>Pilih Jenis Akun</option>
                 <option value="Admin">Admin</option>
-                <option value="Dokter" onselect="inputDokter()">Dokter</option>
+                <option value="Dokter" >Dokter</option>
                 <option value="Kasir">Kasir</option>
               </select>
+
+              <script>
+                function inputDokter(){
+                  var temp = document.getElementById("tipeakun");
+                  if (temp.value == "Dokter"){
+                    var label_tipe_dokter = document.createElement("label");
+                    var text =  document.createTextNode("Tipe Dokter");
+                    label_tipe_dokter.appendChild(text);
+                    label_tipe_dokter.setAttribute("htmlfor", "tipe_dokter");
+                    label_tipe_dokter.setAttribute("class", "label-input");
+                    label_tipe_dokter.setAttribute("id", "label-input-dokter");
+                    var div = document.getElementById("input-tipe-dokter");
+                    div.appendChild(label_tipe_dokter);
+                
+                    var select_tipe_dokter = document.createElement("select");
+                    select_tipe_dokter .setAttribute("name", "tipe_dokter");
+                    select_tipe_dokter .setAttribute("id", "tipe_dokter");
+                    select_tipe_dokter .setAttribute("class", "input-field");
+                    div.appendChild(select_tipe_dokter);
+                
+                    var select = document.getElementById("tipe_dokter");
+                
+                    var option_tipe_dokter_1 = document.createElement("option");
+                    var text1 =  document.createTextNode("Pilih Jenis Dokter");
+                    option_tipe_dokter_1.appendChild(text1);
+                    option_tipe_dokter_1.setAttribute("value", "Pilih Jenis Dokter");
+                    option_tipe_dokter_1.setAttribute("disabled", "disabled");
+                    option_tipe_dokter_1.setAttribute("selected", "selected");
+                    select.appendChild(option_tipe_dokter_1);
+                
+                    var option_tipe_dokter_2 = document.createElement("option");
+                    var text2 =  document.createTextNode("Dokter Umum");
+                    option_tipe_dokter_2.appendChild(text2);
+                    option_tipe_dokter_2.setAttribute("value", "Umum");
+                    select.appendChild(option_tipe_dokter_2);
+                
+                    var option_tipe_dokter_3 = document.createElement("option");
+                    var text3 =  document.createTextNode("Dokter Gigi");
+                    option_tipe_dokter_3.appendChild(text3);
+                    option_tipe_dokter_3.setAttribute("value", "Gigi");
+                    select.appendChild(option_tipe_dokter_3);
+                  }
+                  else{
+                    document.getElementById("label-input-dokter").remove();
+                    document.getElementById("tipe_dokter").remove();
+                  }
+              };
+            </script>
+
             </div>
             <div class="wrap-input" id="input-tipe-dokter">
 
@@ -139,30 +188,4 @@
       </div>
     </div>
 </body>
-<script>
-  function inputDokter(){
-    var label_tipe_dokter = document.createElement("label");
-    var text =  document.createTextNode("Tipe Dokter");
-    label_tipe_dokter.appendChild(text);
-    label_tipe_dokter.setAttribute("htmlfor", "tipe_dokter");
-    label_tipe_dokter.setAttribute("class", "label-input");
-    var div = document.getElementById("input-tipe-dokter");
-    div.appendChild(label_tipe_dokter);
-
-    var select_tipe_dokter = document.createElement("select");
-    select.setAttribute("name", "tipe_dokter");
-    select.setAttribute("id", "tipe_dokter");
-    select.setAttribute("class", "input-field");
-    div.appendChild(select_tipe_dokter);
-    
-    var option_tipe_dokter_1 = document.createElement("option");
-    option_tipe_dokter.setAttribute("value", "Pilih Jenis Dokter");
-    option_tipe_dokter.setAttribute("disabled", "disabled");
-    option_tipe_dokter.setAttribute("selected", "selected");
-    var option_tipe_dokter_2 = document.createElement("option");
-    option_tipe_dokter2.setAttribute("value", "Umum");
-    var option_tipe_dokter_3 = document.createElement("option");
-    option_tipe_dokter3.setAttribute("value", "Gigi");
-  }
-</script>
 </html>
