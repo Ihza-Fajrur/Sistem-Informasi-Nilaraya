@@ -65,10 +65,78 @@
   margin-left: 20%;
   position: fixed;
 }
-.body .head h1 {
-  font-size: 40px;
+.body .head .card {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
 }
-.body .head .bagianAtas {
+.body .head .card h1 {
+  font-size: 40px;
+  color: #02414D;
+}
+.body .head .card h2 {
+  color: #02414D;
+}
+.body .head .card hr {
+  border: 1px solid #02414D;
+  color: #02414D;
+}
+.body .head .card .btn_tambah {
+  background-color: #02414D;
+  color: white;
+  margin-top: 20px;
+  padding: 3% 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+}
+.body .head .card .btn_tambah:hover {
+  background: #011c22;
+}
+.body .head .card .table {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.body .head .card .table .total_harga {
+  display: flex;
+  justify-content: space-between;
+}
+.body .head .card .table table {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.body .head .card .table table #font {
+  font-weight: bold;
+  font-size: 1.8rem;
+  padding-left: 0;
+}
+.body .head .card .table table thead th {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: left;
+}
+.body .head .card .table table th,
+.body .head .card .table table td {
+  text-align: left;
+  padding: 5px;
+  font-size: 16px;
+  color: #02414D;
+}
+.body .head .card .table table th .total,
+.body .head .card .table table td .total {
+  font-size: 30px !important;
+  font-weight: bold !important;
+}
+.body .head .card .bagianAtas {
   color: #02414D;
   width: 50%;
   margin-left: 30px;
@@ -76,56 +144,6 @@
   align-self: center;
   height: 100vh;
 }
-.body .head .line {
-  height: 0.5%;
-  width: 70%;
-  background-color: #02414D;
-}
-.body .head h3 {
-  margin-bottom: auto;
-}
-.body .head .center {
-  margin-left: 60%;
-}
-.body .head .center .btn_tambah {
-  margin-left: 0;
-  background-color: #02414D;
-  color: white;
-  border: none;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  margin-top: 10px;
-  padding: 4% 40%;
-  margin-bottom: 30px;
-  font-weight: bold;
-}
-.body .head .center .btn_tambah:hover {
-  background: #011c22;
-}
-.body .head .table {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-.body .head .table table {
-  width: 70%;
-}
-.body .head .table table #font {
-  font-weight: bold;
-  font-size: 1rem;
-}
-.body .head .table table thead th {
-  width: 8%;
-  text-align: left;
-}
-.body .head .table table th,
-.body .head .table table td {
-  text-align: left;
-  padding: 5px;
-  font-size: 16px;
-  color: #02414D;
-}
-.body .head .table table th .total,
-.body .head .table table td .total {
-  font-size: 30px !important;
-  font-weight: bold !important;
+.body .head .card .center {
+  margin-left: 40%;
 }/*# sourceMappingURL=tagihan.css.map */

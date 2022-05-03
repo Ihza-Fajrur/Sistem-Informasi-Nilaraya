@@ -71,10 +71,86 @@
     right: 0;
     background-color: #F5F5F5;
     margin-left: 20%;
-        position: fixed;
+    position: fixed;
 
-      h1{
-        font-size: 40px;
+      .card{
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        width: 50%;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        
+        h1{
+          font-size: 40px;
+          color: #02414D;
+        }
+        h2{
+          color: #02414D;
+        }
+        hr{
+          border: 1px solid #02414D;
+          color: #02414D;
+        }
+        .btn_tambah{
+          background-color: #02414D;
+          color: white;
+          margin-top: 20px;
+          padding: 3% 10%;
+          box-shadow: 0 4px 8px 0 rgba(0.2, 0.2, 0.2, 0.2);
+          border-radius: 5px;
+          border: none;
+          font-weight: bold;
+        }
+
+      .btn_tambah:hover {
+          background: #011c22;
+      }
+        .table {
+          // margin-left: 15px;
+          margin-top: 15px;
+          margin-bottom: 15px;
+          
+          .total_harga{
+            display: flex;
+            justify-content: space-between;
+          }
+          table {
+            #font {
+            font-weight: bold;
+            font-size: 1.8rem;
+            padding-left: 0;
+            }
+          // text-align: center;
+          // vertical-align: middle;
+            width: fit-content;
+          
+          
+            thead th {
+                // width: 20%;
+                width: fit-content;
+                text-align: left;
+            }
+      
+            th,
+            td {
+                text-align: left;
+                padding: 5px;
+                font-size: 16px;
+                color: #02414D;
+                
+                .total{
+                  font-size: 30px !important;
+                  font-weight: bold !important;
+                }
+                
+            }
+        
+          }
       }
 
       .bagianAtas {
@@ -85,70 +161,13 @@
         align-self: center;
         height: 100vh;
       }
-      .line{
-        height: 0.5%;
-        width:70%;
-        background-color: #02414D;
-      }
-      h3{
-        margin-bottom: auto;
-      }
       .center{
-        margin-left: 60%;
-      .btn_tambah {
-          margin-left: 0;
-          background-color: #02414D;
-          color: white;
-          border: none;
-          box-shadow: 0 4px 8px 0 rgba(0.2, 0.2, 0.2, 0.2);
-          border-radius: 5px;
-          margin-top: 10px;
-          padding: 4% 40%;
-          margin-bottom: 30px;
-          font-weight: bold;
+        margin-left: 40%;
       }
-      .btn_tambah:hover {
-          background: #011c22;
-      }
-    }
 
-    .table {
-        // margin-left: 15px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        
-        table {
-
-            #font {
-            font-weight: bold;
-            font-size: 1rem;
-          }
-        // text-align: center;
-        // vertical-align: middle;
-        width: 70%;
-        
-        
-        thead th {
-            width: 8%;
-            text-align: left;
-        }
-    
-        th,
-        td {
-            text-align: left;
-            padding: 5px;
-            font-size: 16px;
-            color: #02414D;
-            
-            .total{
-              font-size: 30px !important;
-              font-weight: bold !important;
-            }
-            
-        }
     
     }
-    }
+    
   }
 
 }
