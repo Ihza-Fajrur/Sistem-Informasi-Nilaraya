@@ -152,7 +152,7 @@
   letter-spacing: 2%;
 }
 .body .head .wrap-table .table table thead th {
-  width: 25%;
+  width: 20%;
 }
 .body .head .wrap-table .table table tbody tr:nth-child(odd) {
   background-color: #fff;

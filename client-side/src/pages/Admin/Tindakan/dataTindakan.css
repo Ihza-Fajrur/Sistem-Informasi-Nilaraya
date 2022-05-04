@@ -13,7 +13,7 @@
   background: #02414D;
 }
 .body .sidebar .header {
-  font-size: 3rem;
+  font-size: 48px;
   color: white;
   text-align: center;
   line-height: 100px;
@@ -37,7 +37,6 @@
   box-sizing: border-box;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: 0.4s;
-  padding-left: -40px;
   list-style: none;
   text-decoration: none;
 }
@@ -46,7 +45,7 @@
 }
 .body .sidebar .active {
   font-weight: bold;
-  background-color: #ffffff;
+  background-color: #fff;
   color: #02414D;
   height: 70px;
 }
@@ -78,13 +77,9 @@
   color: #02414D;
   width: 60%;
   margin-left: 30px;
-  align-items: center;
   align-self: center;
   height: 8vh;
   font-size: 1em;
-  margin-left: auto;
-  padding-left: 3%;
-  position: relative;
 }
 .body .head .wrap-bagianAtas .cari {
   color: black;
@@ -121,17 +116,18 @@
   align-items: center;
   margin-top: 10px;
 }
-.body .head .wrap-table .logo {
-  font-size: 1rem;
-  color: #989898;
-  margin-top: 5%;
-  text-align: center;
-  align-content: center;
-  font-weight: 100;
-  font-family: "Montserrat", sans-serif;
+.body .head .wrap-table .btn_tambah {
+  background-color: #02414D;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: 15px;
 }
-.body .head .wrap-table .logoTxt {
-  margin-top: 0;
+.body .head .wrap-table .btn_tambah:hover {
+  background: #011c22;
 }
 .body .head .wrap-table .table {
   margin-left: 15px;
@@ -152,7 +148,7 @@
   letter-spacing: 2%;
 }
 .body .head .wrap-table .table table thead th {
-  width: 20%;
+  width: 10%;
 }
 .body .head .wrap-table .table table tbody tr:nth-child(odd) {
   background-color: #fff;
@@ -166,35 +162,32 @@
   font-size: 12px;
   color: #02414D;
 }
-.body .head .wrap-table .table table .btn-tagih {
-  border-radius: 5px;
+.body .head .wrap-table .table table .aksi {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.body .head .wrap-table .table table .aksi .btn_ubah {
   background-color: #4EBFFF;
   color: white;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 8px;
   margin: 5px;
-}
-.body .head .wrap-table .table table .btn-tagih a {
-  text-decoration: none;
-  color: #EBEBEB;
-}
-.body .head .wrap-table .table table .btn-tagih:hover {
-  background: #47ade8;
-}
-.body .head .wrap-table .table table .btn-hapus {
   border-radius: 5px;
+}
+.body .head .wrap-table .table table .aksi .btn_ubah:hover {
+  background: #44a6df;
+}
+.body .head .wrap-table .table table .aksi .btn_hapus {
   background-color: red;
   color: white;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 8px;
   margin: 5px;
+  border-radius: 5px;
 }
-.body .head .wrap-table .table table .btn-hapus a {
-  text-decoration: none;
-  color: #EBEBEB;
-}
-.body .head .wrap-table .table table .btn-hapus:hover {
+.body .head .wrap-table .table table .aksi .btn_hapus:hover {
   background: rgb(190, 2, 2);
-}/*# sourceMappingURL=waitingListGigi.css.map */
+}/*# sourceMappingURL=dataTindakan.css.map */

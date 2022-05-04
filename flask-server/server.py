@@ -705,6 +705,7 @@ def history_rekam_medis_dokter(no_rm_pasien):
                 pasien = cursor.fetchone()
                 return render_template('HistoryRekamMedisDokter.html', rekam_medis=rekam_medis, pasien=pasien)
     return redirect(url_for('login'))
+    
 @app.route('/tagihan_gigi/<no_rekam_medis>', methods=['GET', 'POST'])
 def tagihan_gigi(no_rekam_medis):
     if 'loggedin' in session:
