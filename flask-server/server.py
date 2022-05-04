@@ -739,14 +739,13 @@ def form_dokter(no_rekam_medis):
                 pasien = cursor.fetchone()
                 cursor.execute('SELECT * FROM tindakan WHERE jenis_tindakan = %s', ('Umum',))
                 tindakan = cursor.fetchall()
-                return render_template('FormUmumDokter.html', pasien=pasien, tindakan=tindakan)
             elif session['acc_type'] == 'Dokter Gigi':
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                 cursor.execute('SELECT * FROM rekam_medik WHERE no_rm_pasien = %s', (no_rekam_medis,))
                 pasien = cursor.fetchone()
                 cursor.execute('SELECT * FROM tindakan WHERE jenis_tindakan = %s', ('Gigi',))
                 tindakan = cursor.fetchall()
-                return render_template('FormGigiDokter.html', pasien=pasien, tindakan=tindakan)
+            return redirect(url_for('daftar_pasien', no_rm_pasien=no_rekam_medis))
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
