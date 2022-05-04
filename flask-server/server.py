@@ -118,6 +118,8 @@ def pasien():
         if request.method == 'GET':
             if session['acc_type'] == 'admin':
                 return render_template('DataPasienAdmin.html',pasien=pasien)
+            elif session['acc_type'] == 'kasir':
+                return render_template('DataPasienKasir.html',pasien=pasien)
     return redirect('/login')
 
 @app.route('/pasien_tambah', methods=['GET', 'POST'])
@@ -596,6 +598,44 @@ def waiting_list_umum():
                 cursor.execute('SELECT * FROM waiting_list_umum ORDER BY no_urut ASC')
                 wlu = cursor.fetchall()
                 return render_template('WaitingListUmum.html', wlu=wlu)
+    return redirect(url_for('login'))
+
+@app.route('/waiting_list_umum_tambah/<no_rekam_medik>', methods=['GET', 'POST'])
+def waiting_list_umum_tambah(no_rekam_medik):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'kasir':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM pasien WHERE no_rekam_medik = %s', (no_rekam_medik,))
+                pasien = cursor.fetchone()
+                cursor.execute('SELECT MAX(no_urut) FROM waiting_list_umum')
+                no_urut = cursor.fetchone()
+                if no_urut['MAX(no_urut)'] is None:
+                    no_urut = 1
+                else:
+                    no_urut = no_urut['MAX(no_urut)'] + 1
+                cursor.execute('INSERT IGNORE INTO waiting_list_umum (no_urut, no_rekam_medis, nama_pasien, status) VALUES (%s, %s, %s, %s)', (no_urut, pasien['no_rekam_medik'], pasien['nama'], 'Mengantri'))
+                mysql.connection.commit()
+                return redirect(url_for('pasien'))
+    return redirect(url_for('login'))
+
+@app.route('/waiting_list_gigi_tambah/<no_rekam_medik>', methods=['GET', 'POST'])
+def waiting_list_gigi_tambah(no_rekam_medik):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'kasir':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM pasien WHERE no_rekam_medik = %s', (no_rekam_medik,))
+                pasien = cursor.fetchone()
+                cursor.execute('SELECT MAX(no_urut) FROM waiting_list_gigi')
+                no_urut = cursor.fetchone()
+                if no_urut['MAX(no_urut)'] is None:
+                    no_urut = 1
+                else:
+                    no_urut = no_urut['MAX(no_urut)'] + 1
+                cursor.execute('INSERT IGNORE INTO waiting_list_gigi (no_urut, no_rekam_medis, nama_pasien, status) VALUES (%s, %s, %s, %s)', (no_urut, pasien['no_rekam_medik'], pasien['nama'], 'Mengantri'))
+                mysql.connection.commit()
+                return redirect(url_for('pasien'))
     return redirect(url_for('login'))
 
 @app.route('/waiting_list_umum_hapus/<no_urut>', methods=['GET', 'POST'])
