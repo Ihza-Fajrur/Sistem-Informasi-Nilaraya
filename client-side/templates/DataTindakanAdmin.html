@@ -79,7 +79,7 @@
     
         <div class="wrap-table">
           <div>
-            <a href="">
+            <a href="/tindakan_tambah">
             <button class="btn_tambah">
               Tambah Tindakan
             </button>
@@ -98,19 +98,20 @@
                 </tr>
               </thead>
               <tbody>
+                {% for tindakan in tindakan %}
                 <tr>
-                  <td>Cabut Gigi</td>
-                  <td>627361</td>
-                  <td>Dewasa</td>
-                  <td>400.000</td>
+                  <td>{{ tindakan['nama_tindakan'] }}</td>
+                  <td>{{ tindakan['kode_tindakan'] }}</td>
+                  <td>{{ tindakan['klasifikasi_umur'] }}</td>
+                  <td>Rp.{{ tindakan['tarif'] }}</td>
                   <td>
                     <div class="aksi">
-                      <a href="">
+                      <a href="{{ url_for('tindakan_edit', kode_tindakan = tindakan['kode_tindakan']) }}">
                       <button class="btn_ubah">
                         Ubah
                       </button>
                       </a>
-                      <a href="">
+                      <a href="{{ url_for('tindakan_hapus', kode_tindakan = tindakan['kode_tindakan']) }}">
                       <button class="btn_hapus">
                         Hapus
                       </button>
@@ -118,6 +119,7 @@
                     </div>
                   </td>
                 </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>

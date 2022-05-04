@@ -107,7 +107,8 @@
                   <th>No.</th>
                   <th>Tanggal</th>
                   <th>Diagnosis</th>
-                  <th>Tindakan</th>
+                  <th>Kode Tindakan</th>
+                  <th>Nama Tindakan</th>
                   <th>Ket</th>
                   <th>Nama Dokter</th>
                   <th>Tipe Dokter</th>
@@ -115,18 +116,17 @@
               </thead>
               <tbody>
                 {% if rekam_medik %}
-                  {% set i = 1 %}
                   {% for rekam_medik in rekam_medik %}
                     <tr>
-                      <td>{{ i }}</td>
+                      <td>{{ loop.index }}</td>
                       <td>{{ rekam_medik['tanggal'] }}</td>
                       <td>{{ rekam_medik['diagnosis'] }}</td>
-                      <td>{{ rekam_medik['tindakan'] }}</td>
+                      <td>{{ rekam_medik['kode_tindakan'] }}</td>
+                      <td>{{ rekam_medik['nama_tindakan'] }}</td>
                       <td>{{ rekam_medik['keterangan'] }}</td>
                       <td>{{ rekam_medik['username_dokter'] }}</td>
                       <td>{{ rekam_medik['tipe'] }}</td>
                     </tr>
-                    {% set i = i + 1 %}
                   {% endfor %}
                 {% endif %}
               </tbody>

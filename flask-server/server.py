@@ -7,6 +7,7 @@ import re
 from werkzeug.utils import append_slash_redirect
 from cryptography.fernet import Fernet
 from crypto_key import key
+from datetime import datetime
 # from flask_mail import Mail, Message
 
 #Crypto key
@@ -218,9 +219,10 @@ def pasien_rekam_medis(no_rekam_medik):
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                 cursor.execute('SELECT * FROM pasien WHERE no_rekam_medik = %s', (no_rekam_medik,))
                 pasien = cursor.fetchone()
-                cursor.execute('SELECT * FROM rekam_medik WHERE no_rm_pasien = %s', (no_rekam_medik,))
+                cursor.execute('SELECT * FROM rekam_medik WHERE no_rm_pasien = %s ORDER BY tanggal', (no_rekam_medik,))
                 rekam_medik = cursor.fetchall()
-                i=1
+                # cursor.execute('SELECT nama_tindakan FROM tindakan WHERE kode_tindakan = %s', (rekam_medik['kode_tindakan'],))
+                # nama_tindakan = cursor.fetchone()
                 return render_template('HistoryRekamMedisAdmin.html', pasien=pasien, rekam_medik=rekam_medik)
     return redirect('/login')
 
@@ -232,11 +234,18 @@ def rekam_medik_tambah_umum(no_rekam_medik):
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                 cursor.execute('SELECT * FROM pasien WHERE no_rekam_medik = %s', (no_rekam_medik,))
                 pasien = cursor.fetchone()
-                return render_template('FormUmumAdmin.html', pasien=pasien)
+                cursor.execute('SELECT * FROM tindakan WHERE jenis_tindakan = %s', ('Umum',))
+                tindakan = cursor.fetchall()
+                return render_template('FormUmumAdmin.html', pasien=pasien, tindakan=tindakan)
         elif request.method == 'POST':
             if session['acc_type'] == 'admin':
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-                cursor.execute('INSERT INTO rekam_medik (no_rm_pasien, tanggal, keluhan, diagnosa, terapi, tindakan) VALUES (%s, %s, %s, %s, %s, %s)', (no_rekam_medik, request.form['tanggal'], request.form['keluhan'], request.form['diagnosa'], request.form['terapi'], request.form['tindakan']))
+                new_diagnosis = request.form['diagnosis']
+                new_tindakan = request.form['tindakan']
+                new_keterangan = request.form['keterangan']
+                cursor.execute('SELECT nama_tindakan FROM tindakan WHERE kode_tindakan = %s', (new_tindakan,))
+                nama_tindakan = cursor.fetchone()
+                cursor.execute('INSERT INTO rekam_medik (no_rm_pasien, kode_tindakan, nama_tindakan, keterangan, diagnosis, tanggal, tipe, username_dokter) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', (no_rekam_medik, new_tindakan, nama_tindakan['nama_tindakan'], new_keterangan, new_diagnosis, datetime.now(), "Umum", session['name']))
                 mysql.connection.commit()
                 return redirect(url_for('pasien_rekam_medis', no_rekam_medik=no_rekam_medik))
     return redirect('/login')
@@ -249,21 +258,105 @@ def rekam_medik_tambah_gigi(no_rekam_medik):
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                 cursor.execute('SELECT * FROM pasien WHERE no_rekam_medik = %s', (no_rekam_medik,))
                 pasien = cursor.fetchone()
-                return render_template('FormGigiAdmin.html', pasien=pasien)
+                cursor.execute('SELECT * FROM tindakan WHERE jenis_tindakan = %s', ('Gigi',))
+                tindakan = cursor.fetchall()
+                return render_template('FormGigiAdmin.html', pasien=pasien, tindakan=tindakan)
         elif request.method == 'POST':
             if session['acc_type'] == 'admin':
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-                cursor.execute('INSERT INTO rekam_medik (no_rm_pasien, tanggal, keluhan, diagnosa, terapi, tindakan) VALUES (%s, %s, %s, %s, %s, %s)', (no_rekam_medik, request.form['tanggal'], request.form['keluhan'], request.form['diagnosa'], request.form['terapi'], request.form['tindakan']))
+                new_diagnosis = request.form['diagnosis']
+                new_tindakan = request.form['tindakan']
+                new_keterangan = request.form['keterangan']
+                cursor.execute('SELECT nama_tindakan FROM tindakan WHERE kode_tindakan = %s', (new_tindakan,))
+                nama_tindakan = cursor.fetchone()
+                cursor.execute('INSERT INTO rekam_medik (no_rm_pasien, kode_tindakan, nama_tindakan, keterangan, diagnosis, tanggal, tipe, username_dokter) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', (no_rekam_medik, new_tindakan, nama_tindakan['nama_tindakan'], new_keterangan, new_diagnosis, datetime.now(), "Gigi", session['name']))
                 mysql.connection.commit()
                 return redirect(url_for('pasien_rekam_medis', no_rekam_medik=no_rekam_medik))
+    return redirect('/login')
 
 @app.route('/tindakan_medis', methods=['GET', 'POST'])
 def tindakan_medis():
     if 'loggedin' in session:
         if request.method == 'GET':
             if session['acc_type'] == 'admin':
-                return render_template('DataTindakanAdmin.html')
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM tindakan')
+                tindakan = cursor.fetchall()
+                return render_template('DataTindakanAdmin.html', tindakan=tindakan)
+    return redirect('/login')
             
+@app.route('/tindakan_tambah', methods=['GET', 'POST'])
+def tindakan_tambah():
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'admin':
+                return render_template('TambahTindakanAdmin.html')
+        elif request.method == 'POST':
+            if session['acc_type'] == 'admin':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                new_kode_tindakan = request.form['kode_tindakan']
+                new_nama_tindakan = request.form['nama_tindakan']
+                new_klasifikasi_umur = request.form['klasifikasi_umur']
+                new_jenis_tindakan = request.form['jenis_tindakan']
+                new_tarif = request.form['tarif']
+                cursor.execute('INSERT INTO tindakan (kode_tindakan, nama_tindakan, klasifikasi_umur, jenis_tindakan, tarif) VALUES (%s, %s, %s, %s, %s)', (new_kode_tindakan, new_nama_tindakan, new_klasifikasi_umur, new_jenis_tindakan, new_tarif))
+                mysql.connection.commit()
+                return redirect(url_for('tindakan_medis'))
+    return redirect('/login')
+
+@app.route('/tindakan_edit/<kode_tindakan>', methods=['GET', 'POST'])
+def tindakan_edit(kode_tindakan):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'admin':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM tindakan WHERE kode_tindakan = %s', (kode_tindakan,))
+                tindakan = cursor.fetchone()
+                return render_template('UbahTindakanAdmin.html', tindakan=tindakan)
+        elif request.method == 'POST':
+            if session['acc_type'] == 'admin':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                
+                if not request.form['kode_tindakan'] == '':
+                    new_kode_tindakan = request.form['kode_tindakan']
+                    cursor.execute('UPDATE IGNORE tindakan SET kode_tindakan = %s WHERE kode_tindakan = %s', (new_kode_tindakan, kode_tindakan))
+                    mysql.connection.commit()
+                
+                if not request.form['nama_tindakan'] == '':
+                    new_nama_tindakan = request.form['nama_tindakan']
+                    cursor.execute('UPDATE IGNORE tindakan SET nama_tindakan = %s WHERE kode_tindakan = %s', (new_nama_tindakan, kode_tindakan))
+                    mysql.connection.commit()
+                
+                if not request.form['klasifikasi_umur'] == '':
+                    new_klasifikasi_umur = request.form['klasifikasi_umur']
+                    cursor.execute('UPDATE IGNORE tindakan SET klasifikasi_umur = %s WHERE kode_tindakan = %s', (new_klasifikasi_umur, kode_tindakan))
+                    mysql.connection.commit()
+                    
+                if not request.form['jenis_tindakan'] == '':
+                    new_jenis_tindakan = request.form['jenis_tindakan']
+                    cursor.execute('UPDATE IGNORE tindakan SET jenis_tindakan = %s WHERE kode_tindakan = %s', (new_jenis_tindakan, kode_tindakan))
+                    mysql.connection.commit()
+                    
+                if not request.form['tarif'] == '':
+                    new_tarif = request.form['tarif']
+                    cursor.execute('UPDATE IGNORE tindakan SET tarif = %s WHERE kode_tindakan = %s', (new_tarif, kode_tindakan))
+                    mysql.connection.commit()
+                
+                return redirect(url_for('tindakan_medis'))
+            
+    return redirect('/login')
+
+@app.route('/tindakan_hapus/<kode_tindakan>', methods=['GET', 'POST'])
+def tindakan_hapus(kode_tindakan):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'admin':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('DELETE FROM tindakan WHERE kode_tindakan = %s', (kode_tindakan,))
+                mysql.connection.commit()
+                return redirect(url_for('tindakan_medis'))
+    return redirect('/login')
+       
 @app.route('/obat', methods=['GET', 'POST'])
 def obat():
     if 'loggedin' in session:

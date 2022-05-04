@@ -78,25 +78,25 @@
       </div>
 
       <div class="wrap-table">
-        <form action="">
+        <form action="{{ url_for('rekam_medik_tambah_umum', no_rekam_medik = pasien['no_rekam_medik']) }}" method="POST" id="form_umum">
           <div class="wrap-input">
-            <label htmlfor="namapasien" class="label-input">
+            <label htmlfor="nama_pasien" class="label-input">
               Nama Pasien
             </label>
-            <input type="text" class="input-field" placeholder="Masukkan Nama Pasien" name="namapasien" />
+            <input type="text" class="input-field" placeholder="-" name="nama_pasien" value="{{ pasien['nama'] }}" disabled/>
           </div>
           <div class="flex-input">
             <div class="wrap-input">
               <label htmlfor="norm" class="label-input">
                 No. Rekam Medis
               </label>
-              <input type="text" class="input-field" placeholder="Masukkan No. Rekam Medis" name="norekammedis" />
+              <input type="text" class="input-field" placeholder="-" name="no_rekam_medis" value ="{{ pasien['no_rekam_medik'] }}" disabled/>
             </div>
             <div class="wrap-input">
               <label htmlfor="nobpjs" class="label-input">
                 No. BPJS
               </label>
-              <input type="text" class="input-field" placeholder="Masukkan No. BPJS" name="nobpjs" />
+              <input type="text" class="input-field" placeholder="-" name="no_bpjs" value="{{ pasien['no_bpjs'] }}" disabled/>
             </div>
           </div>
           <div class="flex-input">
@@ -104,34 +104,42 @@
               <label htmlfor="kelamin" class="label-input">
                 Kelamin
               </label>
-              <select name="jeniskelamin" id="jeniskelamin" class="input-field">
-                <option value="" disabled selected>
-                  Pilih Jenis Kelamin
-                </option>
-                <option value="laki-laki">Laki-laki</option>
-                <option value="perempuan">Perempuan</option>
+              <select name="jenis_kelamin" id="jeniskelamin" class="input-field">
+                {% if pasien['jenis_kelamin'] == 'Laki-laki' %}
+                  <option value="" disabled>
+                    Pilih Jenis Kelamin
+                  </option>
+                  <option value="Laki-laki" disabled selected>Laki-laki</option>
+                  <option value="Perempuan" disabled>Perempuan</option>
+                {% elif pasien['jenis_kelamin'] == 'Perempuan'%}
+                  <option value="" disabled>
+                    Pilih Jenis Kelamin
+                  </option>
+                  <option value="Laki-laki" disabled>Laki-laki</option>
+                  <option value="Perempuan" disabled selected>Perempuan</option>
+                {% endif %}
               </select>
             </div>
             <div class="wrap-input">
               <label htmlfor="ttl" class="label-input">
                 Tempat Tanggal Lahir
               </label>
-              <input placeholder="Masukkan Tempat Tanggal Lahir" type="text" class="input-field" name="ttl" />
+              <input placeholder="-" type="text" class="input-field" name="ttl" value="{{ pasien['ttl'] }}" disabled/>
             </div>
           </div>
 
           <div class="wrap-input">
-            <label htmlfor="riwayatpenyakit" class="label-input">
+            <label htmlfor="riwayat_penyakit" class="label-input">
               Riwayat Penyakit / Alergi
             </label>
-            <input placeholder="Masukkan Alamat Riwayat Penyakit / Alergi" name="riwayatpenyakit" type="text" class="input-field" />
+            <input placeholder="-" name="riwayat_penyakit" type="text" class="input-field" value="{{ pasien['riwayat_penyakit'] }}" disabled/>
           </div>
-
+          
           <div class="wrap-input">
             <label htmlfor="diagnosis" class="label-input">
               Diagnosis
             </label>
-            <textarea type="text" class="input-field" name="diagnosis" placeholder="Masukkan Diagnosis"></textarea>
+            <textarea type="text" class="input-field" name="diagnosis" placeholder="Masukkan Diagnosis" form="form_umum"></textarea>
           </div>
 
           <div class="wrap-input">
@@ -139,10 +147,12 @@
               Tindakan
             </label>
             <select name="tindakan" id="tindakan" class="input-field">
-              <option value="" disabled selected hidden>
+              <option value="" disabled selected>
                 Pilih Tindakan
               </option>
-              <option value=""></option>
+              {% for tindakan in tindakan %}
+                <option value="{{ tindakan['kode_tindakan'] }}">{{ tindakan['nama_tindakan'] }}</option>
+              {% endfor %}
             </select>
           </div>
 
@@ -150,7 +160,7 @@
             <label htmlfor="keterangan" class="label-input">
               Keterangan
             </label>
-            <textarea type="text" class="input-field" name="keterangan" placeholder="Masukkan Keterangan"></textarea>
+            <textarea type="text" class="input-field" name="keterangan" placeholder="Masukkan Keterangan" form="form_umum"></textarea>
           </div>
 
           <input type="submit" class="btn-ubah" value="Tambah Data" name="buttontambahdata" />
