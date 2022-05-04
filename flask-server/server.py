@@ -718,6 +718,33 @@ def tagihan_gigi(no_rekam_medis):
                 return render_template('TagihanGigi.html', wlg=wlg, today=today.strftime('%Y-%m-%d %H:%M:%S'))
     return redirect(url_for('login'))
 
+@app.route('/form_dokter/<no_rekam_medis>', methods=['GET', 'POST'])
+def form_dokter(no_rekam_medis):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('SELECT * FROM pasien WHERE no_rekam_medik = %s', (no_rekam_medis,))
+            pasien = cursor.fetchone()
+            if session['acc_type'] == 'Dokter Umum':
+                return render_template('FormUmumDokter.html',pasien=pasien)
+            elif session['acc_type'] == 'Dokter Gigi':
+                return render_template('FormGigiDokter.html',pasien=pasien)
+        elif request.method == 'POST':
+            if session['acc_type'] == 'Dokter Umum':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM rekam_medik WHERE no_rm_pasien = %s', (no_rekam_medis,))
+                pasien = cursor.fetchone()
+                cursor.execute('SELECT * FROM tindakan WHERE jenis_tindakan = %s', ('Umum',))
+                tindakan = cursor.fetchall()
+                return render_template('FormUmumDokter.html', pasien=pasien, tindakan=tindakan)
+            elif session['acc_type'] == 'Dokter Gigi':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM rekam_medik WHERE no_rm_pasien = %s', (no_rekam_medis,))
+                pasien = cursor.fetchone()
+                cursor.execute('SELECT * FROM tindakan WHERE jenis_tindakan = %s', ('Gigi',))
+                tindakan = cursor.fetchall()
+                return render_template('FormGigiDokter.html', pasien=pasien, tindakan=tindakan)
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
