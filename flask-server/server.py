@@ -1,3 +1,4 @@
+from calendar import c
 from hashlib import new
 from flask import Flask,render_template,url_for, request,jsonify,session,flash,redirect
 from flask_mysqldb import MySQL
@@ -18,8 +19,8 @@ app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.secret_key = '069420'
 
 #Koneksi, inisialisasi DB
-# app.config['MYSQL_HOST'] = '192.168.1.29'
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = '192.168.1.29'
+# app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'nilaraya'
@@ -399,7 +400,6 @@ def akun_tambah():
                     new_tipe_dokter = request.form['tipe_dokter']
                     cursor.execute('INSERT INTO dokter (username, password, nama, jenis_dokter) VALUES (%s, %s, %s, %s)', (new_username, new_password, new_nama, new_tipe_dokter))
                     mysql.connection.commit()
-                    print("it came here")
                 return redirect(url_for('akun'))
     return redirect(url_for('login'))
 
@@ -419,6 +419,69 @@ def akun_hapus(username):
                 mysql.connection.commit()
                 return redirect(url_for('akun'))
     return redirect(url_for('login'))
+
+@app.route('/akun_edit/<username>', methods=['GET', 'POST'])
+def akun_edit(username):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'admin':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM admin WHERE username = %s', (username,))
+                admin = cursor.fetchone()
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM kasir WHERE username = %s', (username,))
+                kasir = cursor.fetchone()
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM dokter WHERE username = %s', (username,))
+                dokter = cursor.fetchone()
+                return render_template('UbahAkunAdmin.html', admin=admin, kasir=kasir, dokter=dokter)
+        elif request.method == 'POST':
+            if session['acc_type'] == 'admin':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                
+                if request.form['username'] != '':
+                    new_username = request.form['username']
+                    tipe_akun = request.form['tipe_akun']
+                    if tipe_akun == 'Admin':
+                        cursor.execute('UPDATE IGNORE admin SET username = %s WHERE username = %s', (new_username, username))
+                        mysql.connection.commit()
+                    elif request.form['tipe_akun'] == 'Kasir':
+                        cursor.execute('UPDATE IGNORE kasir SET username = %s WHERE username = %s', (new_username, username))
+                        mysql.connection.commit()
+                    elif request.form['tipe_akun'] == 'Dokter':
+                        cursor.execute('UPDATE IGNORE dokter SET username = %s WHERE username = %s', (new_username, username))
+                        mysql.connection.commit()
+                
+                if request.form['password'] != '':
+                    new_password = request.form['password']
+                    if request.form['tipe_akun'] == 'Admin':
+                        cursor.execute('UPDATE IGNORE admin SET password = %s WHERE username = %s', (new_password, username))
+                        mysql.connection.commit()
+                    elif request.form['tipe_akun'] == 'Kasir':
+                        cursor.execute('UPDATE IGNORE kasir SET password = %s WHERE username = %s', (new_password, username))
+                        mysql.connection.commit()
+                    elif request.form['tipe_akun'] == 'Dokter':
+                        cursor.execute('UPDATE IGNORE dokter SET password = %s WHERE username = %s', (new_password, username))
+                        mysql.connection.commit()
+                
+                if request.form['nama'] != '':    
+                    new_nama = request.form['nama']
+                    if request.form['tipe_akun'] == 'Admin':
+                        cursor.execute('UPDATE IGNORE admin SET nama = %s WHERE username = %s', (new_nama, username))
+                        mysql.connection.commit()
+                    elif request.form['tipe_akun'] == 'Kasir':
+                        cursor.execute('UPDATE IGNORE kasir SET nama = %s WHERE username = %s', (new_nama, username))
+                        mysql.connection.commit()
+                    elif request.form['tipe_akun'] == 'Dokter':
+                        cursor.execute('UPDATE IGNORE dokter SET nama = %s WHERE username = %s', (new_nama, username))
+                        mysql.connection.commit()
+                        
+                if request.form['tipe_akun'] == 'Dokter':
+                    new_tipe_dokter = request.form['tipe_dokter']
+                    cursor.execute('UPDATE IGNORE dokter SET jenis_dokter = %s WHERE username = %s', (new_tipe_dokter, username))
+                    mysql.connection.commit()       
+            return redirect(url_for('akun'))
+    return redirect(url_for('login')) 
 
 @app.route('/waiting_list_gigi', methods=['GET', 'POST'])
 def waiting_list_gigi():

@@ -113,7 +113,7 @@
                   <th>Admin</th>
                   <th>
                     <div class="aksi">
-                      <a href="">
+                      <a href="{{ url_for('akun_edit', username = admin['username']) }}">
                         <button class="btn_ubah">Ubah</button>
                       </a>
                       <a href="{{ url_for('akun_hapus', username = admin['username']) }}">
@@ -131,7 +131,7 @@
                   <th>Kasir</th>
                   <th>
                     <div class="aksi">
-                      <a href="">
+                      <a href="{{ url_for('akun_edit', username = kasir['username']) }}">
                         <button class="btn_ubah">Ubah</button>
                       </a>
                       <a href="{{ url_for('akun_hapus', username = kasir['username']) }}">
@@ -149,7 +149,7 @@
                   <th>{{ dokter['jenis_dokter'] }}</th>
                   <th>
                     <div class="aksi">
-                      <a href="">
+                      <a href="{{ url_for('akun_edit', username = dokter['username']) }}">
                         <button class="btn_ubah">Ubah</button>
                       </a>
                       <a href="{{ url_for('akun_hapus', username = dokter['username']) }}">

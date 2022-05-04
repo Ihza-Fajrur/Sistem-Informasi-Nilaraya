@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./ubahAkun.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='ubahAkunAdmin.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
@@ -18,14 +18,14 @@
       <header class="header">KliniX</header>
       <ul class="ul">
         <li>
-          <a href="">
+          <a href="/dashboard">
             <img src="https://img.icons8.com/windows/48/FFFFFF/home-page.png" />
             <!-- <a target="_blank" href="https://icons8.com/icon/6g6b5Mh-1uJ7/home-page">Home Page icon by Icons8</a> -->
             <p>Beranda</p>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="/pasien">
             <img
               src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-hospital-bed-healthcare-tanah-basah-basic-outline-tanah-basah.png"
                />
@@ -42,7 +42,7 @@
           </a>
         </li> -->
         <li>
-          <a href="">
+          <a href="/tindakan_medis">
             <img
               src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-healthcare-1-healthcare-tanah-basah-basic-outline-tanah-basah.png"
                />
@@ -51,7 +51,7 @@
           </a>
         </li>
         <li>
-          <a href="" >
+          <a href="/obat" >
             <img
               src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-medicine-healthcare-tanah-basah-basic-outline-tanah-basah.png"
                />
@@ -60,14 +60,14 @@
           </a>
         </li>
         <li>
-          <a href="" class="active">
+          <a href="/akun" class="active">
             <img src="https://img.icons8.com/fluency-systems-regular/48/02414D/user.png"  />
             <!-- <a target="_blank" href="https://icons8.com/icon/zxB19VPoVLjK/user">User icon by Icons8</a> -->
             <p>Akun</p>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="/logout">
             <img src="https://img.icons8.com/windows/48/FFFFFF/exit.png"  />
             <!-- <a target="_blank" href="https://icons8.com/icon/22112/logout">Logout icon by Icons8</a> -->
             <p> Logout </p>
@@ -84,52 +84,174 @@
         </div>
 
         <div class="wrap-table">
-          <form action="">
+          {% if admin %}
+          <form action="{{ url_for('akun_edit', username = admin['username']) }}" method="POST">
             <div class="wrap-input">
-              <label htmlFor="username" class="label-input">
+              <label htmlfor="username" class="label-input">
                 Username
               </label>
-              <input
-                type="text"
-                class="input-field"
-                placeholder="Masukkan Username"
-                name="username"
-              />
+                <input
+                  type="text"
+                  class="input-field"
+                  placeholder="Masukkan Username"
+                  name="username"
+                  value="{{ admin['username'] }}"
+                />
             </div>
             <div class="wrap-input">
-              <label htmlFor="password" class="label-input">
+              <label htmlfor="password" class="label-input">
                 Password
               </label>
-              <input
-                type="password"
-                class="input-field"
-                placeholder="Masukkan Password"
-                name="password"
-              />
+                <input
+                  type="password"
+                  class="input-field"
+                  placeholder="Masukkan Password"
+                  name="password"
+                  value="{{ admin['password'] }}"
+                />
             </div>
             <div class="wrap-input">
-              <label htmlFor="namalengkap" class="label-input">
+              <label htmlfor="namalengkap" class="label-input">
                 Nama Lengkap
               </label>
-              <input
-                type="text"
-                class="input-field"
-                placeholder="Masukkan Nama Lengkap"
-                name="namalengkap"
-              />
+                <input
+                  type="text"
+                  class="input-field"
+                  placeholder="Masukkan Nama Lengkap"
+                  name="nama"
+                  value="{{ admin['nama'] }}"
+                />
             </div>
             <div class="wrap-input">
-              <label htmlFor="tipeakun" class="label-input">
+              <label htmlfor="tipe_akun" class="label-input">
                 Tipe Akun
               </label>
-              <select name="tipeakun" id="tipeakun" class="input-field">
-                <option value="admin">Admin</option>
-                <option value="dokter">Dokter</option>
-                <option value="kasir">Kasir</option>
+              <select name="tipe_akun" id="tipeakun" class="input-field">
+                <option value="Admin"  selected>Admin</option>
+                <option value="Dokter" disabled>Dokter</option>
+                <option value="Kasir" disabled>Kasir</option>
               </select>
             </div>
             <input type="submit" class="btn-ubah" value="Ubah Data" name="buttonubahdata" />
           </form>
+          {% elif kasir %}
+          <form action="{{ url_for('akun_edit', username = kasir['username']) }}" method="POST">
+            <div class="wrap-input">
+              <label htmlfor="username" class="label-input">
+                Username
+              </label>
+                <input
+                  type="text"
+                  class="input-field"
+                  placeholder="Masukkan Username"
+                  name="username"
+                  value="{{ kasir['username'] }}"
+                />
+            </div>
+            <div class="wrap-input">
+              <label htmlfor="password" class="label-input">
+                Password
+              </label>
+                <input
+                  type="password"
+                  class="input-field"
+                  placeholder="Masukkan Password"
+                  name="password"
+                  value="{{ kasir['password'] }}"
+                />
+            </div>
+            <div class="wrap-input">
+              <label htmlfor="namalengkap" class="label-input">
+                Nama Lengkap
+              </label>
+                <input
+                  type="text"
+                  class="input-field"
+                  placeholder="Masukkan Nama Lengkap"
+                  name="nama"
+                  value="{{ kasir['nama'] }}"
+                />
+            </div>
+            <div class="wrap-input">
+              <label htmlfor="tipe_akun" class="label-input">
+                Tipe Akun
+              </label>
+              <select name="tipe_akun" id="tipeakun" class="input-field">
+                <option value="Admin" disabled>Admin</option>
+                <option value="Dokter" disabled>Dokter</option>
+                <option value="Kasir" selected>Kasir</option>
+              </select>
+            </div>
+            <input type="submit" class="btn-ubah" value="Ubah Data" name="buttonubahdata" />
+          </form>
+          {% elif dokter %}
+          <form action="{{ url_for('akun_edit', username = dokter['username']) }}" method="POST">
+            <div class="wrap-input">
+              <label htmlfor="username" class="label-input">
+                Username
+              </label>
+                <input
+                  type="text"
+                  class="input-field"
+                  placeholder="Masukkan Username"
+                  name="username"
+                  value="{{ dokter['username'] }}"
+                />
+            </div>
+            <div class="wrap-input">
+              <label htmlfor="password" class="label-input">
+                Password
+              </label>
+                <input
+                  type="password"
+                  class="input-field"
+                  placeholder="Masukkan Password"
+                  name="password"
+                  value="{{ dokter['password'] }}"
+                />
+            </div>
+            <div class="wrap-input">
+              <label htmlfor="namalengkap" class="label-input">
+                Nama Lengkap
+              </label>
+                <input
+                  type="text"
+                  class="input-field"
+                  placeholder="Masukkan Nama Lengkap"
+                  name="nama"
+                  value="{{ dokter['nama'] }}"
+                />
+            </div>
+            <div class="wrap-input">
+              <label htmlfor="tipe_akun" class="label-input">
+                Tipe Akun
+              </label>
+              <select name="tipe_akun" id="tipeakun" class="input-field">
+                <option value="Admin" disabled>Admin</option>
+                <option value="Dokter" selected>Dokter</option>
+                <option value="Kasir" disabled>Kasir</option>
+              </select>
+            </div>
+            <div class="wrap-input">
+              <label htmlfor="tipe_dokter" class="label-input">
+                Tipe Dokter
+              </label>
+              <select name="tipe_dokter" id="tipe_dokter" class="input-field">
+                {% if dokter['jenis_dokter'] == 'Dokter Umum' %}
+                <option value="" disabled >Pilih Jenis Dokter</option>
+                <option value="Dokter Umum" selected>Umum</option>
+                <option value="Dokter Gigi">Gigi</option>
+                {% elif dokter['jenis_dokter'] == 'Dokter Gigi' %}
+                <option value="" disabled >Pilih Jenis Dokter</option>
+                <option value="Dokter Umum">Umum</option>
+                <option value="Dokter Gigi" selected>Gigi</option>
+                {% endif %}
+              </select>
+            </div>
+            <input type="submit" class="btn-ubah" value="Ubah Data" name="buttonubahdata" />
+          </form>
+          {% endif %}
+           
         </div>
       </div>
     </div>
