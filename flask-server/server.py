@@ -20,8 +20,8 @@ app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.secret_key = '069420'
 
 #Koneksi, inisialisasi DB
-app.config['MYSQL_HOST'] = '192.168.1.29'
-# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_HOST'] = '192.168.1.29'
+app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'nilaraya'
@@ -72,10 +72,13 @@ def login():
             
             # If dokter account is valid
             elif dokter:
+                cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT jenis_dokter FROM dokter WHERE username = %s AND password = %s', (username, password,))
+                jenis_dokter = cursor.fetchone()
                 # Create session data
                 session['loggedin'] = True
                 session['name'] = dokter['nama']
-                session['acc_type'] = 'dokter'
+                session['acc_type'] = jenis_dokter['jenis_dokter']
                 # Redirect to dashboard if account is valid
                 return redirect(url_for('dashboard'))
                 
@@ -107,6 +110,8 @@ def dashboard():
                 return render_template('BerandaAdmin.html')
             elif session['acc_type'] == 'kasir':
                 return render_template('BerandaKasir.html')
+            elif session['acc_type'] == 'Dokter Umum' or session['acc_type'] == 'Dokter Gigi':
+                return redirect(url_for('daftar_pasien'))
     return redirect('/login')
 
 @app.route('/pasien', methods=['GET', 'POST'])
@@ -616,7 +621,7 @@ def waiting_list_umum_tambah(no_rekam_medik):
                     no_urut = no_urut['MAX(no_urut)'] + 1
                 cursor.execute('INSERT IGNORE INTO waiting_list_umum (no_urut, no_rekam_medis, nama_pasien, status) VALUES (%s, %s, %s, %s)', (no_urut, pasien['no_rekam_medik'], pasien['nama'], 'Mengantri'))
                 mysql.connection.commit()
-                return redirect(url_for('pasien'))
+                return redirect(url_for('waiting_list_umum'))
     return redirect(url_for('login'))
 
 @app.route('/waiting_list_gigi_tambah/<no_rekam_medik>', methods=['GET', 'POST'])
@@ -635,7 +640,7 @@ def waiting_list_gigi_tambah(no_rekam_medik):
                     no_urut = no_urut['MAX(no_urut)'] + 1
                 cursor.execute('INSERT IGNORE INTO waiting_list_gigi (no_urut, no_rekam_medis, nama_pasien, status) VALUES (%s, %s, %s, %s)', (no_urut, pasien['no_rekam_medik'], pasien['nama'], 'Mengantri'))
                 mysql.connection.commit()
-                return redirect(url_for('pasien'))
+                return redirect(url_for('waiting_list_gigi'))
     return redirect(url_for('login'))
 
 @app.route('/waiting_list_umum_hapus/<no_urut>', methods=['GET', 'POST'])
@@ -658,6 +663,35 @@ def tagihan_umum(no_urut):
                 cursor.execute('SELECT * FROM waiting_list_umum WHERE no_urut = %s', (no_urut,))
                 wlu = cursor.fetchall()
                 return render_template('TagihanUmum.html', wlu=wlu)
+    return redirect(url_for('login'))
+
+@app.route('/daftar_pasien', methods=['GET', 'POST'])
+def daftar_pasien():
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type']  == 'Dokter Umum':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM waiting_list_umum')
+                pasien = cursor.fetchall()
+                return render_template('DaftarPasienUmum.html', pasien=pasien)
+            elif session['acc_type'] == 'Dokter Gigi':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM waiting_list_gigi')
+                pasien = cursor.fetchall()
+                return render_template('DaftarPasienGigi.html', pasien=pasien)
+    return redirect(url_for('login'))
+
+@app.route('/history_rekam_medis_dokter/<no_rm_pasien>', methods=['GET', 'POST'])
+def history_rekam_medis_dokter(no_rm_pasien):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type']  == 'Dokter Umum' or session['acc_type'] == 'Dokter Gigi':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM rekam_medik WHERE no_rm_pasien = %s', (no_rm_pasien,))
+                rekam_medis = cursor.fetchall()
+                cursor.execute('SELECT * FROM pasien WHERE no_rekam_medik = %s', (no_rm_pasien,))
+                pasien = cursor.fetchone()
+                return render_template('HistoryRekamMedisDokter.html', rekam_medis=rekam_medis, pasien=pasien)
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
