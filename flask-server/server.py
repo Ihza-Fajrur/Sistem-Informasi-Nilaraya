@@ -649,16 +649,41 @@ def waiting_list_umum_hapus(no_urut):
                 return redirect(url_for('waiting_list_umum'))
     return redirect(url_for('login'))
 
-@app.route('/tagihan_umum/<no_urut>', methods=['GET', 'POST'])
-def tagihan_umum(no_urut):
+@app.route('/waiting_list_gigi_hapus/<no_urut>', methods=['GET', 'POST'])
+def waiting_list_gigi_hapus(no_urut):
     if 'loggedin' in session:
         if request.method == 'GET':
             if session['acc_type'] == 'kasir':
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-                cursor.execute('SELECT * FROM waiting_list_umum WHERE no_urut = %s', (no_urut,))
-                wlu = cursor.fetchall()
-                return render_template('TagihanUmum.html', wlu=wlu)
+                cursor.execute('DELETE FROM waiting_list_gigi WHERE no_urut = %s', (no_urut,))
+                mysql.connection.commit()
+                return redirect(url_for('waiting_list_gigi'))
     return redirect(url_for('login'))
+
+@app.route('/tagihan_umum/<no_rekam_medis>', methods=['GET', 'POST'])
+def tagihan_umum(no_rekam_medis):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'kasir':
+                today = datetime.now()
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM tagihan WHERE no_rekam_medik = %s', (no_rekam_medis,))
+                wlu = cursor.fetchone()
+                return render_template('TagihanUmum.html', wlu=wlu, today=today.strftime('%Y-%m-%d %H:%M:%S'))
+    return redirect(url_for('login'))
+
+@app.route('/tagihan_gigi/<no_rekam_medis>', methods=['GET', 'POST'])
+def tagihan_gigi(no_rekam_medis):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'kasir':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM tagihan WHERE no_rekam_medik = %s', (no_rekam_medis,))
+                wlg = cursor.fetchone()
+                today = datetime.now()
+                return render_template('TagihanGigi.html', wlg=wlg, today=today.strftime('%Y-%m-%d %H:%M:%S'))
+    return redirect(url_for('login'))
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

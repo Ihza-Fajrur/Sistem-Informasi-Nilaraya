@@ -67,12 +67,10 @@
       </div>
 
       <div class="wrap-table">
-        {% if not wlg %}
-        <div class="logo">
+        <!-- <div class="logo">
           <img src="https://img.icons8.com/clouds/300/000000/search-in-list.png"/>
           <h2 class="logoTxt">Tidak Ada Pasien</h2>
-        </div>
-        {% elif wlg %}
+        </div> -->
         <div class="table">
           <table>
             <thead>
@@ -80,35 +78,26 @@
                 <th>No. Urut</th>
                 <th>No.Rekam Medis</th>
                 <th>Nama Pasien</th>
-                <th>Status</th>
+                <td>Antri</td>
                 <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
-              {% for wl in wlg %}
               <tr>
-                <td>{{ wl['no_urut'] }}</td>
-                <td>{{ wl['no_rekam_medis'] }}</td>
-                <td>{{ wl['nama_pasien'] }}</td>
-                <td>{{ wl['status'] }}</td>
+                <td>1</td>
+                <td>11213</td>
+                <td>Sudirman</td>
+                <td>Antri</td>
                 <td>
-                  <a href="{{ url_for('tagihan_gigi', no_rekam_medis = wl['no_rekam_medis']) }}">
-                    <button class="btn-tagih">
-                      Tagihan
-                    </button>
-                  </a>
-                  <a href="{{ url_for('waiting_list_gigi_hapus', no_urut = wl['no_urut']) }}">
-                    <button class="btn-hapus">
-                      Hapus
-                    </button>
-                  </a>
+                  <button class="btn-tagih">
+                    <a href="">Tagihan</a></button>
+                  <button class="btn-hapus">
+                    <a href="">Hapus</a></button>
                 </td>
               </tr>
-              {% endfor %}
             </tbody>
           </table>
         </div>
-        {% endif %}
       </div>
     </div>
   </div>
