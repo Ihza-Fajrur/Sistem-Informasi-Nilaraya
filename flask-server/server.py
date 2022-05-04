@@ -20,8 +20,8 @@ app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.secret_key = '069420'
 
 #Koneksi, inisialisasi DB
-# app.config['MYSQL_HOST'] = '192.168.1.29'
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = '192.168.1.29'
+# app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'nilaraya'
@@ -131,9 +131,12 @@ def pasien():
 def pasien_tambah():
     if 'loggedin' in session:
         if request.method == 'GET':
-            return render_template('TambahPasienAdmin.html')
-        elif request.method == 'POST':
             if session['acc_type'] == 'admin':
+                return render_template('TambahPasienAdmin.html')
+            elif session['acc_type'] == 'kasir':
+                return render_template('TambahPasienKasir.html')
+        elif request.method == 'POST':
+            if session['acc_type'] == 'admin' or session['acc_type'] == 'kasir':
                 nama_pasien =  request.form['nama_pasien']
                 no_rekam_medis = request.form['no_rekam_medis']
                 no_bpjs = request.form['no_bpjs']
