@@ -42,7 +42,7 @@
       </div>
   
       <div class="wrap-table">
-        <form action="'/form" method="POST" id="form">
+        <form action="{{ url_for('form_dokter', no_rekam_medis = pasien['no_rekam_medik']) }}" method="POST" id="form">
           <div class="wrap-input">
             <label htmlfor="nama_pasien" class="label-input">
               Nama Pasien
@@ -100,7 +100,9 @@
               <option value="" disabled selected hidden>
                 Pilih Tindakan
               </option>
-              <option value=""></option>
+              {% for tindakan in tindakan %}
+              <option value="{{ tindakan['kode_tindakan'] }}">{{ tindakan['nama_tindakan'] }}</option>
+              {% endfor %}
             </select>
           </div>
 
