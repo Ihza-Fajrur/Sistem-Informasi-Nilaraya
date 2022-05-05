@@ -11,6 +11,8 @@
 
 <body>
     <div class="container">
+      <div class="wrap-gambar">
+        <img class="gambar" src="{{ url_for('static', filename='Background.png') }}">
       <div class="login">
         <div class="div2">
           <h1>LOGIN</h1>
@@ -26,11 +28,9 @@
             <p>{{ msg }}</p>
             <input type="submit" value="Masuk" class="button" />
           </form>
-          <!-- <button class="button" >
-            Masuk
-          </button> -->
         </div>
       </div>
+    </div>
     </div>
 </body>
 

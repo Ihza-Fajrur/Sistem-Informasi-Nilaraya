@@ -1,5 +1,4 @@
 .container {
-  background-image: url(/client-side/static/Background.png);
   font-family: "Roboto", sans-serif;
   background-size: cover;
   height: 100%;
@@ -12,18 +11,14 @@
 .container ::-webkit-scrollbar {
   display: none;
 }
-.container .login {
-  width: 10%;
-  height: 100%;
-  margin-left: 100%;
-  padding-top: 21%;
-  padding-right: 40%;
-}
-.container .div2 {
+.container .wrap-gambar {
   display: flex;
-  flex-direction: column;
-  width: 20vw;
-  margin-left: 40%;
+  flex-direction: row;
+}
+.container .login {
+  width: 100%;
+  margin-left: 5%;
+  padding-top: 21%;
 }
 .container .div2 .label-input {
   font-size: 14px;
@@ -33,12 +28,16 @@
 }
 .container .div2 .button {
   background-color: #02414D;
+  border-color: #02414D;
   color: white;
   margin-top: 10px;
   padding: 10px;
   font-weight: bold;
   border-radius: 10px;
-  width: 100%;
+  width: 300%;
+}
+.container .div2 .button:hover {
+  background: #011c22;
 }
 .container .div2 .input {
   background-color: #F5F5F5;
@@ -46,7 +45,14 @@
   border-radius: 10px;
   border: none;
   color: #02414D;
-  width: 100%;
-  margin-right: 20px;
+  width: 300%;
   margin-bottom: 20px;
+}
+.container .gambar {
+  display: flex;
+  width: 100%;
+}
+.container p {
+  font-size: 16px;
+  color: red;
 }/*# sourceMappingURL=login.css.map */

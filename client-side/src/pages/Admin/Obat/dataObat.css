@@ -110,11 +110,12 @@
 }
 .body .head .wrap-table {
   padding-top: 5px;
-  height: 100%;
+  height: 80%;
   width: 100%;
   background-color: #fff;
   align-items: center;
   margin-top: 10px;
+  overflow-y: auto;
 }
 .body .head .wrap-table .btn_tambah {
   background-color: #02414D;
