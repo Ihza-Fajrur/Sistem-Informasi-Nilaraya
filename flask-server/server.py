@@ -38,60 +38,67 @@ def login():
     if not 'loggedin' in session:
         msg = ''
         if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
-            # Username and password encrytion
+            
             username = request.form['username']
-            # username = request.form['username'].encode('utf-8')
-            # username = f.encrypt(username)
-            # print(username)
-            # username = username.decode('utf-8')
-            
             password = request.form['password']
-            # password = request.form['password'].encode('utf-8')
-            # password = f.encrypt(password)
-            # password = password.decode("utf-8") 
-                
-            # Username and password validation
+            
             with mysql.connection.cursor(MySQLdb.cursors.DictCursor) as cursor:
-                cursor.execute('SELECT * FROM admin WHERE username = %s AND password = %s', (username, password,))
-                admin = cursor.fetchone()
-                if not admin:
-                    cursor.execute('SELECT * FROM dokter WHERE username = %s AND password = %s', (username, password,))
-                    dokter = cursor.fetchone()
-                if not admin and not dokter:
-                    cursor.execute('SELECT * FROM kasir WHERE username = %s AND password = %s', (username, password,))
-                    kasir = cursor.fetchone()
-            
-            # If admin account is valid
-            if admin:
-                # Create session data
-                session['loggedin'] = True
-                session['name'] = admin['nama']
-                session['acc_type'] = 'admin'
-                # Redirect to dashboard if account is valid
-                return redirect(url_for('dashboard'))
-            
-            # If dokter account is valid
-            elif dokter:
-                cursor=mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-                cursor.execute('SELECT jenis_dokter FROM dokter WHERE username = %s AND password = %s', (username, password,))
-                jenis_dokter = cursor.fetchone()
-                # Create session data
-                session['loggedin'] = True
-                session['name'] = dokter['nama']
-                session['acc_type'] = jenis_dokter['jenis_dokter']
-                # Redirect to dashboard if account is valid
-                return redirect(url_for('dashboard'))
-                
-            # If kasir account is valid
-            elif kasir:
-                # Create session data
-                session['loggedin'] = True
-                session['name'] = kasir['nama']
-                session['acc_type'] = 'kasir'      
-                # Redirect to dashboard if account is valid
-                return redirect(url_for('dashboard'))
-                
-            elif not admin and not dokter and not kasir:
+                cursor.execute("SELECT * FROM admin")    
+                admin = cursor.fetchall()
+                for admin in admin:
+                    print(admin['username'])
+                    print(admin['password'])
+                    DB_username = f.decrypt(admin['username'].encode())
+                    DB_password = f.decrypt(admin['password'].encode())
+                    DB_username = DB_username.decode()
+                    DB_password = DB_password.decode()
+                    if username == DB_username and password == DB_password:
+                        # Create session data
+                        session['loggedin'] = True
+                        session['name'] = admin['nama']
+                        session['acc_type'] = 'admin'
+                        admin_loggedin = True
+                        # Redirect to dashboard if account is valid
+                        return redirect(url_for('dashboard'))
+                    else:
+                        admin_loggedin = False
+
+                cursor.execute("SELECT * FROM dokter")
+                dokter = cursor.fetchall()
+                for dokter in dokter:
+                    DB_username = f.decrypt(dokter['username'].encode())
+                    DB_password = f.decrypt(dokter['password'].encode())
+                    DB_username = DB_username.decode()
+                    DB_password = DB_password.decode()
+                    if username == DB_username and password == DB_password:
+                        # Create session data
+                        session['loggedin'] = True
+                        session['name'] = dokter['nama']
+                        session['acc_type'] = 'dokter'
+                        dokter_loggedin = True
+                        # Redirect to dashboard if account is valid
+                        return redirect(url_for('dashboard'))
+                    else:
+                        dokter_loggedin = False
+                    
+                cursor.execute("SELECT * FROM kasir")
+                kasir = cursor.fetchall()
+                for kasir in kasir:
+                    DB_username = f.decrypt(kasir['username'].encode())
+                    DB_password = f.decrypt(kasir['password'].encode())
+                    DB_username = DB_username.decode()
+                    DB_password = DB_password.decode()
+                    if username == DB_username and password == DB_password:
+                        session['loggedin'] = True
+                        session['name'] = kasir['nama']
+                        session['acc_type'] = 'kasir'
+                        kasir_loggedin = True
+                        # Redirect to dashboard if account is valid
+                        return redirect(url_for('dashboard'))
+                    else:
+                        kasir_loggedin = False
+                        
+            if not admin_loggedin and not dokter_loggedin and not kasir_loggedin:
                 msg = 'Invalid username or password!'
                 
         return render_template('Login.html', msg=msg)
@@ -479,7 +486,7 @@ def akun():
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                 cursor.execute('SELECT * FROM dokter')
                 dokter = cursor.fetchall()
-                return render_template('DataAkunAdmin.html', admin=admin, kasir=kasir, dokter=dokter)
+                return render_template('DataAkunAdmin.html', admin=admin, kasir=kasir, dokter=dokter, f=f)
 
 @app.route('/akun_tambah', methods=['GET', 'POST'])
 def akun_tambah():
@@ -494,6 +501,8 @@ def akun_tambah():
                 new_password = request.form['password']
                 new_nama = request.form['nama']
                 new_acc_type = request.form['tipe_akun']
+                new_username = f.encrypt(new_username.encode())
+                new_password = f.encrypt(new_password.encode())
                 if new_acc_type == 'Kasir':
                     cursor.execute('INSERT INTO kasir (username, password, nama) VALUES (%s, %s, %s)', (new_username, new_password, new_nama))
                     mysql.connection.commit()
@@ -538,13 +547,12 @@ def akun_edit(username):
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                 cursor.execute('SELECT * FROM dokter WHERE username = %s', (username,))
                 dokter = cursor.fetchone()
-                return render_template('UbahAkunAdmin.html', admin=admin, kasir=kasir, dokter=dokter)
+                return render_template('UbahAkunAdmin.html', admin=admin, kasir=kasir, dokter=dokter, f=f)
         elif request.method == 'POST':
             if session['acc_type'] == 'admin':
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-                
                 if request.form['username'] != '':
-                    new_username = request.form['username']
+                    new_username = f.encrypt(request.form['username'].encode()).decode()
                     tipe_akun = request.form['tipe_akun']
                     if tipe_akun == 'Admin':
                         cursor.execute('UPDATE IGNORE admin SET username = %s WHERE username = %s', (new_username, username))
@@ -557,32 +565,32 @@ def akun_edit(username):
                         mysql.connection.commit()
                 
                 if request.form['password'] != '':
-                    new_password = request.form['password']
+                    new_password = f.encrypt(request.form['password'].encode()).decode()
                     if request.form['tipe_akun'] == 'Admin':
-                        cursor.execute('UPDATE IGNORE admin SET password = %s WHERE username = %s', (new_password, username))
+                        cursor.execute('UPDATE IGNORE admin SET password = %s WHERE username = %s', (new_password, new_username))
                         mysql.connection.commit()
                     elif request.form['tipe_akun'] == 'Kasir':
-                        cursor.execute('UPDATE IGNORE kasir SET password = %s WHERE username = %s', (new_password, username))
+                        cursor.execute('UPDATE IGNORE kasir SET password = %s WHERE username = %s', (new_password, new_username))
                         mysql.connection.commit()
                     elif request.form['tipe_akun'] == 'Dokter':
-                        cursor.execute('UPDATE IGNORE dokter SET password = %s WHERE username = %s', (new_password, username))
+                        cursor.execute('UPDATE IGNORE dokter SET password = %s WHERE username = %s', (new_password, new_username))
                         mysql.connection.commit()
                 
                 if request.form['nama'] != '':    
                     new_nama = request.form['nama']
                     if request.form['tipe_akun'] == 'Admin':
-                        cursor.execute('UPDATE IGNORE admin SET nama = %s WHERE username = %s', (new_nama, username))
+                        cursor.execute('UPDATE IGNORE admin SET nama = %s WHERE username = %s', (new_nama, new_username))
                         mysql.connection.commit()
                     elif request.form['tipe_akun'] == 'Kasir':
-                        cursor.execute('UPDATE IGNORE kasir SET nama = %s WHERE username = %s', (new_nama, username))
+                        cursor.execute('UPDATE IGNORE kasir SET nama = %s WHERE username = %s', (new_nama, new_username))
                         mysql.connection.commit()
                     elif request.form['tipe_akun'] == 'Dokter':
-                        cursor.execute('UPDATE IGNORE dokter SET nama = %s WHERE username = %s', (new_nama, username))
+                        cursor.execute('UPDATE IGNORE dokter SET nama = %s WHERE username = %s', (new_nama, new_username))
                         mysql.connection.commit()
                         
                 if request.form['tipe_akun'] == 'Dokter':
                     new_tipe_dokter = request.form['tipe_dokter']
-                    cursor.execute('UPDATE IGNORE dokter SET jenis_dokter = %s WHERE username = %s', (new_tipe_dokter, username))
+                    cursor.execute('UPDATE IGNORE dokter SET jenis_dokter = %s WHERE username = %s', (new_tipe_dokter, new_username))
                     mysql.connection.commit()       
             return redirect(url_for('akun'))
     return redirect(url_for('login')) 
@@ -796,8 +804,6 @@ def form_dokter(no_rekam_medis):
                 mysql.connection.commit()
             return redirect(url_for('daftar_pasien'))
     return redirect(url_for('login'))
-
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
