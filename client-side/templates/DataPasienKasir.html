@@ -62,7 +62,7 @@
             <h1>Data Pasien</h1>
           </div>
         <div class="cari">
-          <input type="text" class="inputcari" placeholder="Cari..." />
+          <input type="text" class="inputcari" placeholder="Cari..." id="myInput" onkeyup="myFunction()"/>
         </div>
         </div>
 
@@ -78,7 +78,7 @@
           </div>
 
           <div class="table">
-            <table>
+            <table id="myTable">
               <thead>
                 
                 <tr>
@@ -96,14 +96,14 @@
               <tbody>
                 {% for pasien in pasien %}
                 <tr>
-                  <th>{{ pasien['nama'] }}</th>
-                  <th>{{ pasien['no_rekam_medik'] }}</th>
-                  <th>{{ pasien['no_bpjs'] }}</th>
-                  <th>{{ pasien['jenis_kelamin'] }}</th>
-                  <th>{{ pasien['ttl'] }}</th>
-                  <th>{{ pasien['alamat'] }}</th>
-                  <th>{{ pasien['no_hp'] }}</th>
-                  <th>{{ pasien['riwayat_penyakit'] }}</th>
+                  <td>{{ pasien['nama'] }}</td>
+                  <td>{{ pasien['no_rekam_medik'] }}</td>
+                  <td>{{ pasien['no_bpjs'] }}</td>
+                  <td>{{ pasien['jenis_kelamin'] }}</td>
+                  <td>{{ pasien['ttl'] }}</td>
+                  <td>{{ pasien['alamat'] }}</td>
+                  <td>{{ pasien['no_hp'] }}</td>
+                  <td>{{ pasien['riwayat_penyakit'] }}</td>
                   <td>
                     <div class="aksi">
                       <!-- tambah waiting list umum -->
@@ -129,5 +129,27 @@
       </div>
     </div>
 </body>
-    
+<script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
 </html>

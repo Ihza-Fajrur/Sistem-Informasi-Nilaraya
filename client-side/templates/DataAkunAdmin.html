@@ -80,7 +80,7 @@
           <h1>Data Akun</h1>
         </div>
         <div class="cari">
-          <input type="text" class="inputcari" placeholder="Cari..."/>
+          <input type="text" class="inputcari" placeholder="Cari..." id="myInput" onkeyup="myFunction()"/>
         </div>
       </div>
   
@@ -94,7 +94,7 @@
         </div>
   
         <div class="table">
-          <table>
+          <table id="myTable">
             <thead>
               <tr>
                 <th>Username</th>
@@ -107,11 +107,11 @@
             <tbody>
               {% for admin in admin %}
                 <tr>
-                  <th>{{ f.decrypt(admin['username'].encode()).decode() }}</th>
-                  <th>{{ "********" }}</th>
-                  <th>{{ admin['nama'] }}</th>
-                  <th>Admin</th>
-                  <th>
+                  <td>{{ f.decrypt(admin['username'].encode()).decode() }}</td>
+                  <td>{{ "********" }}</td>
+                  <td>{{ admin['nama'] }}</td>
+                  <td>Admin</td>
+                  <td>
                     <div class="aksi">
                       <a href="{{ url_for('akun_edit', username = admin['username']) }}">
                         <button class="btn_ubah">Ubah</button>
@@ -120,16 +120,16 @@
                         <button class="btn_hapus">Hapus</button>
                       </a>
                     </div>
-                  </th>
+                  </td>
                 </tr>
               {% endfor %}
               {% for kasir in kasir %}
                 <tr>
-                  <th>{{ f.decrypt(kasir['username'].encode()).decode() }}</th>
-                  <th>{{ "********" }}</th>
-                  <th>{{ kasir['nama'] }}</th>
-                  <th>Kasir</th>
-                  <th>
+                  <td>{{ f.decrypt(kasir['username'].encode()).decode() }}</td>
+                  <td>{{ "********" }}</td>
+                  <td>{{ kasir['nama'] }}</td>
+                  <td>Kasir</td>
+                  <td>
                     <div class="aksi">
                       <a href="{{ url_for('akun_edit', username = kasir['username']) }}">
                         <button class="btn_ubah">Ubah</button>
@@ -138,16 +138,16 @@
                         <button class="btn_hapus">Hapus</button>
                       </a>
                     </div>
-                  </th>
+                  </td>
                 </tr>
               {% endfor %}
               {% for dokter in dokter %}
                 <tr>
-                  <th>{{ f.decrypt(dokter['username'].encode()).decode() }}</th>
-                  <th>{{ "********" }}</th>
-                  <th>{{ dokter['nama'] }}</th>
-                  <th>{{ dokter['jenis_dokter'] }}</th>
-                  <th>
+                  <td>{{ f.decrypt(dokter['username'].encode()).decode() }}</td>
+                  <td>{{ "********" }}</td>
+                  <td>{{ dokter['nama'] }}</td>
+                  <td>{{ dokter['jenis_dokter'] }}</td>
+                  <td>
                     <div class="aksi">
                       <a href="{{ url_for('akun_edit', username = dokter['username']) }}">
                         <button class="btn_ubah">Ubah</button>
@@ -156,7 +156,7 @@
                         <button class="btn_hapus">Hapus</button>
                       </a>
                     </div>
-                  </th>
+                  </td>
                 </tr>
               {% endfor %}
             </tbody>
@@ -166,5 +166,28 @@
     </div>
   </div>
 </body>
+<script>
+  function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
 </html>
     
