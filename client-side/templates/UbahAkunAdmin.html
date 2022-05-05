@@ -95,7 +95,8 @@
                   class="input-field"
                   placeholder="Masukkan Username"
                   name="username"
-                  value="{{ admin['username'] }}"
+                  f.decrypt(.encode()).decode()
+                  value="{{ f.decrypt(admin['username'].encode()).decode() }}"
                 />
             </div>
             <div class="wrap-input">
@@ -107,7 +108,7 @@
                   class="input-field"
                   placeholder="Masukkan Password"
                   name="password"
-                  value="{{ admin['password'] }}"
+                  value="{{ f.decrypt(admin['password'].encode()).decode() }}"
                 />
             </div>
             <div class="wrap-input">
@@ -145,7 +146,7 @@
                   class="input-field"
                   placeholder="Masukkan Username"
                   name="username"
-                  value="{{ kasir['username'] }}"
+                  value="{{ f.decrypt(kasir['username'].encode()).decode() }}"
                 />
             </div>
             <div class="wrap-input">
@@ -157,7 +158,7 @@
                   class="input-field"
                   placeholder="Masukkan Password"
                   name="password"
-                  value="{{ kasir['password'] }}"
+                  value="{{ f.decrypt(kasir['password'].encode()).decode() }}"
                 />
             </div>
             <div class="wrap-input">
@@ -195,7 +196,7 @@
                   class="input-field"
                   placeholder="Masukkan Username"
                   name="username"
-                  value="{{ dokter['username'] }}"
+                  value="{{ f.decrypt(dokter['username'].encode()).decode() }}"
                 />
             </div>
             <div class="wrap-input">
@@ -207,7 +208,7 @@
                   class="input-field"
                   placeholder="Masukkan Password"
                   name="password"
-                  value="{{ dokter['password'] }}"
+                  value="{{ f.decrypt(dokter['password'].encode()).decode() }}"
                 />
             </div>
             <div class="wrap-input">
@@ -251,7 +252,6 @@
             <input type="submit" class="btn-ubah" value="Ubah Data" name="buttonubahdata" />
           </form>
           {% endif %}
-           
         </div>
       </div>
     </div>

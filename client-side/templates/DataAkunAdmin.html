@@ -107,8 +107,8 @@
             <tbody>
               {% for admin in admin %}
                 <tr>
-                  <th>{{ admin['username'] }}</th>
-                  <th>{{ admin['password'] }}</th>
+                  <th>{{ f.decrypt(admin['username'].encode()).decode() }}</th>
+                  <th>{{ "********" }}</th>
                   <th>{{ admin['nama'] }}</th>
                   <th>Admin</th>
                   <th>
@@ -125,8 +125,8 @@
               {% endfor %}
               {% for kasir in kasir %}
                 <tr>
-                  <th>{{ kasir['username'] }}</th>
-                  <th>{{ kasir['password'] }}</th>
+                  <th>{{ f.decrypt(kasir['username'].encode()).decode() }}</th>
+                  <th>{{ "********" }}</th>
                   <th>{{ kasir['nama'] }}</th>
                   <th>Kasir</th>
                   <th>
@@ -143,8 +143,8 @@
               {% endfor %}
               {% for dokter in dokter %}
                 <tr>
-                  <th>{{ dokter['username'] }}</th>
-                  <th>{{ dokter['password'] }}</th>
+                  <th>{{ f.decrypt(dokter['username'].encode()).decode() }}</th>
+                  <th>{{ "********" }}</th>
                   <th>{{ dokter['nama'] }}</th>
                   <th>{{ dokter['jenis_dokter'] }}</th>
                   <th>
