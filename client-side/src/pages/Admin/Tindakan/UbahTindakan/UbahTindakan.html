@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./ubahTindakan.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <title>Data Pasien</title>
+</head>
+
+<body>
+  <div class="body">
+      <div class="sidebar">
+        <header class="header">KliniX</header>
+          <ul class="ul">
+            <li>
+              <a href="" >
+                <img src="https://img.icons8.com/windows/48/FFFFFF/home-page.png" />
+                <!-- <a target="_blank" href="https://icons8.com/icon/6g6b5Mh-1uJ7/home-page">Home Page icon by Icons8</a> -->
+                <p>Beranda</p>
+              </a>
+            </li>
+            <li>
+              <a href="" >
+                <img
+                  src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-hospital-bed-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+                   />
+                <!-- <img src="https://img.icons8.com/small/42/FFFFFF/user.png" /> -->
+                <p>Pasien</p>
+              </a>
+            </li>
+            
+            <li>
+              <a href="" class="active">
+                <img
+                  src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/02414D/external-healthcare-1-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+                   />
+                <!-- <a target="_blank" href="https://icons8.com/icon/oCzpAjdWh4qT/healthcare-1">healthcare 1 icon by Icons8</a> -->
+                <p>Tindakan Medis</p>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <img
+                  src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-medicine-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+                   />
+                <!-- <a target="_blank" href="https://icons8.com/icon/7N4bD4LTeOZF/medicine">medicine icon by Icons8</a> -->
+                <p>Obat</p>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <img src="https://img.icons8.com/fluency-systems-regular/48/FFFFFF/user.png"  />
+                <!-- <a target="_blank" href="https://icons8.com/icon/zxB19VPoVLjK/user">User icon by Icons8</a> -->
+                <p>Akun</p>
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <img src="https://img.icons8.com/windows/48/FFFFFF/exit.png"  />
+                <!-- <a target="_blank" href="https://icons8.com/icon/22112/logout">Logout icon by Icons8</a> -->
+                <p>Logout</p>
+              </a>
+            </li>
+        </ul>
+      </div>
+
+      <div class="head">
+        <div class="wrap-bagianAtas">
+          <div class="bagianAtas">
+            <h1>Form Pengubahan Tindakan</h1>
+          </div>
+        </div>
+
+        <div class="wrap-table">
+          <form action="">
+            <div class="wrap-input">
+              <label htmlFor="namatindakan" class="label-input">
+                Nama Tindakan
+              </label>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Masukkan Nama Tindakan"
+                name="namatindakan"
+              />
+            </div>
+            <div class="wrap-input">
+              <label htmlFor="kodetindakan" class="label-input">
+                Kode Tindakan
+              </label>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Masukkan Kode Tindakan"
+                name="kodetindakan"
+              />
+            </div>
+            <div class="wrap-input">
+              <label htmlFor="klasifikasiumur" class="label-input">
+                Klasifikasi Umur
+              </label>
+              <select
+                name="klasifikasiumur"
+                id="klasifikasiumur"
+                class="input-field"
+              >
+                <option value="anakanak">Anak-Anak</option>
+                <option value="dewasa">Dewasa</option>
+                <option value="lansia">Lansia</option>
+              </select>
+            </div>
+            <div class="wrap-input">
+              <label htmlFor="tarif" class="label-input">
+                Tarif
+              </label>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Masukkan Tarif"
+                name="tarif"
+              />
+            </div>
+            <input type="submit" value="Ubah Data" class="btn-ubah" name="buttonubahdata" />
+          </form>
+
+        </div>
+      </div>
+    </div>
+</body>
+</html>

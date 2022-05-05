@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./tambahObat.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <title>Tambah Obat</title>
+</head>
+
+<body>
+  <div class="body">
+    <div class="sidebar">
+      <header class="header">KliniX</header>
+      <ul class="ul">
+        <li>
+          <a href="">
+            <img src="https://img.icons8.com/windows/48/FFFFFF/home-page.png" />
+            <!-- <a target="_blank" href="https://icons8.com/icon/6g6b5Mh-1uJ7/home-page">Home Page icon by Icons8</a> -->
+            <p>Beranda</p>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img
+              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-hospital-bed-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+               />
+            <!-- <img src="https://img.icons8.com/small/42/FFFFFF/user.png" /> -->
+            <p>Pasien</p>
+          </a>
+        </li>
+        <!-- <li>
+          <a href="">
+            <img
+              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-medical-report-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+               />
+            <p>Rekam Medis</p>
+          </a>
+        </li> -->
+        <li>
+          <a href="">
+            <img
+              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-healthcare-1-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+               />
+            <!-- <a target="_blank" href="https://icons8.com/icon/oCzpAjdWh4qT/healthcare-1">healthcare 1 icon by Icons8</a> -->
+            <p>Tindakan Medis</p>
+          </a>
+        </li>
+        <li>
+          <a href="" class="active">
+            <img
+              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/02414D/external-medicine-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+               />
+            <!-- <a target="_blank" href="https://icons8.com/icon/7N4bD4LTeOZF/medicine">medicine icon by Icons8</a> -->
+            <p>Obat</p>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="https://img.icons8.com/fluency-systems-regular/48/FFFFFF/user.png"  />
+            <!-- <a target="_blank" href="https://icons8.com/icon/zxB19VPoVLjK/user">User icon by Icons8</a> -->
+            <p>Akun</p>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="https://img.icons8.com/windows/48/FFFFFF/exit.png"  />
+            <!-- <a target="_blank" href="https://icons8.com/icon/22112/logout">Logout icon by Icons8</a> -->
+            <p> Logout </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="head">
+      <div class="wrap-bagianAtas">
+        <div class="bagianAtas">
+          <h1>Form Penambahan Data Obat</h1>
+        </div>
+      </div>
+
+      <div class="wrap-table">
+        <form action="">
+          <div class="wrap-input">
+            <label htmlFor="namaobat" class="label-input">
+              Nama Obat
+            </label>
+            <input type="text" class="input-field" placeholder="Masukkan Nama Obat" name="namaobat" />
+          </div>
+          <div class="wrap-input">
+            <label htmlFor="kuantitas" class="label-input">
+              Kuantitas
+            </label>
+            <input type="text" class="input-field" placeholder="Masukkan Kuantitas" name="kuantitas" />
+          </div>
+          <div class="flex-input">
+            <div class="wrap-input">
+              <label htmlFor="hargajual" class="label-input">
+                Harga Jual/Strip
+              </label>
+              <input type="number" class="input-field" placeholder="Masukkan Harga Jual/Strip" name="hargajualstrip" />
+            </div>
+            <div class="wrap-input">
+              <label htmlFor="hargajualsatuan" class="label-input">
+                Harga Jual Satuan
+              </label>
+              <input type="number" class="input-field" placeholder="Masukkan Harga Jual Satuan"
+                name="hargajualsatuan" />
+            </div>
+          </div>
+          <div class="wrap-input">
+            <label htmlFor="hargabeli" class="label-input">
+              Harga Beli
+            </label>
+            <input type="number" class="input-field" placeholder="Masukkan Harga Beli" name="hargabeli" />
+          </div>
+          <div class="wrap-input">
+            <label htmlFor="expdate" class="label-input">
+              Exp Date
+            </label>
+            <input type="date" class="input-field" placeholder="Masukkan Exp Date" name="expdate" />
+          </div>
+          <div class="wrap-input">
+            <label htmlFor="jenisobat" class="label-input">
+              Jenis Obat
+            </label>
+            <select name="jenisobat" id="jenis" class="input-field">
+              <option value="sirup">Sirup</option>
+              <option value="tablet">Tablet</option>
+              <option value="kapsul">Kapsul</option>
+              <option value="ampul">Ampul</option>
+            </select>
+          </div>
+            <input type="submit" value="Tambah Obat" class="btn-tambah" name="tambahobat"/>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

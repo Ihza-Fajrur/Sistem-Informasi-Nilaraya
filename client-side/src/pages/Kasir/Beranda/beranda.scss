@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+.body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 340px;
+        height: 100%;
+        background: #02414D;
+
+        .header {
+            font-size: 3rem;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            // background: #0F5A68;
+            user-select: none;
+            font-weight: bold;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        ul a {
+            display: block;
+            height: 70px;
+            width: 100%;
+            line-height: 65px;
+            font-size: 22px;
+            color: white;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+            transition: 0.4s;
+            padding-left: -40px;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        ul li:hover a {
+            padding-left: 20px;
+        }
+
+        .active {
+            font-weight: bold;
+            background-color: #ffffff;
+            color: #02414D;
+            height: 70px;
+        }
+
+
+        img {
+            padding-top: 10px;
+            // padding-right: 5px;
+        }
+
+        p {
+            margin-top: -80px;
+            padding-left: 60px;
+
+        }
+    }
+
+    .head {
+        width: calc(100% - 340px);
+        height: 100%;
+        top: 0;
+        right: 0;
+        background-color: #F5F5F5;
+        margin-left: 20%;
+        position: fixed;
+        
+        .Logo {
+            font-size: 3rem;
+            color:#02414D;
+            margin-top: 15%;
+            text-align: center;
+            align-content: center;
+            font-weight: 900;
+            font-family: "Montserrat", sans-serif;
+        }
+        .logoTxt{
+            margin-top: 0;
+        }
+        
+    }
+
+}
