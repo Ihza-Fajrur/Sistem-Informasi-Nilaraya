@@ -92,7 +92,7 @@
                 <td>{{ wl['nama_pasien'] }}</td>
                 <td>{{ wl['status'] }}</td>
                 <td>
-                  <a href="{{ url_for('tagihan_gigi', no_rekam_medis = wl['no_rekam_medis']) }}">
+                  <a href="{{ url_for('tagihan_gigi', no_urut = wl['no_urut'], no_rekam_medis = wl['no_rekam_medis']) }}">
                     <button class="btn-tagih">
                       Tagihan
                     </button>

@@ -20,8 +20,8 @@ app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.secret_key = '069420'
 
 #Koneksi, inisialisasi DB
-# app.config['MYSQL_HOST'] = '192.168.1.29'
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = '192.168.1.29'
+# app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'nilaraya'
@@ -669,16 +669,48 @@ def waiting_list_gigi_hapus(no_urut):
                 return redirect(url_for('waiting_list_gigi'))
     return redirect(url_for('login'))
 
-@app.route('/tagihan_umum/<no_rekam_medis>', methods=['GET', 'POST'])
-def tagihan_umum(no_rekam_medis):
+@app.route('/tagihan_umum/<no_urut>/<no_rekam_medis>', methods=['GET', 'POST'])
+def tagihan_umum(no_urut, no_rekam_medis):
     if 'loggedin' in session:
         if request.method == 'GET':
             if session['acc_type'] == 'kasir':
-                today = datetime.now()
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-                cursor.execute('SELECT * FROM tagihan WHERE no_rekam_medik = %s', (no_rekam_medis,))
-                wlu = cursor.fetchone()
-                return render_template('TagihanUmum.html', wlu=wlu, today=today.strftime('%Y-%m-%d %H:%M:%S'))
+                cursor.execute('SELECT status FROM waiting_list_umum WHERE no_rekam_medis = %s', (no_rekam_medis,))
+                status = cursor.fetchone()
+                if status['status'] == 'Selesai':
+                    cursor.execute('SELECT * FROM tagihan WHERE no_rm_pasien = %s and id_tagihan = (SELECT MAX(id_tagihan) FROM tagihan WHERE no_rm_pasien = %s)', (no_rekam_medis,no_rekam_medis))
+                    tagihan = cursor.fetchone()
+                    cursor.execute('SELECT nama_tindakan FROM tindakan WHERE kode_tindakan = %s', (tagihan['kode_tindakan'],))
+                    nama_tindakan = cursor.fetchone()
+                    nama_tindakan = nama_tindakan['nama_tindakan']
+                    cursor.execute('SELECT nama FROM pasien WHERE no_rekam_medik = %s', (no_rekam_medis,))
+                    nama_pasien = cursor.fetchone()
+                    nama_pasien = nama_pasien['nama']
+                    return render_template('TagihanUmum.html', tagihan=tagihan, nama_tindakan=nama_tindakan, nama_pasien=nama_pasien, no_urut=no_urut)
+                else:
+                    return redirect(url_for('waiting_list_umum'))
+    return redirect(url_for('login'))
+
+@app.route('/tagihan_gigi/<no_urut>/<no_rekam_medis>', methods=['GET', 'POST'])
+def tagihan_gigi(no_urut, no_rekam_medis):
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            if session['acc_type'] == 'kasir':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT status FROM waiting_list_gigi WHERE no_rekam_medis = %s', (no_rekam_medis,))
+                status = cursor.fetchone()
+                if status['status'] == 'Selesai':
+                    cursor.execute('SELECT * FROM tagihan WHERE no_rm_pasien = %s and id_tagihan = (SELECT MAX(id_tagihan) FROM tagihan WHERE no_rm_pasien = %s)', (no_rekam_medis,no_rekam_medis))
+                    tagihan = cursor.fetchone()
+                    cursor.execute('SELECT nama_tindakan FROM tindakan WHERE kode_tindakan = %s', (tagihan['kode_tindakan'],))
+                    nama_tindakan = cursor.fetchone()
+                    nama_tindakan = nama_tindakan['nama_tindakan']
+                    cursor.execute('SELECT nama FROM pasien WHERE no_rekam_medik = %s', (no_rekam_medis,))
+                    nama_pasien = cursor.fetchone()
+                    nama_pasien = nama_pasien['nama']
+                    return render_template('TagihanGigi.html', tagihan=tagihan, nama_tindakan=nama_tindakan, nama_pasien=nama_pasien, no_urut=no_urut)
+                else:
+                    return redirect(url_for('waiting_list_gigi'))
     return redirect(url_for('login'))
 
 @app.route('/daftar_pasien', methods=['GET', 'POST'])
@@ -709,18 +741,6 @@ def history_rekam_medis_dokter(no_rm_pasien):
                 pasien = cursor.fetchone()
                 return render_template('HistoryRekamMedisDokter.html', rekam_medis=rekam_medis, pasien=pasien)
     return redirect(url_for('login'))
-    
-@app.route('/tagihan_gigi/<no_rekam_medis>', methods=['GET', 'POST'])
-def tagihan_gigi(no_rekam_medis):
-    if 'loggedin' in session:
-        if request.method == 'GET':
-            if session['acc_type'] == 'kasir':
-                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-                cursor.execute('SELECT * FROM tagihan WHERE no_rekam_medik = %s', (no_rekam_medis,))
-                wlg = cursor.fetchone()
-                today = datetime.now()
-                return render_template('TagihanGigi.html', wlg=wlg, today=today.strftime('%Y-%m-%d %H:%M:%S'))
-    return redirect(url_for('login'))
 
 @app.route('/form_dokter/<no_rekam_medis>', methods=['GET', 'POST'])
 def form_dokter(no_rekam_medis):
@@ -749,7 +769,13 @@ def form_dokter(no_rekam_medis):
                 new_name=session['name']
                 cursor.execute('SELECT nama_tindakan FROM tindakan WHERE kode_tindakan = %s', (new_tindakan,))
                 nama_tindakan = cursor.fetchone()
+                cursor.execute('SELECT tarif FROM tindakan WHERE kode_tindakan = %s', (new_tindakan,))
+                tarif = cursor.fetchone()
                 cursor.execute('INSERT INTO rekam_medik (no_rm_pasien, diagnosis, nama_tindakan, tanggal, keterangan, tipe, username_dokter,kode_tindakan) VALUES (%s, %s, %s, %s, %s, %s, %s,%s)', (no_rekam_medis, new_diagnosis, nama_tindakan['nama_tindakan'], new_tanggal, new_keterangan, new_tipe, new_name,new_tindakan))
+                mysql.connection.commit()
+                cursor.execute('INSERT INTO tagihan (no_rm_pasien, tanggal, kode_tindakan, nama_dokter, biaya_admin, biaya_tindakan) VALUES (%s, %s, %s, %s, %s, %s)', (no_rekam_medis, new_tanggal, new_tindakan, new_name, 15000, tarif['tarif'] ))
+                mysql.connection.commit()
+                cursor.execute('UPDATE waiting_list_umum SET status = %s WHERE no_rekam_medis = %s', ('Selesai', no_rekam_medis))
                 mysql.connection.commit()
             elif session['acc_type'] == 'Dokter Gigi':
                 new_diagnosis = request.form['diagnosis']
@@ -760,9 +786,15 @@ def form_dokter(no_rekam_medis):
                 new_name=session['name']
                 cursor.execute('SELECT nama_tindakan FROM tindakan WHERE kode_tindakan = %s', (new_tindakan,))
                 nama_tindakan = cursor.fetchone()
+                cursor.execute('SELECT tarif FROM tindakan WHERE kode_tindakan = %s', (new_tindakan,))
+                tarif = cursor.fetchone()
                 cursor.execute('INSERT INTO rekam_medik (no_rm_pasien, diagnosis, nama_tindakan, tanggal, keterangan, tipe, username_dokter,kode_tindakan) VALUES (%s, %s, %s, %s, %s, %s, %s,%s)', (no_rekam_medis, new_diagnosis, nama_tindakan['nama_tindakan'], new_tanggal, new_keterangan, new_tipe, new_name,new_tindakan))
                 mysql.connection.commit()
-            return redirect(url_for('daftar_pasien' ))
+                cursor.execute('INSERT INTO tagihan (no_rm_pasien, tanggal, kode_tindakan, nama_dokter, biaya_admin, biaya_tindakan) VALUES (%s, %s, %s, %s, %s, %s)', (no_rekam_medis, new_tanggal, new_tindakan, new_name, 15000, tarif['tarif'] ))
+                mysql.connection.commit()
+                cursor.execute('UPDATE waiting_list_gigi SET status = %s WHERE no_rekam_medis = %s', ('Selesai', no_rekam_medis))
+                mysql.connection.commit()
+            return redirect(url_for('daftar_pasien'))
     return redirect(url_for('login'))
 
 

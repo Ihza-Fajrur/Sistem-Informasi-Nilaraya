@@ -66,12 +66,12 @@
               <tr>
                 <th>Nama</th>
                 <th>:</th>
-                <td>{{ wlg['nama_pasien'] }}</td>
+                <td>{{ nama_pasien }}</td>
               </tr>
               <tr>
                 <th>Waktu</th>
                 <th>:</th>
-                <td>{{ today }}</td>
+                <td>{{ tagihan['tanggal'] }}</td>
               </tr>
             </table>
 
@@ -81,20 +81,21 @@
               <table class="table-2">
                 <tr>
                   <td>1x</td>
-                  <td>Swab</td>
-                  <td>50000</td>
+                  <td>{{ nama_tindakan }}</td>
+                  <td> -  Rp.{{ tagihan['biaya_tindakan'] }}</td>
                 </tr>
               </table>
             </div>
             <div class="total_harga">
+              {% set total_harga = tagihan['biaya_tindakan'] + tagihan['biaya_admin'] %}
                 <h2>Total Harga</h2>
                 <div class="total_harga">
                   <h2>Rp.</h2>
-                  <h2>35000</h2>
+                  <h2>{{ total_harga }}</h2>
                 </div>
           </div>
           <div class="center">
-            <a href="{{ url_for('waiting_list_gigi_hapus', no_urut = wlg['no_urut']) }}">
+            <a href="{{ url_for('waiting_list_gigi_hapus', no_urut = no_urut) }}">
             <button class="btn_tambah">
               Selesai
             </button>
