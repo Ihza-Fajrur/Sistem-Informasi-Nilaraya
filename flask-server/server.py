@@ -74,7 +74,10 @@ def login():
                         # Create session data
                         session['loggedin'] = True
                         session['name'] = dokter['nama']
-                        session['acc_type'] = 'dokter'
+                        if dokter['jenis_dokter'] == 'Dokter Umum':
+                            session['acc_type'] = 'Dokter Umum'
+                        elif dokter['jenis_dokter'] == 'Dokter Gigi':
+                            session['acc_type'] = 'Dokter Gigi'
                         dokter_loggedin = True
                         # Redirect to dashboard if account is valid
                         return redirect(url_for('dashboard'))
