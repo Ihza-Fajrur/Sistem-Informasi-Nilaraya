@@ -190,4 +190,22 @@
 }
 .body .head .wrap-table .table table .aksi .btn_hapus:hover {
   background: rgb(190, 2, 2);
+}
+.body .head .wrap-table .table table .aksi .btn_tambah_kas {
+  background-color: #4EBFFF;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 4px;
+  margin: 5px;
+  border-radius: 5px;
+}
+.body .head .wrap-table .table table .aksi .btn_hapus_kas {
+  background-color: red;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 4px;
+  margin:5px;
+  border-radius: 5px;
 }/*# sourceMappingURL=dataObat.css.map */

@@ -47,7 +47,7 @@
 
     .active {
       font-weight: bold;
-      background-color: #ffffff;
+      background-color: #fff;
       color: #02414D;
       height: 70px;
     }
@@ -71,7 +71,8 @@
     right: 0;
     background-color: #F5F5F5;
     margin-left: 20%;
-        position: fixed;
+    position: fixed;
+    overflow-y: auto;
 
       h1{
         font-size: 40px;
@@ -100,6 +101,9 @@
         p{
           color: "black";
         }
+      }
+      .buttonrekammedis{
+        display: flex;
       }
       .btn_tambah {
         background-color: #02414D;

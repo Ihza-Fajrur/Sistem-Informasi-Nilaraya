@@ -386,6 +386,11 @@ def obat():
                 cursor.execute('SELECT * FROM obat ORDER BY nama_obat ASC')
                 obat = cursor.fetchall()
                 return render_template('DataObatAdmin.html', obat=obat)
+            elif session['acc_type'] == 'kasir':
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute('SELECT * FROM obat ORDER BY nama_obat ASC')
+                obat = cursor.fetchall()
+                return render_template('DataObatKasir.html', obat=obat)
     return redirect('/login')
 
 @app.route('/obat_tambah', methods=['GET', 'POST'])
@@ -469,7 +474,7 @@ def obat_edit(id_obat):
 def obat_hapus(id_obat):
     if 'loggedin' in session:
         if request.method == 'GET':
-            if session['acc_type'] == 'admin':
+            if session['acc_type'] == 'admin' or session['acc_type'] == 'kasir':
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                 cursor.execute('DELETE FROM obat WHERE id_obat = %s', (id_obat,))
                 mysql.connection.commit()

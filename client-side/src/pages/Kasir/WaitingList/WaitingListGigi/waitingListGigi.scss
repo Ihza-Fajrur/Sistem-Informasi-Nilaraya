@@ -128,12 +128,12 @@
 
         .wrap-table {
             padding-top: 5px;
-            height: 100%;
+            height: 80%;
             width: 100%;
             background-color: #fff;
             align-items: center;
             margin-top: 10px;
-
+            overflow-y: auto;
             .logo{
                 font-size: 1rem;
                 color:#989898;

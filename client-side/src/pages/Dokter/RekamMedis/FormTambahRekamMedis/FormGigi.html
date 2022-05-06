@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./form.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <title>Form Gigi</title>
+</head>
+<body>
+  <div class="body">
+    <div class="sidebar">
+      <header class="header">KliniX</header>
+      <ul class="ul">
+        
+        <li>
+          <a href="/daftar_pasien" class="active">
+            <img
+              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/02414D/external-medical-report-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+               />
+            <p>Layanan</p>
+          </a>
+        </li>
+        <li>
+          <a href="/logout">
+            <img src="https://img.icons8.com/windows/48/FFFFFF/exit.png"  />
+            <!-- <a target="_blank" href="https://icons8.com/icon/22112/logout">Logout icon by Icons8</a> -->
+            <p>Logout</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="head">
+      <div class="wrap-bagianAtas">
+        <div class="bagianAtas">
+          <h2>Form Penambahan Rekam Medis Dokter Gigi</h2>
+        </div>
+      </div>
+  
+      <div class="wrap-table">
+        <img src="../../../../images/gigi.png">
+
+        <form action="{{ url_for('form_dokter', no_rekam_medis = pasien['no_rekam_medik']) }}" method="POST" id="form">
+          <div class="wrap-input">
+            <label htmlfor="nama_pasien" class="label-input">
+              Nama Pasien
+            </label>
+            <input type="text" class="input-field" disabled name="nama_pasien" value="{{ pasien['nama'] }}" />
+          </div>
+          <div class="flex-input">
+            <div class="wrap-input">
+              <label htmlfor="norm" class="label-input">
+                No. Rekam Medis
+              </label>
+              <input type="text" class="input-field" disabled name="no_rekam_medis" value="{{ pasien['no_rekam_medik'] }}"/>
+            </div>
+            <div class="wrap-input">
+              <label htmlfor="nobpjs" class="label-input">
+                No. BPJS
+              </label>
+              <input type="text" class="input-field" disabled name="no_bpjs" value="{{ pasien['no_bpjs'] }}"/>
+            </div>
+          </div>
+          <div class="flex-input">
+            <div class="wrap-input">
+              <label htmlfor="kelamin" class="label-input">
+                Kelamin
+              </label>
+              <input disabled name="jenis_kelamin" id="jenis_kelamin" class="input-field" value="{{ pasien['jenis_kelamin'] }}">                
+            </div>
+            <div class="wrap-input">
+              <label htmlfor="ttl" class="label-input">
+                Tempat Tanggal Lahir
+              </label>
+              <input type="text" class="input-field" disabled name="ttl" value="{{ pasien['ttl'] }}"/>
+            </div>
+          </div>
+            
+          <div class="wrap-input">
+            <label htmlfor="riwayatpenyakit" class="label-input">
+              Riwayat Penyakit / Alergi
+            </label>
+            <input type="text" class="input-field" disabled name="riwayat_penyakit" value="{{ pasien['riwayat_penyakit'] }}"/>
+          </div>
+
+          <div class="wrap-input">
+            <label htmlfor="diagnosis" class="label-input">
+              Diagnosis
+            </label>
+            <textarea type="text" class="input-field" name="diagnosis" placeholder="Masukkan Diagnosis" form="form"></textarea>
+          </div>
+
+          <div class="wrap-input">
+            <label htmlfor="tindakan" class="label-input">
+              Tindakan
+            </label>
+            <select name="tindakan" id="tindakan" class="input-field" required>
+              <option value="" disabled selected hidden>
+                Pilih Tindakan
+              </option>
+              <option value="{{ tindakan['kode_tindakan'] }}">{{ tindakan['nama_tindakan'] }}</option>
+            </select>
+          </div>
+
+          <div class="wrap-input">
+            <label htmlfor="keterangan" class="label-input">
+              Keterangan
+            </label>
+            <textarea type="text" class="input-field" name="keterangan" placeholder="Masukkan Keterangan" form="form"></textarea>
+          </div>
+            <input type="submit" class="btn-ubah" value="Tambah Data" name="button_tambah_data"/>
+        </form>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
+   

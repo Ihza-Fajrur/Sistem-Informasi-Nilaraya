@@ -45,7 +45,7 @@
 }
 .body .sidebar .active {
   font-weight: bold;
-  background-color: #ffffff;
+  background-color: #fff;
   color: #02414D;
   height: 70px;
 }
@@ -64,6 +64,7 @@
   background-color: #F5F5F5;
   margin-left: 20%;
   position: fixed;
+  overflow-y: auto;
 }
 .body .head h1 {
   font-size: 40px;
@@ -91,6 +92,9 @@
 }
 .body .head .space p {
   color: "black";
+}
+.body .head .buttonrekammedis {
+  display: flex;
 }
 .body .head .btn_tambah {
   background-color: #02414D;

@@ -173,6 +173,9 @@
       -ms-user-select: none;
           user-select: none;
 }
+.body .head .wrap-table .wrap-input option {
+  font-size: 16px;
+}
 .body .head .wrap-table .btn-ubah {
   background-color: #02414D;
   color: white;

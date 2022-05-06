@@ -46,7 +46,7 @@
 }
 .body .sidebar .active {
   font-weight: bold;
-  background-color: #fff;
+  background-color: #ffffff;
   color: #02414D;
 }
 .body .sidebar img {
@@ -151,7 +151,7 @@
   padding-left: 10px;
 }
 .body .head .wrap-table .wrap-input textarea {
-  font-family: "arial";
+  font-family: Arial;
 }
 .body .head .wrap-table .wrap-input textarea ::-moz-placeholder {
   font-family: "Roboto";
@@ -172,6 +172,9 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+.body .head .wrap-table .wrap-input option {
+  font-size: 16px;
 }
 .body .head .wrap-table .btn-ubah {
   background-color: #02414D;

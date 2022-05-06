@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ url_for('static', filename='dataPasienKasir.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dataObatAdmin.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-  <title>Data Pasien</title>
+  <title>Data Obat</title>
 </head>
+
 <body>
 <div class="body">
       <div class="sidebar">
@@ -19,7 +21,6 @@
             <a href="/dashboard">
               <img src="https://img.icons8.com/windows/48/FFFFFF/home-page.png" />
               <!-- <a target="_blank" href="https://icons8.com/icon/6g6b5Mh-1uJ7/home-page">Home Page icon by Icons8</a> -->
-
               <p>Beranda</p>
             </a>
           </li>
@@ -38,18 +39,18 @@
             </a>
           </li>
           <li>
-            <a href="/pasien" class="active">
-            <img
-                src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/02414D/external-hospital-bed-healthcare-tanah-basah-basic-outline-tanah-basah.png"
-                 />
-              <!-- <img src="https://img.icons8.com/small/42/FFFFFF/user.png" /> -->
+            <a href="/pasien">
+              <img
+              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-hospital-bed-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+               />
+            <!-- <img src="https://img.icons8.com/small/42/FFFFFF/user.png" /> -->
               <p>Pasien</p>
             </a>
           </li>
           <li>
-            <a href="/obat" >
+            <a href="/obat" class="active">
               <img
-              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/FFFFFF/external-medicine-healthcare-tanah-basah-basic-outline-tanah-basah.png"
+              src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/48/02414D/external-medicine-healthcare-tanah-basah-basic-outline-tanah-basah.png"
                />
             <!-- <a target="_blank" href="https://icons8.com/icon/7N4bD4LTeOZF/medicine">medicine icon by Icons8</a> -->
               <p>Obat</p>
@@ -57,7 +58,7 @@
           </li>
           <li>
             <a href="/logout">
-              <img src="https://img.icons8.com/windows/48/FFFFFF/exit.png" />
+              <img src="https://img.icons8.com/windows/48/FFFFFF/exit.png"  />
               <!-- <a target="_blank" href="https://icons8.com/icon/22112/logout">Logout icon by Icons8</a> -->
               <p>Logout</p>
             </a>
@@ -68,68 +69,61 @@
       <div class="head">
         <div class="wrap-bagianAtas">
           <div class="bagianAtas">
-            <h1>Data Pasien</h1>
+            <h1>Data Obat</h1>
           </div>
-        <div class="cari">
-          <input type="text" class="inputcari" placeholder="Cari..." id="myInput" onkeyup="myFunction()"/>
-        </div>
+            <div class="cari">
+              <input type="text" class="inputcari" placeholder="Cari..." id="myInput" onkeyup="myFunction()"/>
+            </div>
         </div>
 
         <div class="wrap-table">
-          <div>
-            <a href="/pasien_tambah">
-            <button
-              class="btn_tambah"
-            >
-              Tambah Data Pasien
-            </button>
-            </a>
-          </div>
 
           <div class="table">
             <table id="myTable">
               <thead>
-                
                 <tr>
-                  <th>Nama</th>
-                  <th>No. Rekam Medis</th>
-                  <th>No. BPJS</th>
-                  <th>Kelamin (P/L)</th>
-                  <th>TTL</th>
-                  <th>Alamat</th>
-                  <th>No. HP</th>
-                  <th>Riwayat Penyakit / Alergi</th>
-                  <th>Tambah Ke Waiting LIst</th>
+                  <th>Nama Obat</th>
+                  <th>ID Obat</th>
+                  <th>Kuantitas</th>
+                  <th>Harga Jual/Strip</th>
+                  <th>Harga Jual Satuan</th>
+                  <th>Harga Beli</th>
+                  <th>Exp Date</th>
+                  <th>Jenis Obat</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                {% for pasien in pasien %}
-                <tr>
-                  <td>{{ pasien['nama'] }}</td>
-                  <td>{{ pasien['no_rekam_medik'] }}</td>
-                  <td>{{ pasien['no_bpjs'] }}</td>
-                  <td>{{ pasien['jenis_kelamin'] }}</td>
-                  <td>{{ pasien['ttl'] }}</td>
-                  <td>{{ pasien['alamat'] }}</td>
-                  <td>{{ pasien['no_hp'] }}</td>
-                  <td>{{ pasien['riwayat_penyakit'] }}</td>
-                  <td>
-                    <div class="aksi">
-                      <!-- tambah waiting list umum -->
-                      <a href="{{ url_for('waiting_list_umum_tambah', no_rekam_medik = pasien['no_rekam_medik']) }}">
-                      <button  class="btn_ubah">
-                        <img src="https://img.icons8.com/material-outlined/24/FFFFFF/ingredients-list.png" />
-                      </button>
-                      </a>
-                      <!-- tambah waiting list gigi -->
-                      <a href="{{ url_for('waiting_list_gigi_tambah', no_rekam_medik = pasien['no_rekam_medik']) }}">
-                      <button class="btn_hapus">
-                        <img src="https://img.icons8.com/windows/24/FFFFFF/tooth.png" />
-                      </button>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
+                {% for obat in obat %}
+                  <tr>
+                    <td>{{ obat['nama_obat'] }}</td>
+                    <td>{{ obat['id_obat'] }}</td>
+                    <td>{{ obat['kuantitas'] }}</td>
+                    <td>{{ obat['harga_strip'] }}</td>
+                    <td>{{ obat['harga_satuan'] }}</td>
+                    <td>{{ obat['harga_beli'] }}</td>
+                    <td>{{ obat['exp_date'] }}</td>
+                    <td>{{ obat['jenis_obat'] }}</td>
+                    <td>
+                      <div class="aksi">
+                        <a href="{{ url_for('obat_edit', id_obat = obat['id_obat']) }}">
+                        <button
+                          class="btn_tambah_kas"
+                        >
+                        <img src="https://img.icons8.com/ios-filled/15/FFFFFF/plus-math.png"/>
+                        </button>
+                        </a>
+                        <a href="{{ url_for('obat_hapus', id_obat = obat['id_obat']) }}">
+                          <button
+                            class="btn_hapus_kas"
+                          >
+                          <img src="https://img.icons8.com/ios-filled/15/FFFFFF/minus-math.png"/>
+                          </button>
+                          </a>
+                        
+                      </div>
+                    </td>
+                  </tr>
                 {% endfor %}
               </tbody>
             </table>
