@@ -20,8 +20,8 @@ app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.secret_key = '069420'
 
 #Koneksi, inisialisasi DB
-# app.config['MYSQL_HOST'] = '192.168.1.29'
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = '192.168.1.29'
+# app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'nilaraya'
@@ -392,6 +392,33 @@ def obat():
                 obat = cursor.fetchall()
                 return render_template('DataObatKasir.html', obat=obat)
     return redirect('/login')
+
+@app.route('/obat_inc/<id_obat>', methods=['GET', 'POST'])
+def obat_inc(id_obat):
+    if 'loggedin' in session:
+        if session['acc_type'] == 'admin' or session['acc_type'] == 'kasir':
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('SELECT kuantitas FROM obat WHERE id_obat = %s', (id_obat,))
+            old_kuantitas = cursor.fetchone()
+            old_kuantitas = old_kuantitas['kuantitas']
+            cursor.execute('UPDATE obat SET kuantitas = %s WHERE id_obat = %s', (old_kuantitas + 1, id_obat))
+            mysql.connection.commit()
+            return redirect(url_for('obat'))
+    return redirect(url_for('login'))
+
+@app.route('/obat_dec/<id_obat>', methods=['GET', 'POST'])
+def obat_dec(id_obat):
+    if 'loggedin' in session:
+        if session['acc_type'] == 'admin' or session['acc_type'] == 'kasir':
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('SELECT kuantitas FROM obat WHERE id_obat = %s', (id_obat,))
+            old_kuantitas = cursor.fetchone()
+            old_kuantitas = old_kuantitas['kuantitas']
+            if not old_kuantitas - 1 < 0:
+                cursor.execute('UPDATE obat SET kuantitas = %s WHERE id_obat = %s', (old_kuantitas - 1, id_obat))
+                mysql.connection.commit()
+            return redirect(url_for('obat'))
+    return redirect(url_for('login'))
 
 @app.route('/obat_tambah', methods=['GET', 'POST'])
 def obat_tambah():

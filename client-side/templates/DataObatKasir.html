@@ -106,14 +106,14 @@
                     <td>{{ obat['jenis_obat'] }}</td>
                     <td>
                       <div class="aksi">
-                        <a href="{{ url_for('obat_edit', id_obat = obat['id_obat']) }}">
+                        <a href="{{ url_for('obat_inc', id_obat = obat['id_obat']) }}">
                         <button
                           class="btn_tambah_kas"
                         >
                         <img src="https://img.icons8.com/ios-filled/15/FFFFFF/plus-math.png"/>
                         </button>
                         </a>
-                        <a href="{{ url_for('obat_hapus', id_obat = obat['id_obat']) }}">
+                        <a href="{{ url_for('obat_dec', id_obat = obat['id_obat']) }}">
                           <button
                             class="btn_hapus_kas"
                           >
