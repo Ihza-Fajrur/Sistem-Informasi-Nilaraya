@@ -1,4 +1,4 @@
-# Sistem-Informasi-Nilara
+# Sistem-Informasi-Nilaraya
 ```
 Kelompok @Channel
 Anggota :
@@ -10,7 +10,7 @@ Anggota :
     6. Ilham Nofri Yandra (119140133)
 ```
 # Penjelasan Aplikasi :
-<h3> Klinix merupakan Aplikasi Website yang dikembangkan menggunakan framework Flask dan SASS. Aplikasi ini dibuat dengan tujuan pengembangan website internal Klinik Nilaraya yang berlokasi di Bogor. Ada 3 role user yang menggunakan website ini diantaranya ada admin, kasir dan dokter. Dimana Admin memiliki dapat melakukan banyak hal diantaranya :
+<h3> Klinix merupakan Aplikasi Website yang dikembangkan menggunakan framework Flask dan SASS. Aplikasi ini dibuat dengan tujuan pengembangan website internal Klinik Nilaraya yang berlokasi di Bogor. Ada 4 role user yang menggunakan website ini diantaranya ada admin, kasir, dokter umum, dan dokter gigi. Dimana Admin dapat melakukan banyak hal diantaranya :
 <ul>
   <li> CRUDS data akun</li>
   <li> CRUDS data obat</li>
@@ -20,7 +20,7 @@ Anggota :
 </ul>
 <br>
 
-Kemudian dokter yang terdiri dari dokter gigi dan dokter umum dapat melakukan diantaranya : 
+Kemudian dokter yang terdiri dari dokter gigi dan dokter umum dapat melakukan beberapa hal, diantaranya : 
 <ul>
   <li>Melakukan pelayanan pasien, dan </li>
   <li> Menambahkan rekam medis pasien </li>
