@@ -1,9 +1,6 @@
-from calendar import c
-from hashlib import new
 from flask import Flask,render_template,url_for, request,jsonify,session,flash,redirect
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
-import re
 from werkzeug.utils import append_slash_redirect
 from cryptography.fernet import Fernet
 from crypto_key import key
@@ -20,11 +17,11 @@ app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.secret_key = '069420'
 
 #Koneksi, inisialisasi DB
-app.config['MYSQL_HOST'] = '34.101.134.200'
-# app.config['MYSQL_HOST'] = '192.168.1.29'
+# app.config['MYSQL_HOST'] = '34.101.134.200'
+app.config['MYSQL_HOST'] = '192.168.1.29'
 # app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '2431'
+app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'nilaraya'
 mysql = MySQL(app)
 

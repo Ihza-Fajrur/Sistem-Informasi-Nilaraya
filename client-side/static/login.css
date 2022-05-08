@@ -51,6 +51,8 @@
 .container .gambar {
   display: flex;
   width: 100%;
+  height: fit-content;
+  
 }
 .container p {
   font-size: 16px;
