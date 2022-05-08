@@ -20,10 +20,11 @@ app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.secret_key = '069420'
 
 #Koneksi, inisialisasi DB
+app.config['MYSQL_HOST'] = '34.101.134.200'
 # app.config['MYSQL_HOST'] = '192.168.1.29'
-app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_PASSWORD'] = '2431'
 app.config['MYSQL_DB'] = 'nilaraya'
 mysql = MySQL(app)
 
@@ -843,4 +844,4 @@ def form_dokter(no_rekam_medis):
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=True)

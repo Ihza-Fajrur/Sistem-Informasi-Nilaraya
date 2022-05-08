@@ -94,6 +94,7 @@
                 class="input-field"
                 placeholder="Masukkan Username"
                 name="username"
+                required
               />
             </div>
             <div class="wrap-input">
@@ -105,6 +106,7 @@
                 class="input-field"
                 placeholder="Masukkan Password"
                 name="password"
+                required
               />
             </div>
             <div class="wrap-input">
@@ -116,14 +118,15 @@
                 class="input-field"
                 placeholder="Masukkan Nama Lengkap"
                 name="nama"
+                required
               />
             </div>
             <div class="wrap-input">
               <label htmlfor="tipeakun" class="label-input">
                 Tipe Akun
               </label>
-              <select name="tipe_akun" id="tipeakun" class="input-field" onchange="inputDokter()">
-                <option value="a" disabled selected>Pilih Jenis Akun</option>
+              <select name="tipe_akun" id="tipeakun" class="input-field" onchange="inputDokter()" required>
+                <option value="" disabled selected>Pilih Jenis Akun</option>
                 <option value="Admin">Admin</option>
                 <option value="Dokter" >Dokter</option>
                 <option value="Kasir">Kasir</option>
