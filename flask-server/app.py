@@ -11,9 +11,7 @@ from datetime import datetime
 f = Fernet(key())
 
 #inisialisasi
-template_dir = '../client-side/templates'
-static_dir = '../client-side/static'
-app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
+app = Flask(__name__)
 app.secret_key = '069420'
 
 #Koneksi, inisialisasi DB
