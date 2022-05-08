@@ -96,6 +96,7 @@
                   placeholder="Masukkan ID Obat"
                   name="id_obat"
                   value="{{ obat['id_obat'] }}"
+                  required
                 />
               </div>
               <div class="wrap-input">
@@ -108,6 +109,7 @@
                   placeholder="Masukkan Nama Obat"
                   name="nama_obat"
                   value="{{ obat['nama_obat'] }}"
+                  required
                 />
               </div>
             </div>
@@ -121,6 +123,7 @@
                 placeholder="Masukkan Kuantitas"
                 name="kuantitas"
                 value="{{ obat['kuantitas'] }}"
+                required
               />
             </div>
             <div class="flex-input">
@@ -171,13 +174,14 @@
                 placeholder="Masukkan Exp Date"
                 name="exp_date"
                 value="{{ obat['exp_date'] }}"
+                required
               />
             </div>
             <div class="wrap-input">
               <label htmlfor="jenis" class="label-input">
                 Jenis Obat
               </label>
-              <select name="jenis_obat" id="jenis" class="input-field">
+              <select name="jenis_obat" id="jenis" class="input-field" required>
                 {% if obat['jenis_obat'] == 'Sirup' %}
                 <option value="" disabled>Pilih Jenis Obat</option>
                 <option value="Sirup" selected>Sirup</option>

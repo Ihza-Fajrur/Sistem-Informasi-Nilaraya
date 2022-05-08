@@ -97,6 +97,7 @@
                   name="username"
                   f.decrypt(.encode()).decode()
                   value="{{ f.decrypt(admin['username'].encode()).decode() }}"
+                  required
                 />
             </div>
             <div class="wrap-input">
@@ -109,6 +110,7 @@
                   placeholder="Masukkan Password"
                   name="password"
                   value="{{ f.decrypt(admin['password'].encode()).decode() }}"
+                  required
                 />
             </div>
             <div class="wrap-input">
@@ -147,6 +149,7 @@
                   placeholder="Masukkan Username"
                   name="username"
                   value="{{ f.decrypt(kasir['username'].encode()).decode() }}"
+                  required
                 />
             </div>
             <div class="wrap-input">
@@ -159,6 +162,7 @@
                   placeholder="Masukkan Password"
                   name="password"
                   value="{{ f.decrypt(kasir['password'].encode()).decode() }}"
+                  required
                 />
             </div>
             <div class="wrap-input">
@@ -197,6 +201,7 @@
                   placeholder="Masukkan Username"
                   name="username"
                   value="{{ f.decrypt(dokter['username'].encode()).decode() }}"
+                  required
                 />
             </div>
             <div class="wrap-input">
@@ -209,6 +214,7 @@
                   placeholder="Masukkan Password"
                   name="password"
                   value="{{ f.decrypt(dokter['password'].encode()).decode() }}"
+                  required
                 />
             </div>
             <div class="wrap-input">

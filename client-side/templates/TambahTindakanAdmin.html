@@ -86,10 +86,11 @@
                 class="input-field"
                 placeholder="Masukkan Nama Tindakan"
                 name="nama_tindakan"
+                required
               />
             </div>
             <div class="wrap-input">
-              <label htmlfor="kodetindakan" class="label-input">
+              <label htmlfor="kodetindakan" class="label-input" >
                 Kode Tindakan
               </label>
               <input
@@ -97,6 +98,8 @@
                 class="input-field"
                 placeholder="Masukkan Kode Tindakan"
                 name="kode_tindakan"
+                required
+                maxlength="3"
               />
             </div>
             <div class="wrap-input">
@@ -107,6 +110,7 @@
                 name="klasifikasi_umur"
                 id="klasifikasiumur"
                 class="input-field"
+                required
               >
                 <option value="" disabled selected>Pilih Klasifikasi Umur</option>
                 <option value="Anak-anak">Anak-Anak</option>
@@ -122,6 +126,7 @@
                 name="jenis_tindakan"
                 id="jenis_tindakan"
                 class="input-field"
+                required
               >
                 <option value="" disabled selected>Pilih Jenis Tindakan</option>
                 <option value="Umum">Umum</option>
@@ -137,6 +142,7 @@
                 class="input-field"
                 placeholder="Masukkan Tarif"
                 name="tarif"
+                required
               />
             </div>
             <input type="submit" value="Tambah Data" class="btn-tambah" name="buttontambahdata" />

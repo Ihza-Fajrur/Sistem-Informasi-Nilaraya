@@ -87,6 +87,7 @@
                 placeholder="Masukkan Nama Tindakan"
                 name="nama_tindakan"
                 value="{{ tindakan['nama_tindakan'] }}"
+                required
               />
             </div>
             <div class="wrap-input">
@@ -99,6 +100,8 @@
                 placeholder="Masukkan Kode Tindakan"
                 name="kode_tindakan"
                 value="{{ tindakan['kode_tindakan'] }}"
+                required
+                maxlength="3"
               />
             </div>
             <div class="wrap-input">
@@ -109,6 +112,7 @@
                 name="klasifikasi_umur"
                 id="klasifikasiumur"
                 class="input-field"
+                required
               >
               {% if tindakan['klasifikasi_umur'] == 'Anak-anak' %}
                 <option value="Anak-anak" selected>Anak-Anak</option>
@@ -133,6 +137,7 @@
                 name="jenis_tindakan"
                 id="jenis_tindakan"
                 class="input-field"
+                required
               >
               {% if tindakan['jenis_tindakan'] == 'Umum' %}
                 <option value="Umum" selected>Umum</option>
@@ -153,6 +158,7 @@
                 placeholder="Masukkan Tarif"
                 name="tarif"
                 value="{{ tindakan['tarif'] }}"
+                required
               />
             </div>
             <input type="submit" value="Ubah Data" class="btn-ubah" name="buttonubahdata" />

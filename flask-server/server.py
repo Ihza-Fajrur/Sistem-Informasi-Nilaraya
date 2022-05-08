@@ -46,8 +46,6 @@ def login():
                 cursor.execute("SELECT * FROM admin")    
                 admin = cursor.fetchall()
                 for admin in admin:
-                    print(admin['username'])
-                    print(admin['password'])
                     DB_username = f.decrypt(admin['username'].encode())
                     DB_password = f.decrypt(admin['password'].encode())
                     DB_username = DB_username.decode()
@@ -156,8 +154,11 @@ def pasien_tambah():
                 no_hp = request.form['no_hp']
                 riwayat_penyakit = request.form['riwayat_penyakit']
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-                cursor.execute('INSERT INTO pasien (nama, no_rekam_medik, no_bpjs, jenis_kelamin, ttl, alamat, no_hp, riwayat_penyakit) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', (nama_pasien, no_rekam_medis, no_bpjs, kelamin, ttl, alamat, no_hp, riwayat_penyakit))
-                mysql.connection.commit()
+                cursor.execute('SELECT no_rekam_medik FROM pasien WHERE no_rekam_medik = %s', (no_rekam_medis,))
+                verify = cursor.fetchone()
+                if not verify:
+                    cursor.execute('INSERT INTO pasien (nama, no_rekam_medik, no_bpjs, jenis_kelamin, ttl, alamat, no_hp, riwayat_penyakit) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', (nama_pasien, no_rekam_medis, no_bpjs, kelamin, ttl, alamat, no_hp, riwayat_penyakit))
+                    mysql.connection.commit()
                 return redirect(url_for('pasien'))
     return redirect('/login')
 
@@ -226,7 +227,7 @@ def pasien_hapus(no_rekam_medik):
         if request.method == 'GET':
             if session['acc_type'] == 'admin':
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-                cursor.execute('DELETE FROM pasien WHERE no_rekam_medik = %s', (no_rekam_medik,))
+                cursor.execute('DELETE IGNORE FROM pasien WHERE no_rekam_medik = %s', (no_rekam_medik,))
                 mysql.connection.commit()
                 return redirect(url_for('pasien'))
     return redirect('/login')
@@ -455,42 +456,42 @@ def obat_edit(id_obat):
             if session['acc_type'] == 'admin':
                 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                 
-                if request.form['id_obat'] == '':
+                if not request.form['id_obat'] == '':
                     new_id_obat = request.form['id_obat']
                     cursor.execute('UPDATE IGNORE obat SET id_obat = %s WHERE id_obat = %s', (new_id_obat, id_obat))
                     mysql.connection.commit()
                     
-                if request.form['nama_obat'] == '':
+                if not request.form['nama_obat'] == '':
                     new_nama_obat = request.form['nama_obat']
                     cursor.execute('UPDATE IGNORE obat SET nama_obat = %s WHERE id_obat = %s', (new_nama_obat, id_obat))
                     mysql.connection.commit()
                     
-                if request.form['kuantitas'] == '':
+                if not request.form['kuantitas'] == '':
                     new_kuantitas = request.form['kuantitas']
                     cursor.execute('UPDATE IGNORE obat SET kuantitas = %s WHERE id_obat = %s', (new_kuantitas, id_obat))
                     mysql.connection.commit()
                     
-                if request.form['harga_strip'] == '':
+                if not request.form['harga_strip'] == '':
                     new_harga_strip = request.form['harga_strip']
                     cursor.execute('UPDATE IGNORE obat SET harga_strip = %s WHERE id_obat = %s', (new_harga_strip, id_obat))
                     mysql.connection.commit()
                     
-                if request.form['harga_satuan'] == '':
+                if not request.form['harga_satuan'] == '':
                     new_harga_satuan = request.form['harga_satuan']
                     cursor.execute('UPDATE IGNORE obat SET harga_satuan = %s WHERE id_obat = %s', (new_harga_satuan, id_obat))
                     mysql.connection.commit()
                     
-                if request.form['harga_beli'] == '':
+                if not request.form['harga_beli'] == '':
                     new_harga_beli = request.form['harga_beli']
                     cursor.execute('UPDATE IGNORE obat SET harga_beli = %s WHERE id_obat = %s', (new_harga_beli, id_obat))
                     mysql.connection.commit()
                     
-                if request.form['exp_date'] == '':
+                if not request.form['exp_date'] == '':
                     new_exp_date = request.form['exp_date']
                     cursor.execute('UPDATE IGNORE obat SET exp_date = %s WHERE id_obat = %s', (new_exp_date, id_obat))
                     mysql.connection.commit()
                     
-                if request.form['jenis_obat'] == '':
+                if not request.form['jenis_obat'] == '':
                     new_jenis_obat = request.form['jenis_obat']
                     cursor.execute('UPDATE IGNORE obat SET jenis_obat = %s WHERE id_obat = %s', (new_jenis_obat, id_obat))
                     mysql.connection.commit()
@@ -522,6 +523,7 @@ def akun():
                 cursor.execute('SELECT * FROM dokter')
                 dokter = cursor.fetchall()
                 return render_template('DataAkunAdmin.html', admin=admin, kasir=kasir, dokter=dokter, f=f)
+    return redirect('/login')
 
 @app.route('/akun_tambah', methods=['GET', 'POST'])
 def akun_tambah():
@@ -841,4 +843,4 @@ def form_dokter(no_rekam_medis):
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=False)
