@@ -1,0 +1,1 @@
+C:/Users/ihzaf/AppData/Local/Microsoft/WindowsApps/python3.10.exe "c:/Users/ihzaf/OneDrive/Documents/Kuliah/Akademik/Semester 6/Pemrograman Web Lanjut/Tubes/Sistem-Informasi-Nilaraya/flask-server/app.py"

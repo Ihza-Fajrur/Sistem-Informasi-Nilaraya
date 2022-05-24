@@ -17,7 +17,7 @@ app.secret_key = '069420'
 
 #Koneksi, inisialisasi DB
 # app.config['MYSQL_HOST'] = f"mysql + mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
-app.config['MYSQL_HOST'] = '192.168.1.29'
+app.config['MYSQL_HOST'] = '192.168.1.9'
 # app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
@@ -840,4 +840,4 @@ def form_dokter(no_rekam_medis):
     return redirect(url_for('login'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=False)

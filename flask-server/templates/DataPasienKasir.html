@@ -71,7 +71,7 @@
             <h1>Data Pasien</h1>
           </div>
         <div class="cari">
-          <input type="text" class="inputcari" placeholder="Cari..." id="myInput" onkeyup="myFunction()"/>
+          <input type="text" class="inputcari" placeholder="Cari Berdasarkan RM" id="myInput" onkeyup="myFunction()"/>
         </div>
         </div>
 
@@ -95,7 +95,7 @@
                   <th>No. Rekam Medis</th>
                   <th>No. BPJS</th>
                   <th>Kelamin (P/L)</th>
-                  <th>TTL</th>
+                  <th>Tanggal Lahir</th>
                   <th>Alamat</th>
                   <th>No. HP</th>
                   <th>Riwayat Penyakit / Alergi</th>
@@ -149,7 +149,7 @@
   
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
+      td = tr[i].getElementsByTagName("td")[1];
       if (td) {
         txtValue = td.textContent || td.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
