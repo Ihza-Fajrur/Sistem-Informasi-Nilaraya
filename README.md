@@ -63,3 +63,36 @@ Selanjutnya role terakhir adalah kasir yang dapat melakukan beberapa hal berikut
 </p>
 </ul>
 </h4>
+    
+# User Guide :
+<h4> Untuk melakukan login, gunakan username dan password berikut:
+<ul>
+  <li> Admin</li>
+    <p>Username : admin <p/>
+    <p>Password : admin </p>
+  <li> Kasir</li>
+    <p>Username : kasir <p/>
+    <p>Password : kasir </p>
+  <lI> Dokter Umum</li>
+    <p>Username : dokter2 <p/>
+    <p>Password : dokter2 </p>
+  <li> Dokter Gigi</li>
+    <p>Username : dokter <p/>
+    <p>Password : dokter </p>
+</ul>
+<br>
+
+Kemudian dokter yang terdiri dari dokter gigi dan dokter umum dapat melakukan beberapa hal, diantaranya : 
+<ul>
+  <li>Melakukan pelayanan pasien, dan </li>
+  <li> Menambahkan rekam medis pasien </li>
+</ul>
+<br>
+Selanjutnya role terakhir adalah kasir yang dapat melakukan beberapa hal berikut, diantaranya :
+<ul>
+  <li>Melakukan penagihan pada pasien</li>
+  <li>Menambahkan pasien baru</li>
+  <li>Menambahkan dan menghapus data waiting list </li>
+  <li>Mengubah jumlah obat </li>
+</ul>
+</h4>
