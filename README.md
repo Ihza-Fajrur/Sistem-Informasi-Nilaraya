@@ -40,7 +40,7 @@ Selanjutnya role terakhir adalah kasir yang dapat melakukan beberapa hal berikut
 <p>Berikut merupakan link penting dalam pengembangan web :</p>
 <ul>
 <li><a href="https://www.figma.com/file/WkYnyGGA5u2GAzoSADLbsa/PWL?node-id=535%3A633"> Figma</a></li>
-  <li><a href = "hrfi.site" > Link Deploy Aplikasi<a></li>
+  <li><a href = "https://hrfi.site" > Link Deploy Aplikasi<a></li>
 <li>
 <a href="https://drive.google.com/drive/u/1/folders/0AK5GsN-YKaRUUk9PVA">Link Drive</a>
 <p>
