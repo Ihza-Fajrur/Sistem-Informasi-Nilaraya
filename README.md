@@ -67,18 +67,30 @@ Selanjutnya role terakhir adalah kasir yang dapat melakukan beberapa hal berikut
 # User Guide :
 <h4> Untuk melakukan login, gunakan username dan password berikut:
 <ul>
-  <li> Admin</li>
-    <li> Username : admin </li>
-    <li> Password : admin </li>
-  <li> Kasir</li>
-    <li> Username : kasir </li>
-    <li> Password : kasir </li>
-  <lI> Dokter Umum</li>
-    <li> Username : dokter2 </li>
-    <li> Password : dokter2 </li>
-  <li> Dokter Gigi</li>
-    <li> Username : dokter </li>
-    <li> Password : dokter </li>
+  <li> Admin
+    <ul>
+        <li> Username : admin </li>
+        <li> Password : admin </li>
+    </ul>
+  </li>
+  <li> Kasir
+    <ul>
+        <li> Username : kasir </li>
+        <li> Password : kasir </li>
+    </ul>
+  </li>
+  <lI> Dokter Umum
+    <ul>
+        <li> Username : dokter2 </li>
+        <li> Password : dokter2 </li>
+    </ul>
+  </li>
+  <li> Dokter Gigi
+    <ul>
+        <li> Username : dokter </li>
+        <li> Password : dokter </li>
+    </ul>
+  </li>
 </ul>
 <br>
 
